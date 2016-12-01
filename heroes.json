@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Diva",
+    "defense": 4,
+    "health": 4,
+    "ability": "Tough as Nails",
+    "effect": "None",
+    "image": "http://i.imgur.com/KTKPJj8.png"
+  },
+  {
+    "name": "Greensleeves",
+    "defense": 2,
+    "health": 4,
+    "ability": "Bow Mastery",
+    "effect": "When attacking with a Bow attack card, each (*) deals one additional hit.",
+    "image": "http://i.imgur.com/ogT9ES5.png"
+  },
+  {
+    "name": "Grom",
+    "defense": 1,
+    "health": 5,
+    "ability": "Berserk",
+    "effect": "Roll +1 die in all rolls while wounded.",
+    "image": "http://i.imgur.com/c7iwLXZ.png"
+  },
+  {
+    "name": "Hobsbawn",
+    "defense": 2,
+    "health": 4,
+    "ability": "Blessed",
+    "effect": "If he uses a Magic attack card and does not perform his Movement, you may activate another Allied Hero.",
+    "image": "http://i.imgur.com/oWyN1IO.png"
+  },
+  {
+    "name": "Jøhan",
+    "defense": 3,
+    "health": 3,
+    "ability": "Blade Throw",
+    "effect": "May use Sword attack cards as Ranged attack cards (you still need Melees icons to hit).",
+    "image": "http://i.imgur.com/Yd43BqY.png"
+  },
+  {
+    "name": "Kanga",
+    "defense": 2,
+    "health": 4,
+    "ability": "Self-Sacrifice",
+    "effect": "May take a Wound instead of exhausting a card",
+    "image": "http://i.imgur.com/coBS4Ke.png"
+  },
+  {
+    "name": "Maya",
+    "defense": 1,
+    "health": 5,
+    "ability": "Mana Mastery",
+    "effect": "May exhaust each Magic attack card twice.",
+    "image": "http://i.imgur.com/8AYkopa.png"
+  },
+  {
+    "name": "Scarlet",
+    "defense": 3,
+    "health": 3,
+    "ability": "Backstab",
+    "effect": "Roll +1 die when attack a flanked target (a target with at least one other Enemy Close to it).",
+    "image": "http://i.imgur.com/qZcyTnQ.png"
+  },
+  {
+    "name": "Seth",
+    "defense": 2,
+    "health": 3,
+    "ability": "Piercing Magic",
+    "effect": "When attacking with a Magic attack card, the target does not roll Defense dice.",
+    "image": "http://i.imgur.com/s5M2BiU.png"
+  },
+  {
+    "name": "Spike",
+    "defense": 2,
+    "health": 3,
+    "ability": "Vengeance",
+    "effect": "Each (*) on his Defense roll deals 1 Wound to the attacker.",
+    "image": "http://i.imgur.com/De69tDu.png"
+  },
+  {
+    "name": "Wisp",
+    "defense": 2,
+    "health": 3,
+    "ability": "Stealth",
+    "effect": "When moving, does not trigger Guard Reaction.",
+    "image": "http://i.imgur.com/Iaw2OT8.png"
+  },
+  {
+    "name": "Zazu",
+    "defense": 2,
+    "health": 4,
+    "ability": "Opportunist",
+    "effect": "Does not exhaust an attack card when attacking a flanked target (a target with at least one other Enemy Close to it).",
+    "image": "http://i.imgur.com/acHrxNW.png"
+  }
+]
