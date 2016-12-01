@@ -11,7 +11,6 @@ var router  = express.Router();
 // invoked for any requested passed to this router
 router.use(function(req, res, next) {
   console.log('Something is happening in public/routes/public.js.');
-  console.log(path.join(__dirname, '..'));
   next();
 });
 

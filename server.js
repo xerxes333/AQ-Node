@@ -20,11 +20,13 @@ mongoose.connect(config.database);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Add pug view engine
-// app.set('views', path.join(__dirname, '/public/views'));
-// app.set('view engine', 'pug');
 
-
+// FRONTEND SETUP
+// =============================================================================
+var oneDay = 86400000;
+app.use(express.static(path.join(__dirname, '/public'), { maxAge: oneDay }));
+app.set('views', path.join(__dirname, '/public/views'));
+app.set('view engine', 'pug');
 
 
 // ROUTERS
@@ -36,7 +38,7 @@ var usersRouter  = require('./routes/users');
 var heroesRouter = require('./routes/heroes');
 var itemsRouter  = require('./routes/items');
 var guildsRouter = require('./routes/guilds');
-// var publicRouter = require('./public/routes/public');
+var publicRouter = require('./public/routes/public');
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', serverRouter);
@@ -46,7 +48,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/heroes', heroesRouter);
 app.use('/api/items', itemsRouter);
 app.use('/api/guilds', guildsRouter);
-// app.use('/', publicRouter);
+app.use('/', publicRouter);
 
 // START THE SERVER
 // =============================================================================
