@@ -1,9 +1,11 @@
 doctype html
-html
+html(lang="en")
   head
     title AQ Guild Manager
     include partials/head
   body
-    include partials/navigation
-    block content
+    div.wrap
+      include partials/navigation
+      .container
+        block content
     include partials/footer

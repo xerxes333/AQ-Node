@@ -1,0 +1,28 @@
+html,
+body {
+    height: 100%;
+}
+
+div.wrap {
+    height: auto;
+    margin: 0 auto -60px;
+    min-height: 100%;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+
+.footer{
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    width: 100%;
+}
+
+div.welcome{
+    text-align: center;
+}

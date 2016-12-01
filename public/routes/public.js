@@ -1,12 +1,7 @@
 var path    = require('path');
 var express = require('express');
-
-var oneDay = 86400000;
-express.static(path.join(__dirname, '..'), { maxAge: oneDay });
-
 var router  = express.Router();
-
-
+var publicController = require('../controllers/public');
 
 // invoked for any requested passed to this router
 router.use(function(req, res, next) {
@@ -15,8 +10,13 @@ router.use(function(req, res, next) {
 });
 
 router.route('/')
-    .get(function(req, res) {
-        res.render('home');
-    });
+    .get(publicController.index);
+router.route('/guilds')
+    .get(publicController.guilds);
+router.route('/heroes')
+    .get(publicController.heroes);
+router.route('/items')
+    .get(publicController.items);
+    
 
 module.exports = router;
