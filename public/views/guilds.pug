@@ -3,5 +3,21 @@ extends layout
 block content
   .row
     .col-md-12
-      h1 #{msg}
-      Guilds here
+    
+      h2 Guilds
+      
+      table.table.table-striped.table-bordered
+        thead
+          tr
+            th Title
+            th Description
+            th Created
+            th View
+        tbody
+          each guild in guilds
+            tr
+              td #{guild.name}
+              td #{guild.description}
+              td #{guild.createdAt}
+              td 
+                a(href= "/guilds/" + guild._id): span.glyphicon.glyphicon-search

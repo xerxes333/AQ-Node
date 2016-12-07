@@ -11,10 +11,15 @@ router.use(function(req, res, next) {
 
 router.route('/')
     .get(publicController.index);
+
 router.route('/guilds')
     .get(publicController.guilds);
+router.route('/guilds/:guild_id')
+    .get(publicController.getGuild);
+    
 router.route('/heroes')
     .get(publicController.heroes);
+
 router.route('/items')
     .get(publicController.items);
     

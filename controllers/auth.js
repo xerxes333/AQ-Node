@@ -9,10 +9,9 @@ var config  = require('../config');
 
 exports.postAuth = function(req, res) {
     if(!req.body.name || !req.body.password)
-        res.json({ success: false, message: 'Authentication failed' });
+        return res.json({ success: false, message: 'Authentication failed' });
         
     User.findOne({name: req.body.name}, function(err, user) {
-        
         if (err) 
             res.send(err);
             

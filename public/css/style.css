@@ -26,3 +26,25 @@ div.wrap {
 div.welcome{
     text-align: center;
 }
+
+div.hero-detail{
+    /*border: 1px solid #ddd;*/
+    margin-bottom: 10px;
+}
+
+div.item-detail{
+    margin-bottom: 10px;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+img.guild-name-icon{
+   max-width:  64px;
+   max-height: 64px;
+   display: inline-block;
+}
+
+.created-at{
+   position: absolute;
+   bottom: 0;
+}
