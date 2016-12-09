@@ -31,14 +31,15 @@ app.set('view engine', 'pug');
 
 // ROUTERS
 // =============================================================================
-var serverRouter = require('./routes/server');
-var helpRouter   = require('./routes/help');
-var authRouter   = require('./routes/auth');
-var usersRouter  = require('./routes/users');
-var heroesRouter = require('./routes/heroes');
-var itemsRouter  = require('./routes/items');
-var guildsRouter = require('./routes/guilds');
-var publicRouter = require('./public/routes/public');
+var serverRouter    = require('./routes/server');
+var helpRouter      = require('./routes/help');
+var authRouter      = require('./routes/auth');
+var usersRouter     = require('./routes/users');
+var heroesRouter    = require('./routes/heroes');
+var itemsRouter     = require('./routes/items');
+var guildsRouter    = require('./routes/guilds');
+var campaignsRouter = require('./routes/campaigns');
+var publicRouter    = require('./public/routes/public');
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', serverRouter);
@@ -48,6 +49,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/heroes', heroesRouter);
 app.use('/api/items', itemsRouter);
 app.use('/api/guilds', guildsRouter);
+app.use('/api/campaigns', campaignsRouter);
 app.use('/', publicRouter);
 
 // START THE SERVER
