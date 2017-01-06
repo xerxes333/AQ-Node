@@ -9,7 +9,9 @@ var CampaignSchema   = new Schema({
     description: String,
     players: {
         type: [{type: Schema.ObjectId, ref: 'User'}],
-        validate: [guildLimit, '{PATH} exceeds the limit of ' + GUILD_LIMIT]
+        validate: [
+            { validator: guildLimit, message: '{PATH} exceeds the limit of ' + GUILD_LIMIT }
+        ]
     },
     guilds: {
         type: [{type: Schema.ObjectId, ref: 'Guild'}],

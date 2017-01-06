@@ -12,8 +12,16 @@ router.use(function(req, res, next) {
 router.route('/')
     .get(publicController.index);
 
+router.route('/campaigns')
+    .get(publicController.campaigns);
+router.route('/campaigns/:campaign_id')
+    .get(publicController.getCampaign);
+    
 router.route('/guilds')
     .get(publicController.guilds);
+router.route('/guilds/create')
+    .get(publicController.newGuild)
+    .post(publicController.createGuild);
 router.route('/guilds/:guild_id')
     .get(publicController.getGuild);
     

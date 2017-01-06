@@ -4,7 +4,8 @@ block content
     .row
         .col-md-6.col-xs-12
             h1
-                img(src= "/img/panda.png").img-responsive.guild-name-icon
+                - var imgName = "/img/" + String(guild.type).toLowerCase() + ".png";
+                img(src=imgName).img-responsive.guild-name-icon
                 | #{guild.name} 
                 small #{guild.description}
     .row: each hero in guild.heroes

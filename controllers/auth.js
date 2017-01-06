@@ -5,7 +5,7 @@
 // Load required packages
 var jwt     = require('jsonwebtoken');
 var User    = require('../models/user');
-var config  = require('../config');
+var config  = require('../config/app');
 
 exports.postAuth = function(req, res) {
     if(!req.body.name || !req.body.password)

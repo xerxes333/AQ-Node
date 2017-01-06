@@ -10,10 +10,13 @@ var Guild = require('../models/guild');
 * is properly formatted.
 */
 exports.postGuilds = function(req, res) {
+    console.log("===== IN GUILDS =====");
+    console.log(req.body);
     var guild = new Guild();
     guild.name = req.body.name;
     guild.user_id = req.decoded._doc;
     guild.description = req.body.description;
+    guild.type = req.body.type;
     guild.heroes = req.body.heroes;
     
     guild.save(function (err, guild) {

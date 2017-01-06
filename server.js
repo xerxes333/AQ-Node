@@ -15,7 +15,7 @@ var path         = require('path');
 
 // CONFIGURATION
 // =============================================================================
-var config = require('./config');
+var config = require('./config/app');
 mongoose.connect(config.database); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

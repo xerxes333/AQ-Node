@@ -1,0 +1,11 @@
+.row
+  .col-md-12
+    table.table.table-bordered.table-condensed.item-table(style="text-align: left;")
+      thead
+        tr
+          th(colspan="2", class="hero-name-" + guild.type) #{hero.hero_id.name}
+      tbody
+        each item in hero.items
+          tr
+            td #{item.name}
+            td.item-number #{item.number}

@@ -10,7 +10,7 @@ router.use(function(req, res, next) {
 router.route('/')
 
     .get(function(req, res) {
-       res.json({success: true, message: {
+       res.status(200).json({success: true, message: {
         'EndPoints': {
             '/help':{
                 'GET': 'This menu',

@@ -5,6 +5,7 @@ var GuildSchema   = new Schema({
     name: { type: String, required: true },
     user_id: { type : Schema.ObjectId, ref: 'User', required: true },
     description: String,
+    type: String,
     heroes: [{
         _id: false,
         hero_id: {type : Schema.ObjectId, ref: 'Hero'},

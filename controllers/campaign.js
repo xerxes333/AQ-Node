@@ -22,7 +22,7 @@ exports.postCampaigns = function(req, res) {
         if (err)
             res.status(500).send(err);
         
-        res.json({success: true, message: 'Guild Created', campaign: campaign});
+        res.json({success: true, message: 'Guild Created'});
     });
     
 };
@@ -44,13 +44,27 @@ exports.getCampaigns = function(req, res) {
 */
 exports.getCampaign = function(req, res) {
     Campaign.findById(req.params.campaign_id, function(err, campaign) {
-        if (err)
-            res.send(err);
+        if (err) res.send(err);
         res.json(campaign);
     })
     .populate('players', '_id, name')
-    .populate('guilds');
-};
+    .populate({
+        path: 'guilds',
+        model: 'Guild',
+        populate: [{
+            path: 'user_id',
+            model: 'User',
+            select: '_id, name'
+        },{
+            path: 'heroes.hero_id',
+            model: 'Hero'
+        },
+        {
+            path: 'heroes.items',
+            model: 'Item'
+        }]
+    });
+    };
 
 
 /**
@@ -58,7 +72,26 @@ exports.getCampaign = function(req, res) {
 * request is properly formatted.
 */
 exports.putCampaign = function(req, res) {
-    res.json({success: true, message: 'putCampaign'});
+    Campaign.findById(req.params.campaign_id, function(err, campaign) {
+        if (err)
+            res.send(err);
+            
+        // make sure the user owns the campaign
+        // if(campaign.user_id != req.decoded._doc._id)
+        //     return res.send({ success: false, message: 'You do not have permission to update this campaign' });    
+        
+        // we are assuming that the data provided is valid and formatted properly
+        // campaign.name = req.body.name || campaign.name;      // can't change campaign name? 
+        campaign.description = req.body.description || campaign.description;
+        campaign.guilds = req.body.guilds || campaign.guilds;
+        campaign.players = req.body.players || campaign.players;
+        
+        campaign.save(function (err, campaign) {
+            if (err) res.status(500).send(err);
+            res.send({ success: true, message: 'Guild updated successfully' });    
+        });
+        
+    });
 };
 
 
@@ -66,5 +99,8 @@ exports.putCampaign = function(req, res) {
 * Removes the Campaign matching the supplied id.
 */
 exports.deleteCampaign = function(req, res) {
-    res.json({success: true, message: 'deleteCampaign'});
+    Campaign.remove({_id: req.params.campaign_id, user_id: req.decoded._doc._id}, function(err, campaign) {
+        if (err) res.send(err);
+        res.send({ success: true, message: 'Campaign removed successfully' });    
+    });
 };
