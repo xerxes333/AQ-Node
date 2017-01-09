@@ -10,14 +10,15 @@ import Heroes from './pages/Heroes';
 import Items from './pages/Items';
 import FAQ from './pages/FAQ';
 
+import cs2 from './stores/CampaignStore2';
 
 import './index.css';
 
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
-      <IndexRoute component={Content}></IndexRoute>
-      <Route path="campaigns(/:id)" component={Campaigns}></Route>
+      <IndexRoute component={Content} campaigns={cs2}></IndexRoute>
+      <Route path="campaigns(/:id)" component={Campaigns} campaigns={cs2}></Route>
       <Route path="guilds" component={Guilds}></Route>
       <Route path="heroes" component={Heroes}></Route>
       <Route path="items" component={Items}></Route>

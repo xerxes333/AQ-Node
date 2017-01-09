@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import Client from './Client';
+import { observer } from 'mobx-react';
 
-class Content extends Component {
+const Content = observer(class Content extends Component {
     
   constructor() {
     super();
@@ -29,12 +30,15 @@ class Content extends Component {
               To get started, edit <code>src/App.js</code> and save to reload!
             </p>
             <pre style={style}>
-                {JSON.stringify(this.state.data, null, 2)}
+                {/*JSON.stringify(this.state.data, null, 2)*/}
+            </pre>
+            <pre style={style}>
+              {JSON.stringify(this.props,null,2)}
             </pre>
         </div>
      );
  }
  
-}
+});
 
 export default Content;
