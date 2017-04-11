@@ -12,6 +12,8 @@ router.use(function(req, res, next) {
         || (req.path == '/users/init' && req.method == 'GET')
         || (req.path == '/')
         || (req.path == '/help')
+        || (req.path == '/heroes' && req.method == 'GET')
+        || (req.path == '/items' && req.method == 'GET')
     ) {
         next();
     } else {
@@ -23,7 +25,7 @@ router.use(function(req, res, next) {
             // verifies secret and checks exp
             jwt.verify(token, config.secret, function(err, decoded) {
                 if (err) {
-                    return res.json({ success: false, message: 'Failed to authenticate token.' });    
+                    return res.json({ success: false, message: 'Failed to authenticate user token.' });    
                 } else {
                     // if everything is good, save to request for use in other routes
                     req.decoded = decoded;

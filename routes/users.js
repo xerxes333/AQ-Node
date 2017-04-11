@@ -13,9 +13,11 @@ router.route('/')
     .get(userController.getUsers);
 router.route('/init')
     .get(userController.initUsers);
+router.route('/profile')
+    .get(userController.getProfile);
 router.route('/:user_id')
-    .get(userController.getUser);
-    // .put(userController.putUser)  // currently not exposing this endpoint
+    .get(userController.getUser)
+    .put(userController.putUser);
     // .delete(userController.deleteUser); // currently not exposing this endpoint
-
+    
 module.exports = router;

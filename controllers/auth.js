@@ -8,28 +8,37 @@ var User    = require('../models/user');
 var config  = require('../config/app');
 
 exports.postAuth = function(req, res) {
-    if(!req.body.name || !req.body.password)
+    
+    if(!req.body.email || !req.body.password)
         return res.json({ success: false, message: 'Authentication failed' });
         
-    User.findOne({name: req.body.name}, function(err, user) {
+    User.findOne({email: req.body.email.toLowerCase()}, function(err, user) {
         if (err) 
-            res.send(err);
+            res.status(500).send(err);
             
         // No user found with that username
         if (!user) 
-            res.json({ success: false, message: 'Authentication failed. User not found.' });
+            return res.json({ success: false, message: 'Authentication failed. User not found.' });
 
         // Make sure the password is correct
         user.verifyPassword(req.body.password, function(err, isMatch) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
         
             // Password did not match
             if (!isMatch)
-                res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-        
+                return res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+            
             // Success
-            var token = jwt.sign(user, config.secret, {expiresIn: '24 hours'});
+            var safeInfo = {
+                _id: user._id,
+                isAdmin: user.admin,
+                name: user.name,
+                email: user.email,
+                createdAt: user.createdAt,
+            };
+            
+            var token = jwt.sign(safeInfo, config.secret, {expiresIn: '60 minutes'});
             res.json({
                 success: true,
                 message: 'Enjoy your token!',

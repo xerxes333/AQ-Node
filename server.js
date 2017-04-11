@@ -52,6 +52,10 @@ app.use('/api/guilds', guildsRouter);
 app.use('/api/campaigns', campaignsRouter);
 app.use('/', publicRouter);
 
+app.get('/*', function (request, response){
+  response.sendFile(path.resolve(__dirname, 'client', 'public',  'index.html'))
+});
+
 // START THE SERVER
 // =============================================================================
 app.listen(port);

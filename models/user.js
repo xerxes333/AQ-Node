@@ -3,9 +3,11 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 
 var UserSchema   = new Schema({
-    name: { type: String, unique: true , required: true }, 
+    name: { type: String }, 
+    email: { type: String, unique: true , required: true }, 
     password: { type: String, required: true }, 
-    admin: Boolean 
+    admin: Boolean,
+    friends: { type: [{type: Schema.ObjectId, ref: 'User'}]},
 }, {timestamps: true});
 
 // Execute before each user.save() call
