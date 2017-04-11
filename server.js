@@ -39,7 +39,6 @@ var heroesRouter    = require('./routes/heroes');
 var itemsRouter     = require('./routes/items');
 var guildsRouter    = require('./routes/guilds');
 var campaignsRouter = require('./routes/campaigns');
-var publicRouter    = require('./public/routes/public');
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api', serverRouter);
@@ -50,7 +49,6 @@ app.use('/api/heroes', heroesRouter);
 app.use('/api/items', itemsRouter);
 app.use('/api/guilds', guildsRouter);
 app.use('/api/campaigns', campaignsRouter);
-app.use('/', publicRouter);
 
 app.get('/*', function (request, response){
   response.sendFile(path.resolve(__dirname, 'client', 'public',  'index.html'))
