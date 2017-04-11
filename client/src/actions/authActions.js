@@ -1,5 +1,4 @@
 import { browserHistory } from 'react-router'; // eslint-disable-next-line 
-import dispatcher from "../dispatcher";
 import Client from '../Client';
 import { fetchUserProfile } from './userActions';
 

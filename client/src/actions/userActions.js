@@ -1,4 +1,3 @@
-import dispatcher from "../dispatcher";
 import Client from '../Client';
 import { loginUser } from './authActions';
 
@@ -11,16 +10,16 @@ export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS'
 export const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE'
 
 export function fetchUser(id) {
-    dispatcher.dispatch({type: "FETCH_CAMPAIGNS"});
     return function(dispatch) {
-        Client.search(`campaigns/${id}`, (data) => {
-          if(!data.success) {
-            dispatch({ type: "FETCH_CAMPAIGN_FAILURE", payload: data });
-            dispatch({ type: "LOGIN_EXPIRED", payload: data });
-          } else {
-            dispatch({ type: "FETCH_CAMPAIGN_FULFILLED", payload: data.campaigns });    
-          }
-        });
+      dispatch({type: "FETCH_CAMPAIGNS"});
+      Client.search(`campaigns/${id}`, (data) => {
+        if(!data.success) {
+          dispatch({ type: "FETCH_CAMPAIGN_FAILURE", payload: data });
+          dispatch({ type: "LOGIN_EXPIRED", payload: data });
+        } else {
+          dispatch({ type: "FETCH_CAMPAIGN_FULFILLED", payload: data.campaigns });    
+        }
+      });
     }
 }
 

@@ -1,4 +1,3 @@
-// import dispatcher from "../dispatcher";
 import Client from '../Client';
 
 export function fetchHeroes() {

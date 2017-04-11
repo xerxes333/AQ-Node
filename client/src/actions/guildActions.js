@@ -1,18 +1,17 @@
 import { browserHistory } from 'react-router'; 
-import dispatcher from "../dispatcher";
 import Client from '../Client';
 
 export function fetchGuilds(criteria = {}) {
-    dispatcher.dispatch({type: "FETCH_GUILDS"});
     return function(dispatch) {
-        Client.searchCriteria('guilds', criteria, (data) => {
-            if(!data.success) {
-                dispatch({ type: "FETCH_GUILDS_FAILURE", payload: data });
-                dispatch({ type: "LOGIN_EXPIRED", payload: data });
-            } else {
-                dispatch({ type: "FETCH_GUILDS_FULFILLED", payload: data.guilds });    
-            }
-        });
+      dispatch({type: "FETCH_GUILDS"});
+      Client.searchCriteria('guilds', criteria, (data) => {
+          if(!data.success) {
+              dispatch({ type: "FETCH_GUILDS_FAILURE", payload: data });
+              dispatch({ type: "LOGIN_EXPIRED", payload: data });
+          } else {
+              dispatch({ type: "FETCH_GUILDS_FULFILLED", payload: data.guilds });    
+          }
+      });
     }
 }
 

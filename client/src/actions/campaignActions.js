@@ -1,11 +1,9 @@
 import { browserHistory } from 'react-router';
-import dispatcher from "../dispatcher";
 import Client from '../Client';
 
 export function fetchCampaigns() {
-  dispatcher.dispatch({type: "FETCH_CAMPAIGNS"});
-  
   return function(dispatch) {
+    dispatch({type: "FETCH_CAMPAIGNS"});
     Client.search('campaigns', (data) => {
       if(!data.success) {
         dispatch({ type: "FETCH_CAMPAIGNS_FAILURE", payload: data });
