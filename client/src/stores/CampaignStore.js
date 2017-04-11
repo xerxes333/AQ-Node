@@ -31,9 +31,10 @@ class CampaignStore extends EventEmitter {
             case 'CREATE_CAMPAIGN':
                 this.createCampaign(action.data);
                 break;
+            case 'FETCH_CAMPAIGNS_FULFILLED':
+            case 'FETCH_CAMPAIGN_FULFILLED':
             case 'RECEIVE_CAMPAIGNS':
                 this.receiveCampaigns(action.data);
-                break;
             default:
                 break;
         }

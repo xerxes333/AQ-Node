@@ -1,28 +1,57 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from "react-redux";
 
 import Layout from './Layout';
-import Content from './Content';
-import Campaigns from './pages/Campaigns';
-import Guilds from './pages/Guilds';
-import Heroes from './pages/Heroes';
-import Items from './pages/Items';
-import FAQ from './pages/FAQ';
+import Welcome from './Welcome';
+import Campaigns from './components/Campaigns';
+import Campaign from './components/Campaign';
+import CampaignCreate from './components/CampaignCreate';
+import Guilds from './components/Guilds';
+import Guild from './components/Guild';
+import GuildCreate from './components/GuildCreate';
+import Heroes from './components/Heroes';
+import Items from './components/ItemsTable';
+import Login from './components/Login';
+import Join from './components/Join';
+import Profile from './components/Profile';
+import { requireAuthentication } from './components/AuthenticatedComponent';
 
+// import './index.css';
+import store from "./store";
 
-import './index.css';
+const root = document.getElementById('root');
 
 ReactDOM.render(
-  <Router history={hashHistory}>
+  <Provider store={store}>
+  <Router history={browserHistory}>
     <Route path="/" component={Layout}>
-      <IndexRoute component={Content}></IndexRoute>
-      <Route path="campaigns(/:id)" component={Campaigns}></Route>
-      <Route path="guilds" component={Guilds}></Route>
+      
+      <IndexRoute component={Welcome}></IndexRoute>
+      
+      <Route path="campaigns" component={requireAuthentication(Campaigns)}/>
+      <Route path="campaigns/new" component={requireAuthentication(CampaignCreate)}/>
+      <Route path="campaigns/:id" component={requireAuthentication(Campaign)}/>
+      <Route path="campaign/:id" component={requireAuthentication(Campaign)}/>
+      
+      <Route path="guilds" component={requireAuthentication(Guilds)}/>
+      <Route path="guilds/new" component={requireAuthentication(GuildCreate)}/>
+      <Route path="guilds/:id" component={requireAuthentication(Guild)}/>
+      <Route path="guild/:id" component={requireAuthentication(Guild)}/>
+      
       <Route path="heroes" component={Heroes}></Route>
       <Route path="items" component={Items}></Route>
-      <Route path="faq" component={FAQ}></Route>
+      
+      <Route path="profile" component={requireAuthentication(Profile)}/>
+      <Route path="login" component={Login}></Route>
+      <Route path="logout" component={Login}></Route>
+      <Route path="join" component={Join}></Route>
+      
+      <Route name="404: No Match for route" path="*" component={Welcome}/>
     </Route>
-  </Router>,
-  document.getElementById('root')
+    
+  </Router>
+  </Provider>,
+  root
 );

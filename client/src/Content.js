@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Client from './Client';
 
 class Content extends Component {
     
@@ -9,15 +8,10 @@ class Content extends Component {
     this.state= {
       'data': []
     };
-    Client.search('help', (data) => {
-      this.setState({
-        data: data,
-      });
-    });
-    
   };
   
- render() {
+  render() {
+    
      var style = {'textAlign': 'left'};
      return(
          <div>
@@ -33,8 +27,8 @@ class Content extends Component {
             </pre>
         </div>
      );
- }
- 
+  }
+
 }
 
 export default Content;
