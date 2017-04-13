@@ -71,7 +71,7 @@ const renderHeroes = ({ fields, form, meta: { touched, error } }) => {
 const GuildCreateForm = (props) => {
     
     const { handleSubmit } = props;
-    const animals = ["Lion","Panda","Fox","Eagle"]
+    const animals = ["Lion","Panda","Fox","Eagle","Tiger","Crow","Serpent","Shark"]
     
     // validation rules
     const required = value => value ? undefined : 'Required'

@@ -5,7 +5,7 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import { fetchGuild, updateGuild } from '../../actions/guildActions'
 import { fetchCampaigns, updateCampaign } from '../../actions/campaignActions';
 
-import HeroesDropdown from './fields/HeroesDropdown2';
+import HeroesDropdown from './fields/HeroesDropdown';
 import ItemsDropdown from './fields/ItemsDropdown';
 
 function mapStateToProps(store) {
@@ -14,7 +14,8 @@ function mapStateToProps(store) {
     guildFetched: store.guilds.guildFetched,
     isEditing: store.guilds.isEditing,
     campaigns: store.campaigns.campaigns,
-    campaignsFetched: store.campaigns.fetched
+    campaignsFetched: store.campaigns.fetched,
+    editGuildForm: store.form.editGuild,
   };
 }
 
@@ -191,14 +192,18 @@ class GuildEdit extends React.Component {
   
   render() {
     
-    const { handleSubmit, onDelete } = this.props;
-    const animals = ["Lion","Panda","Fox","Eagle"]; // TODO: move this to backend DB
+    const { handleSubmit, onDelete, editGuildForm } = this.props;
+    const animals = ["Lion","Panda","Fox","Eagle","Tiger","Crow","Serpent","Shark"] // TODO: move this to backend DB
     
     // validation rules
     // const required = value => value ? undefined : 'Required'
     // const maxLength = max => value => value && value.length > max ? `Must be ${max} characters or less` : undefined
     // const maxLength30 = maxLength(30)
     
+    const imgName = (editGuildForm && editGuildForm.values.guildAnimal)?
+      editGuildForm.values.guildAnimal.toLowerCase()
+      : 'none'
+      
     return (
       <div className="row">
         <div className="col-md-12 col-xs-12">
@@ -208,10 +213,16 @@ class GuildEdit extends React.Component {
               <div className="col-md-2">
                 <div className="form-group">
                   <label > Logo </label>
-                  <Field name="guildAnimal" component="select" className="form-control" >
-                    <option value="">-- Select --</option>
-                    {animals.map( (animal, index) => {return <option value={animal} key={index} > {animal} </option>} )}
-                  </Field>
+                  <div className="input-group">
+                    <Field name="guildAnimal" component="select" className="form-control" >
+                      <option value="">-- Select --</option>
+                      {animals.map( (animal, index) => {return <option value={animal} key={index} > {animal} </option>} )}
+                    </Field>
+                    <span className="input-group-addon guild-icon-addon">
+                      <img src={require('../../../public/images/guilds/'+ imgName +'.png')} className="img-responsive guild-name-icon-32" alt="logo"/>
+                    </span>
+                    
+                  </div>
                 </div>
               </div>
               <div className="col-md-4">

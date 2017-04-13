@@ -74,11 +74,37 @@ img.guild-name-icon-48{
 }
 
 .campaign-guild-Lion{
-    border: 3px solid #e07023;
+    /*border: 3px solid #e07023;*/
+    border: 3px solid #de6b39;
 }
 
 .campaign-guild-Panda{
-    border: 3px solid #2b722b;
+    /*border: 3px solid #2b722b;*/
+    border: 3px solid #4c8849;
+}
+.campaign-guild-Eagle{
+    border: 3px solid #005374;
+}
+
+.campaign-guild-Fox{
+    border: 3px solid #c24130;
+}
+
+
+.campaign-guild-Tiger{
+    border: 3px solid #ffd25d;
+}
+
+.campaign-guild-Crow{
+    border: 3px solid #75777a;
+}
+
+.campaign-guild-Serpent{
+    border: 3px solid #5d2d88;
+}
+
+.campaign-guild-Shark{
+    border: 3px solid #00a3ac;
 }
 
 div.campaign-guild-name{
@@ -106,13 +132,13 @@ div.campaign-guild-user{
 }
 
 .campaign-guild-Lion .hero-row .hero-name{
-    background-color: #f9b557;
+    background-color: #de6b39;
     color: white;
 }
 .campaign-guild-Lion .item-table, 
 .campaign-guild-Lion .item-table td,
 .campaign-guild-Lion .item-table th{
-   border-color: #f9b557;
+   border-color: #de6b39;
 }
 
 
@@ -128,12 +154,23 @@ div.campaign-guild-user{
 }
 
 .campaign-guild-Eagle .hero-row .hero-name{
-    background-color: #3d89c1;
+    background-color: #005374;
     color: white;
 }
+.campaign-guild-Eagle .item-table, 
+.campaign-guild-Eagle .item-table td,
+.campaign-guild-Eagle .item-table th{
+   border-color: #005374;
+}
+
 .campaign-guild-Fox .hero-row .hero-name{
-    background-color: #cd3164;
+    background-color: #c24130;
     color: white;
+}
+.campaign-guild-Fox .item-table, 
+.campaign-guild-Fox .item-table td,
+.campaign-guild-Fox .item-table th{
+   border-color: #c24130;
 }
 
 .hero-detail{
@@ -266,4 +303,10 @@ div.campaign-generic{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+
+.guild-icon-addon{
+    padding: 0px 3px;
+    background-color: #FFFFFF;
 }
