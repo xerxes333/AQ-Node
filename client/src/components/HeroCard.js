@@ -4,15 +4,18 @@ class HeroCard extends React.Component {
 
   render() {
 
-    const hero = this.props.hero;
-
+    const hero = this.props.hero
+    
     return (
       <div key={hero._id} className="col-md-6 col-xs-12" >
             
         <div className="row hero-row">
         
           <div className="col-md-6 col-xs-12">
+            {(hero.image)?
             <img src={hero.image.replace(/^http?:/i, "")} className="img-responsive" alt={hero.name}/>
+            : <img src={require('../../public/images/BlankCard-Hero.jpg')} className="img-responsive" alt={hero.name}/>
+            }
           </div>
           
           <div className="col-md-6 col-xs-12">

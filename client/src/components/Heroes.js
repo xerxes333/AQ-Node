@@ -27,12 +27,21 @@ class Heroes extends React.Component {
       return <HeroCard hero={hero} key={hero._id} />
     });
     
+    // Dirty way to get grid to render properly
+    var Rows = []
+    for(var i = 0; i < Heroes.length; i+=2){
+      Rows.push(
+        <div className="row" key={i}>
+          {Heroes[i]}
+          {Heroes[i+1]}
+        </div>
+      )
+    }
+    
     return (
       <div>
         <h2>Heroes</h2>
-        <div className="row">
-          {Heroes}
-        </div>
+        {Rows}
       </div>
     );
     
