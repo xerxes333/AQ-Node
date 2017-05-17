@@ -41,6 +41,8 @@ export function createUser(creds) {
 
   return function(dispatch) {
     
+    const MIN_PASSWORD_LENGTH = 8
+    
     // required
     if(!creds.username || !creds.name || !creds.password || !creds.confirm)
       return  dispatch({ type: CREATE_USER_FAILURE, payload: {message: "All fields are required"} })
@@ -56,6 +58,8 @@ export function createUser(creds) {
     // validate password
     if(creds.password !== creds.confirm)
       return  dispatch({ type: CREATE_USER_FAILURE, payload: {message: "Passwords do not match"} })
+    if(creds.password.length < MIN_PASSWORD_LENGTH)
+      return  dispatch({ type: CREATE_USER_FAILURE, payload: {message: "Password must be at least 8 characters long"} })
       
     creds.email = creds.username
     

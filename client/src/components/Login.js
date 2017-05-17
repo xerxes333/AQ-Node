@@ -31,7 +31,7 @@ class Login extends React.Component {
                 
                 <form action="" onSubmit={this.handleSubmit.bind(this)}>
                   <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
+                    <label htmlFor="exampleInputEmail1">Email Address</label>
                     <input type="text" ref="email" className="form-control" id="exampleInputEmail1" placeholder="Email" />
                   </div>
                   <div className="form-group">
