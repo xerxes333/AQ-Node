@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { createCampaign } from '../actions/campaignActions'
-// import GuildHero from './GuildHero';
+import { getLog } from '../CampaignData'
 import CampaignCreateForm from './forms/CampaignCreate';
 
 function mapStateToProps(store) {
@@ -24,8 +24,10 @@ class CampaignCreate extends React.Component {
   handleSubmit(values) {
     const data = { 
       name: values.campaignName.trim(), 
-      description: values.campaignName.trim(),
-      players: values.friends
+      description: (values.campaignDescription)? values.campaignDescription.trim() : null,
+      expansion: values.campaignExpansion,
+      players: values.friends,
+      log: getLog(values.campaignExpansion)
     }
     
     this.props.dispatch(createCampaign(data));

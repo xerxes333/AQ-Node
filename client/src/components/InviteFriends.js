@@ -44,7 +44,6 @@ class InviteFriends extends React.Component {
     const index = grid - 1;
     const filteredFriends = this.filterFriends();
     
-    
     if(pending)
       return <div className="col-md-3">
         <div className="campaign-generic">
@@ -52,7 +51,7 @@ class InviteFriends extends React.Component {
         </div>
       </div>
       
-    if(!filteredFriends || !filteredFriends.length)
+    if(!filteredFriends || !filteredFriends.length || filteredFriends.length <= index)
       return <div className="col-md-3">
         <div className="campaign-generic">
           Awww, you don't have any available friends! Use the <span className="text-primary">Share Code</span> to invite other players.

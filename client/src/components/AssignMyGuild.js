@@ -40,7 +40,7 @@ class AssignMyGuild extends React.Component {
       return <div className="col-md-3 text-center">
         <br />
         <h4>You have no free guilds available</h4>
-        <a className="btn btn-success" href="/guilds" role="button">Create Guild</a>
+        <a className="btn btn-success btn-block" href="/guilds/new" role="button">Create Guild</a>
       </div>
       
     return <div className="col-md-3 text-center">

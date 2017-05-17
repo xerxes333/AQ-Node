@@ -31,12 +31,13 @@ export function fetchCampaign(id) {
 
 export function createCampaign(data) {
     return function(dispatch) {
+      dispatch({type: "CREATE_CAMPAIGN"});
       Client.post(`campaigns`, data, (data) => {
         if(!data.success) {
           dispatch({ type: "CREATE_CAMPAIGN_FAILURE", payload: data });
         } else {
           dispatch({ type: "CREATE_CAMPAIGN_FULFILLED", payload: data });    
-          browserHistory.push('/campaigns');
+          browserHistory.push(`/campaigns/${data.campaign._id}`);
         }
       });
     }
@@ -90,4 +91,18 @@ export function kickGuild(campaign, guild) {
   
   return updateCampaign(campaign._id,{players: players, guilds: guilds, kick: guild._id})
   
+}
+
+export function deleteCampaign(id) {
+    return function(dispatch) {
+        dispatch({type: "DELETE_CAMPAIGN"});
+        Client.del(`campaigns/${id}`, (data) => {
+            if(!data.success) {
+                dispatch({ type: "DELETE_CAMPAIGN_FAILURE", payload: data });
+            } else {
+                dispatch({ type: "DELETE_CAMPAIGN_FULFILLED" })
+                browserHistory.push('/campaigns');
+            }
+        });
+    }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form';
 import FriendDropdown from './fields/FriendDropdown';
+import ExpansionsDropdown from './fields/ExpansionsDropdown';
 
 const renderFourFriends = (props) => {
   
@@ -8,7 +9,9 @@ const renderFourFriends = (props) => {
     return <p>You have no friends</p>;
     
   const fourFriends = []
-  for(var i = 0; i < 3; i++)
+  const MAX_FRIENDS = 3
+  
+  for(var i = 0; i < MAX_FRIENDS && i < props.friends.length; i++)
     fourFriends.push( 
       <div className="form-group" key={i}>
         <label htmlFor={`friends[${i}]`} > Friend {i+1} </label>
@@ -53,6 +56,11 @@ const CampaignCreateForm = (props) => {
         <div className="form-group">
           <label htmlFor="campaignDescription">Description</label>
           <Field name="campaignDescription"  component="input" type="text" className="form-control" placeholder="Description" />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="campaignExpansion">Expansion</label>
+          <ExpansionsDropdown /> 
         </div>
         
         <fieldset>

@@ -4,14 +4,20 @@ export default function reducer(state={
     fetching: false,
     fetched: false,
     campaignFetched: false,
+    campaignFetching: false,
     updating: false,
     updated: false,
     error: null,
+    editLogEntry: [],
   }, action) {
 
     switch (action.type) {
       case "FETCH_CAMPAIGNS": {
-        return {...state, fetching: true}
+        return {
+          ...state, 
+          fetching: true,
+          fetched: false,
+        }
       }
       case "FETCH_CAMPAIGNS_FULFILLED": {
         return {
@@ -34,27 +40,30 @@ export default function reducer(state={
       case "FETCH_CAMPAIGN": {
         return {
           ...state, 
-          fetching: true,
-          fetched: false,
+          campaignFetching: true,
           campaignFetched: false,
         }
       }
       case "FETCH_CAMPAIGN_FULFILLED": {
         return {
           ...state,
-          fetching: false,
-          fetched: true,
           campaignFetched: true,
+          campaignFetching: false,
           campaign: action.payload,
         }
       }
       case "FETCH_CAMPAIGN_FAILURE": {
         return {
           ...state,
-          fetching: false,
-          fetched: false,
           campaignFetched: false,
+          campaignFetching: false,
           campaign: [],
+        }
+      }
+      
+      case "CREATE_CAMPAIGN": {
+        return {
+          ...state,
         }
       }
       
@@ -64,7 +73,7 @@ export default function reducer(state={
           fetching: false,
           fetched: true,
           campaignFetched: true,
-          campaign: action.payload,
+          campaign: action.payload.campaign,
         }
       }
       
@@ -93,6 +102,7 @@ export default function reducer(state={
           error: null,
           errorMessage: null,
           campaign: action.payload.campaign,
+          editLogEntry: [],
         }
       }
       
@@ -103,6 +113,47 @@ export default function reducer(state={
           updated: false,
           error: true,
           errorMessage: action.payload.message,
+        }
+      }
+      
+      /***** DELETE *****/
+      
+      case "DELETE_CAMPAIGN": {
+        return {
+          ...state,
+          deleting: true,
+          deleted: false,
+          campaignFetching: false,
+          campaignFetched: false,
+        }
+      }
+      
+      case "DELETE_CAMPAIGN_FULFILLED": {
+        return {
+          ...state,
+          deleting: false,
+          deleted: true,
+          error: null,
+          errorMessage: null,
+          isEditing: false,
+          campaign: [],
+        }
+      }
+      
+      case "DELETE_CAMPAIGN_FAILURE": {
+        return {
+          ...state,
+          deleting: false,
+          deleted: false,
+          error: true,
+          errorMessage: action.payload.message,
+        }
+      }
+      
+      case "EDIT_LOG_ENTRY": {
+        return {
+          ...state,
+          editLogEntry: action.payload,
         }
       }
       
