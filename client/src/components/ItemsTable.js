@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchItems} from '../actions/itemActions';
 import Loading from './Loading'
+import ItemSetDropdown from './forms/fields/ItemSetDropdown'
 
 function mapStateToProps(store) {
   return { 
@@ -13,12 +14,26 @@ function mapStateToProps(store) {
 
 class Items extends React.Component {
   
+  constructor(props){
+    super(props);
+    this.state = {
+      filter: false,
+      sort: false,
+    };
+  }
+  
   componentWillMount() {
     
     if(!this.props.itemsFetched && this.props.items.length === 0)
       this.props.dispatch(fetchItems());
     else
       console.log('getting items from store');
+  }
+  
+  handleChange(event) {
+    if(!event.target.value)
+      this.setState({filter: false});
+    this.setState({filter: event.target.value});
   }
   
   renderAtkIcon(item){
@@ -28,7 +43,7 @@ class Items extends React.Component {
       var attackClass = (item.class === 'Ranged Attack' ) ? 'item-card-ranged.png' : 'item-card-melee.png' ;
       
       return (
-        <div className="icons">
+        <div className="icons pull-right">
           <img src={require('../../public/images/' + attackClass)} className="img-responsive item-card-icon-32" alt="item attack"/>
           <span className="item-atk">{item.atk}</span>
         </div>
@@ -39,7 +54,7 @@ class Items extends React.Component {
       if(!item.price && item.price !== 0) return "";
       
       return (
-        <div className="icons">
+        <div className="icons pull-right">
           <img src={require('../../public/images/item-card-price.png')} className="img-responsive item-card-icon-32" alt="item price"/>
           <span className="item-price">{item.price}</span>
         </div>
@@ -93,7 +108,7 @@ class Items extends React.Component {
   renderDescription(item){
     return (
       <div>
-        {this.renderClassType(item)}
+        <span className="item-type">{this.renderClassType(item)}</span>
         {item.description}
         <div>
           {this.renderHpIcon(item)}
@@ -109,7 +124,13 @@ class Items extends React.Component {
     if(!this.props.itemsFetched)
       return <Loading title="Items"/>
     
-    const Items = this.props.items.map((item)=>{
+    const FilteredItems = this.props.items.filter((item, i)=>{
+      if(this.state.filter)
+        return item.set === this.state.filter
+      return true
+    })
+    
+    const Items = FilteredItems.map((item)=>{
       return <tr key={item._id}>
         <td className="text-nowrap">{item.number}</td>
         <td>{this.renderPriceIcon(item)}</td>
@@ -117,18 +138,69 @@ class Items extends React.Component {
         <td>{this.renderAtkIcon(item)}</td>
         <td>{this.renderDescription(item)}</td>
       </tr>
-    });
+    })
+    
+    const ItemsSmall = FilteredItems.map((item, index)=>{
+      return <div className="panel panel-default" key={index}>
+      
+        <div className="panel-heading" role="tab" id={item._id}>  
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href={`#collapse${item._id}`} aria-expanded="false" aria-controls={`collapse${item._id}`}>
+            <div className="items-panel-title">
+              <h4 className="panel-title">
+                  <strong>{item.number} </strong>{item.name}
+              </h4>
+              {this.renderPriceIcon(item)}
+              {this.renderAtkIcon(item)}
+            </div>
+          </a>
+        </div>
+        
+        <div id={`collapse${item._id}`} className="panel-collapse collapse" role="tabpanel" aria-labelledby={item._id}>
+          <div className="panel-body items-panel-body">
+            
+            {this.renderDescription(item)}
+          </div>
+        </div>
+        
+      </div>
+    })
+    
+    if(window.innerWidth < 768)
+      return (
+        <div>
+          <h2>Items</h2>
+          
+          <div className="row form-inline">
+            <div className="col-md-12">
+              <strong>Filter </strong>
+              <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
+            </div>
+          </div>
+          
+          <div className="row">
+            <div className="col-md-12">
+              <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+               {ItemsSmall}
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      )
     
     return (
       <div>
-        
         <h2>Items</h2>
-          
-          <div className="visible-xs-block text-muted">
-            scroll <span className="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> 
+        
+        <div className="row form-inline">
+          <div className="col-md-12">
+            <strong>Filter </strong>
+            <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
           </div>
-          
-          <div className="table-responsive">
+        </div>
+        
+        <div className="row table-responsive">
+          <div className="col-md-12">
             <table className="table table-striped table-bordered items">
               <thead>
                 <tr>
@@ -143,6 +215,7 @@ class Items extends React.Component {
                 {Items}
               </tbody>
             </table>
+          </div>
         </div>
         
       </div>
