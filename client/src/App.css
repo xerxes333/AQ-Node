@@ -1,3 +1,4 @@
+/* TODO: this needs to be cleaned up and organized, seriously! */
 .App {
   text-align: center;
 }
@@ -131,6 +132,10 @@ div.campaign-guild-user{
     text-align: right;
 }
 
+.panel-default > div.{
+    
+}
+
 .campaign-guild-Lion .hero-row .hero-name{
     background-color: #de6b39;
     color: white;
@@ -234,6 +239,29 @@ table.items div.class-type{
     font-size: 0.7em;
 }
 
+div.icons{
+    position: relative;
+    display: inline-block;
+}
+
+
+.items-panel-title{
+    font-size: 1.5em;
+}
+.items-panel-title > h4{
+    display: inline-block;
+    color: #333;
+}
+
+.items-panel-body{
+    padding: 5px 15px;
+}
+
+.item-type{
+    font-weight: bold;
+    color: #999;
+}
+
 div.icons>span{
     font-family: Arial Black,Arial Bold,Gadget,sans-serif;
     position: absolute;
@@ -309,4 +337,35 @@ div.campaign-generic{
 .guild-icon-addon{
     padding: 0px 3px;
     background-color: #FFFFFF;
+}
+
+.campaign-log th, .campaign-log td{
+    text-align: center;
+}
+
+/* Campaign level colors */
+.core-1{
+    color: #FFFFFF;
+    background-color: #dd5923;
+    line-height: 2.2 !important;
+}
+.core-2{
+    color: #FFFFFF;
+    background-color: #be2e25;
+    line-height: 2.2 !important;
+}
+.core-3{
+    color: #FFFFFF;
+    background-color: #432e76;
+    line-height: 2.2 !important;
+}
+.core-4{
+    color: #FFFFFF;
+    background-color: #432e76;
+    line-height: 2.2 !important;
+}
+.core-medal{
+    color: #FFFFFF;
+    background-color: #DAA520;
+    line-height: 2.2 !important;
 }
