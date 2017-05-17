@@ -9,8 +9,9 @@ class CampaignHero extends React.Component {
         const Rows = items.map((item, index)=>{
             return(
                  <tr key={`${index}_${item._id}`}>
-                    <td>{item.name}</td>
-                    <td className="item-number">{item.number}</td>
+                    <td>
+                      {item.name} <span className="pull-right">{item.number}</span>
+                    </td>
                 </tr>
             );
         });
@@ -29,7 +30,7 @@ class CampaignHero extends React.Component {
                 <table className="table table-bordered table-condensed item-table">
                   <thead>
                     <tr>
-                      <th colSpan="2" className="hero-name">{hero.hero_id.name}</th>
+                      <th className="hero-name">{hero.hero_id.name}</th>
                     </tr>
                   </thead>
                   <tbody>
