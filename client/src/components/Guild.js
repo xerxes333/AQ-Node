@@ -48,7 +48,6 @@ class Guild extends React.Component {
     if(this.props.isEditing)
       return <div>
         <Breadcrumbs />
-        <h2>Edit Guild</h2>
         <GuildEdit 
           id={this.props.params.id} 
           onSubmit={this.handleSubmit.bind(this)}
