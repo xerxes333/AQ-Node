@@ -9,6 +9,7 @@ var CampaignSchema   = new Schema({
     created_by: { type : Schema.ObjectId, ref: 'User', required: true },
     description: String,
     code: { type: String, default: shortid.generate(), unique: true},
+    expansion: { type: String, default: "Core"},
     players: {
         type: [{type: Schema.ObjectId, ref: 'User'}],
         unique: true,
@@ -20,7 +21,8 @@ var CampaignSchema   = new Schema({
         type: [{type: Schema.ObjectId, ref: 'Guild'}],
         unique: true,
         validate: [guildLimit, '{PATH} exceeds the limit of ' + GUILD_LIMIT]
-    }
+    },
+    log: [{}]
     
 }, {collection: 'campaigns', timestamps: true});
 

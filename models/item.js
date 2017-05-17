@@ -14,6 +14,6 @@ var ItemSchema   = new Schema({
     description: String,
     image: String
     
-}, {collection: 'items'});
+}, {collection: 'items1'});
 
 module.exports = mongoose.model('Item', ItemSchema);

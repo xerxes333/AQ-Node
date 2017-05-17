@@ -13,6 +13,6 @@ var HeroSchema   = new Schema({
     effect: String,
     image: String
     
-}, {collection: 'hero'});
+}, {collection: 'hero1'});
 
 module.exports = mongoose.model('Hero', HeroSchema);
