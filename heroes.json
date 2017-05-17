@@ -5,7 +5,8 @@
     "health": 4,
     "ability": "Tough as Nails",
     "effect": "None",
-    "image": "http://i.imgur.com/KTKPJj8.png"
+    "image": "http://i.imgur.com/KTKPJj8.png",
+    "set": "core"
   },
   {
     "name": "Greensleeves",
@@ -13,7 +14,8 @@
     "health": 4,
     "ability": "Bow Mastery",
     "effect": "When attacking with a Bow attack card, each (*) deals one additional hit.",
-    "image": "http://i.imgur.com/ogT9ES5.png"
+    "image": "http://i.imgur.com/ogT9ES5.png",
+    "set": "core"
   },
   {
     "name": "Grom",
@@ -21,7 +23,8 @@
     "health": 5,
     "ability": "Berserk",
     "effect": "Roll +1 die in all rolls while wounded.",
-    "image": "http://i.imgur.com/c7iwLXZ.png"
+    "image": "http://i.imgur.com/c7iwLXZ.png",
+    "set": "core"
   },
   {
     "name": "Hobsbawn",
@@ -29,7 +32,8 @@
     "health": 4,
     "ability": "Blessed",
     "effect": "If he uses a Magic attack card and does not perform his Movement, you may activate another Allied Hero.",
-    "image": "http://i.imgur.com/oWyN1IO.png"
+    "image": "http://i.imgur.com/oWyN1IO.png",
+    "set": "core"
   },
   {
     "name": "Jøhan",
@@ -37,7 +41,8 @@
     "health": 3,
     "ability": "Blade Throw",
     "effect": "May use Sword attack cards as Ranged attack cards (you still need Melees icons to hit).",
-    "image": "http://i.imgur.com/Yd43BqY.png"
+    "image": "http://i.imgur.com/Yd43BqY.png",
+    "set": "core"
   },
   {
     "name": "Kanga",
@@ -45,7 +50,8 @@
     "health": 4,
     "ability": "Self-Sacrifice",
     "effect": "May take a Wound instead of exhausting a card",
-    "image": "http://i.imgur.com/coBS4Ke.png"
+    "image": "http://i.imgur.com/coBS4Ke.png",
+    "set": "core"
   },
   {
     "name": "Maya",
@@ -53,7 +59,8 @@
     "health": 5,
     "ability": "Mana Mastery",
     "effect": "May exhaust each Magic attack card twice.",
-    "image": "http://i.imgur.com/8AYkopa.png"
+    "image": "http://i.imgur.com/8AYkopa.png",
+    "set": "core"
   },
   {
     "name": "Scarlet",
@@ -61,7 +68,8 @@
     "health": 3,
     "ability": "Backstab",
     "effect": "Roll +1 die when attack a flanked target (a target with at least one other Enemy Close to it).",
-    "image": "http://i.imgur.com/qZcyTnQ.png"
+    "image": "http://i.imgur.com/qZcyTnQ.png",
+    "set": "core"
   },
   {
     "name": "Seth",
@@ -69,7 +77,8 @@
     "health": 3,
     "ability": "Piercing Magic",
     "effect": "When attacking with a Magic attack card, the target does not roll Defense dice.",
-    "image": "http://i.imgur.com/s5M2BiU.png"
+    "image": "http://i.imgur.com/s5M2BiU.png",
+    "set": "core"
   },
   {
     "name": "Spike",
@@ -77,7 +86,8 @@
     "health": 3,
     "ability": "Vengeance",
     "effect": "Each (*) on his Defense roll deals 1 Wound to the attacker.",
-    "image": "http://i.imgur.com/De69tDu.png"
+    "image": "http://i.imgur.com/De69tDu.png",
+    "set": "core"
   },
   {
     "name": "Wisp",
@@ -85,7 +95,8 @@
     "health": 3,
     "ability": "Stealth",
     "effect": "When moving, does not trigger Guard Reaction.",
-    "image": "http://i.imgur.com/Iaw2OT8.png"
+    "image": "http://i.imgur.com/Iaw2OT8.png",
+    "set": "core"
   },
   {
     "name": "Zazu",
@@ -93,6 +104,1141 @@
     "health": 4,
     "ability": "Opportunist",
     "effect": "Does not exhaust an attack card when attacking a flanked target (a target with at least one other Enemy Close to it).",
-    "image": "http://i.imgur.com/acHrxNW.png"
+    "image": "http://i.imgur.com/acHrxNW.png",
+    "set": "core"
+  },
+  {
+    "name": "Black Newt",
+    "defense": 3,
+    "health": 2,
+    "ability": "Scent of Blood",
+    "effect": "Rolls +1 die in attack rolls against a wounded target.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Bob (the Conjurer)",
+    "defense": 2,
+    "health": 3,
+    "ability": "Wiz Bang",
+    "effect": "If he rolls any CRIT on a Magic attack, any living Hero of his Guild may be placed Close to the target.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Bowie",
+    "defense": 4,
+    "health": 2,
+    "ability": "Hit & Run",
+    "effect": "Right after attacking with a Bow attack card, he gets 2 extra Movement Points to use immediately.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Chooloo",
+    "defense": 3,
+    "health": 3,
+    "ability": "Mind Assault",
+    "effect": "May exhaust his Hero card to Daze 1 Enemy in Line of Sight.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Elysia",
+    "defense": 3,
+    "health": 3,
+    "ability": "Petrifying Gaze",
+    "effect": "For each CRIT she rolls on an attack, place 1 of her Guild tokens on the target's figure. Target lose 1 Movement Point per token. (Resting removes these tokens. No effect on Villains.)",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Frowny-Faceless",
+    "defense": 3,
+    "health": 3,
+    "ability": "Tenacious Spell",
+    "effect": "Does not exhaust a Magic attack card when attacking a wounded target.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Hitch",
+    "defense": 2,
+    "health": 4,
+    "ability": "Braindrain",
+    "effect": "While sharing a Space with a Hero, may attack with one of that Hero's unexhausted Attack cards (without exhausting it).",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "King of Thieves",
+    "defense": 2,
+    "health": 4,
+    "ability": "Coveting",
+    "effect": "Rolls +2 attack dice if his target has any Exploration tokens.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Koba",
+    "defense": 2,
+    "health": 4,
+    "ability": "Teleport",
+    "effect": "May exhaust her Hero card to place her figure Close to any Allied Hero.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Lilith",
+    "defense": 2,
+    "health": 4,
+    "ability": "Blood Ritual",
+    "effect": "For each Wound she deals with a Magic attack, she heals 1 of her Wounds.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Lord Fang",
+    "defense": 5,
+    "health": 2,
+    "ability": "Beckoning",
+    "effect": "May exhaust his Hero card to place a Hero in Lign of Sight in a Space Close to him.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Lydia",
+    "defense": 2,
+    "health": 4,
+    "ability": "Drainblade",
+    "effect": "For each Wound she deals with a Sword, Axe or Lance attack, she heals 1 of her Wounds.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Monkey King",
+    "defense": 2,
+    "health": 4,
+    "ability": "Trickster",
+    "effect": "Each CRIT on his Defense roll scores an additional save. If he rolls any CRIT, may place his figure in a Close Space.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Monkey Queen",
+    "defense": 3,
+    "health": 3,
+    "ability": "Monkey See Monkey Do",
+    "effect": "At any point during her activation, she may copy the natural ability of a single Hero in Line of Sight for this turn.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Montoya",
+    "defense": 1,
+    "health": 5,
+    "ability": "Swordmaster",
+    "effect": "May exhaust his Hero card to add +2 dice to a Sword attack card.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Morgan",
+    "defense": 1,
+    "health": 1,
+    "ability": "Mystic Aura",
+    "effect": "[+1 Defense Die] & [+1 Life] for each equipped Magic attack card.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Pigsy",
+    "defense": 2,
+    "health": 4,
+    "ability": "Snack Break",
+    "effect": "He may heal all of his Wounds whenever he Rests.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Pluck",
+    "defense": 3,
+    "health": 3,
+    "ability": "Explosive Shot",
+    "effect": "If he rolls any hits with a non-Magic Ranged attack, may move any figures in the target's Space up to 2 Spaces (this doesn't trigger Guard Reaction).",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Prince Aaron",
+    "defense": 3,
+    "health": 3,
+    "ability": "Mighty Presence",
+    "effect": "All Enemies Close to him have -2 Defense against attacks made by him or his Allies.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Queen of Beggars",
+    "defense": 1,
+    "health": 4,
+    "ability": "Trick or Treat",
+    "effect": "If she ends her movement Close to an Enemy Hero, he must give her an Exploration token or take 1 Wound (limit 1 Hero per turn).",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Serious-Faceless",
+    "defense": 3,
+    "health": 3,
+    "ability": "Haste Spell",
+    "effect": "Right after attacking with a Magic attack card, he gets 2 extra Movement Points to use immediately.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Smiley-Faceless",
+    "defense": 3,
+    "health": 3,
+    "ability": "Swindling Spell",
+    "effect": "[+1 Reroll]. When attacking with a Magic attack card, he may use every Reroll in his Guild.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Sonja",
+    "defense": 1,
+    "health": 4,
+    "ability": "Frenzy",
+    "effect": "Rolls +1 die per Close Enemy on non-Magic Melee attack rolls.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Sting",
+    "defense": 1,
+    "health": 5,
+    "ability": "Outcast",
+    "effect": "Rolls +1 die when attacking Monsters.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Surprised-Faceless",
+    "defense": 3,
+    "health": 3,
+    "ability": "Banshee Spell",
+    "effect": "If his Magic attack deals a Wound, the target is Dazed.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "The Heartless",
+    "defense": 1,
+    "health": 4,
+    "ability": "Sheer Heart Attack",
+    "effect": "When attacking with a Sword attack card, the target does not roll Defense dice.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "The Nameless",
+    "defense": 0,
+    "health": 6,
+    "ability": "Mastermind",
+    "effect": "If his Magic attack rolls any CRIT, another Allied Hero may activate & perform his Movement only.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Tomrick",
+    "defense": 2,
+    "health": 4,
+    "ability": "Gambler's Luck",
+    "effect": "After rolling a Magic Attack, he may exhaust his Hero card to change a single failed die to a CRIT.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Viktor",
+    "defense": 3,
+    "health": 3,
+    "ability": "Hunter",
+    "effect": "If his attack kills its target, he may activate another attack card this turn.",
+    "image": "",
+    "set": "corex"
+  },
+  {
+    "name": "Chaz",
+    "defense": 2,
+    "health": 4,
+    "ability": "Not the Face",
+    "effect": "Rolls +2 dice on Melee attacks as long as he is not wounded.",
+    "image": "",
+    "set": "btg"
+  },
+  {
+    "name": "Darryn",
+    "defense": 2,
+    "health": 4,
+    "ability": "Bruiser",
+    "effect": "Roll +1 die on attacks against targets that have no Wounds",
+    "image": "",
+    "set": "btg"
+  },
+  {
+    "name": "Aeric",
+    "defense": 1,
+    "health": 5,
+    "ability": "Panda Resilience",
+    "effect": "Rolls +2 dice on defense rolls against ranged attacks.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Brenna",
+    "defense": 2,
+    "health": 4,
+    "ability": "Lightning Strike",
+    "effect": "Once per activation, she may take 1 wound to deal 1 wound to all close enemies.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Farfalla",
+    "defense": 2,
+    "health": 4,
+    "ability": "Butterfly Effect",
+    "effect": "When using one of her attack cards, she may exhaust any close hero's attack card instead.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Haldor",
+    "defense": 1,
+    "health": 5,
+    "ability": "Body Count",
+    "effect": "Rolls +1 die on all non-Magic melee attacks for each enemy hero he's killed this scenario.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Hassan",
+    "defense": 3,
+    "health": 3,
+    "ability": "Charmed",
+    "effect": "No Reroll can be used when attacking him or defending from his attack.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Leeroy",
+    "defense": 2,
+    "health": 4,
+    "ability": "Lone Wolf",
+    "effect": "Gets a +1 die bonus to all rolls as long as he has no Allies in Line of Sight.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "McHammer",
+    "defense": 1,
+    "health": 5,
+    "ability": "Scuffle",
+    "effect": "For each CRIT he rolls on a non-Magic Melee attack, he may deal 1 Wound to any other Close Enemy.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Mittens",
+    "defense": 2,
+    "health": 4,
+    "ability": "Kitty Claws",
+    "effect": "Deals 1 wound to any enemy that leaves a space close to him ( limit 1 wound per enemy per turn).",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Nibbles",
+    "defense": 1,
+    "health": 5,
+    "ability": "Devour",
+    "effect": "Whenever he kills an Enemy, he heals all of his own Wounds.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Tiaret",
+    "defense": 1,
+    "health": 5,
+    "ability": "Savage Throw",
+    "effect": "May use lance and exotic attack cards as ranged attack cards (you still need melee icons to hit).",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Yun",
+    "defense": 2,
+    "health": 4,
+    "ability": "Relentless",
+    "effect": "If he rolls any CRIT on a Defense roll, he may unexhaust 1 of his cards.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Zahra",
+    "defense": 2,
+    "health": 4,
+    "ability": "Acrobat",
+    "effect": "During Movement, moving into a Space occupied by a Hero does not cost her a Movement Point.",
+    "image": "",
+    "set": "retail"
+  },
+  {
+    "name": "Bjor of Oros",
+    "defense": 0,
+    "health": 7,
+    "ability": "Hard as a Rock",
+    "effect": "(none) \"Armor is for the weak\"",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Cassius",
+    "defense": 1,
+    "health": 4,
+    "ability": "Foe on a Stick",
+    "effect": "When attacking with a Lance or Exotic attack card, the target does not roll Defense dice",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Diana",
+    "defense": 2,
+    "health": 4,
+    "ability": "Volley",
+    "effect": "When attacking a Close Enemy with a Bow or Thrown Weapon, may target one extra Close Enemy per Crit rolled.",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Izzy",
+    "defense": 2,
+    "health": 4,
+    "ability": "Monster Brew",
+    "effect": "When he kills a monster, place it's figure on his Hero card. He may use it like a Healing or Refreshing Potion (returning it to the box).",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Jack-Jack",
+    "defense": 3,
+    "health": 3,
+    "ability": "Trolling",
+    "effect": "If his attack rolls any Hits, you may switch one of the target's Upgrade cards with another from their Guild (before rolling Defense).",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Jaimie",
+    "defense": 3,
+    "health": 3,
+    "ability": "Shield Bash",
+    "effect": "May exhaust her Hero card to Move a Close Character up to 2 Spaces away (This Move does not trigger Guard Reactions.)",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Kisha",
+    "defense": 3,
+    "health": 3,
+    "ability": "Lucky Shot",
+    "effect": "+1 Reroll for every equipped non-Magic Ranged attack card.",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Mark",
+    "defense": 1,
+    "health": 4,
+    "ability": "Brothers in Arms",
+    "effect": "When attacking, does not exhaust a non-Magic Melee attack card while Close to an Ally.",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Natasha",
+    "defense": 2,
+    "health": 4,
+    "ability": "Merciless",
+    "effect": "When attacking a flanked target (a target with at least one different Enemy Close to it) the attack deals 1 extra Wound.",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Phyx",
+    "defense": 1,
+    "health": 4,
+    "ability": "Secret of the Blade",
+    "effect": "When attacking with a Sword attack card, each Crit deals one additional Hit",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Sybbyl",
+    "defense": 2,
+    "health": 4,
+    "ability": "Dark Magic",
+    "effect": "When using a Magic attack, she may take 1 Death Curse to roll +1 die (keep the Death Curse with the highest value).",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Trandir",
+    "defense": 2,
+    "health": 4,
+    "ability": "Collateral Magic",
+    "effect": "When using a magic attack, may exhaust his hero card to hit an additional Enemy Close to the target.",
+    "image": "",
+    "set": "inf"
+  },
+  {
+    "name": "Angel Eyes",
+    "defense": 3,
+    "health": 4,
+    "ability": "Celestial Song",
+    "effect": "For each Crit she rolls on an attack, you may unexhaust one card from an Ally.",
+    "image": "",
+    "set": "angel"
+  },
+  {
+    "name": "Benjamin",
+    "defense": 3,
+    "health": 4,
+    "ability": "Inspiration",
+    "effect": "Any Allied Hero in Line of Sight of Benjamin gets +1 die to all rolls.",
+    "image": "",
+    "set": "angel"
+  },
+  {
+    "name": "Justicar",
+    "defense": 2,
+    "health": 5,
+    "ability": "Redeemer",
+    "effect": "For each Wound he deals, you may remove 1 Death Token or 1 Damnation from an Ally.",
+    "image": "",
+    "set": "angel"
+  },
+  {
+    "name": "Leah",
+    "defense": 1,
+    "health": 6,
+    "ability": "Commander",
+    "effect": "At any point during her activation, Close Allies may Move 1 Space. (This Move doesn't trigger Guard Reaction. Maximum 1 Move per Ally per turn.)",
+    "image": "",
+    "set": "angel"
+  },
+  {
+    "name": "The Wanderer",
+    "defense": 2,
+    "health": 5,
+    "ability": "Healing Hands",
+    "effect": "For each Wound he deals, you may heal one Wound from an Ally.",
+    "image": "",
+    "set": "angel"
+  },
+  {
+    "name": "The Fallen Angel",
+    "defense": 2,
+    "health": 5,
+    "ability": "Wings of Fire",
+    "effect": "He has +1 Movement Point to use every activation.",
+    "image": "",
+    "set": "angel"
+  },
+  {
+    "name": "Annabelle",
+    "defense": 3,
+    "health": 3,
+    "ability": "Monster Hunter",
+    "effect": "When attacking Monsters, each Crit deals one additional Hit.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Annika",
+    "defense": 2,
+    "health": 3,
+    "ability": "Spell Master",
+    "effect": "May exhaust her Hero card to add +2 dice to a Magic Attack card.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Britney",
+    "defense": 2,
+    "health": 4,
+    "ability": "Spear of Destiny",
+    "effect": "When attacking with a Lance or Exotic attack card, each Crit deals one additional Hit.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Dris",
+    "defense": 3,
+    "health": 3,
+    "ability": "Zen Archer",
+    "effect": "When rolling for an attack with a Bow Attack card, she Hits on Melee icons instead of Ranged icons.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Gabriel",
+    "defense": 3,
+    "health": 3,
+    "ability": "Blink Magic",
+    "effect": "If his Magic attack kills its target, he may place any living Allied Hero to the Space where the target died.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Hellen",
+    "defense": 2,
+    "health": 4,
+    "ability": "Jinx",
+    "effect": "If her Magic Attack rolls any Crits against a Hero, the target draws a Death Curse (keep the card with the highest value).",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Hïlda",
+    "defense": 2,
+    "health": 3,
+    "ability": "Granny's Broth",
+    "effect": "May exhaust her Hero card to fully heal one Hero in Line of Sight.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Hoshi",
+    "defense": 2,
+    "health": 4,
+    "ability": "Twin Blades",
+    "effect": "May exhaust each Sword attack card twice.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Johnny",
+    "defense": 3,
+    "health": 3,
+    "ability": "Blinding Shield",
+    "effect": "When attacking this Hero, Crits don't grant extra dice.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Julie",
+    "defense": 3,
+    "health": 2,
+    "ability": "Life Crystal",
+    "effect": "If she rolls any Crit on a Defense roll, she may fully Heal any Character in Line of Sight.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "King David III",
+    "defense": 2,
+    "health": 4,
+    "ability": "Rallying",
+    "effect": "If he ends his activation in the same Space as an Allied Hero and doesn't use an Attack card, you may activate that Allied Hero.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Kragor",
+    "defense": 1,
+    "health": 4,
+    "ability": "Magic Touch",
+    "effect": "When attacking with a Magic Attack card, he rolls +1 die against Close targets.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Lord Tyron",
+    "defense": 3,
+    "health": 3,
+    "ability": "Connected Strikes",
+    "effect": "When attacking with a non-Magic Melee Attack card, he rolls +1 die for each other exhausted Attack card he has.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Lucas",
+    "defense": 2,
+    "health": 4,
+    "ability": "Man on a Mission",
+    "effect": "Gains +2 dice per Quests that his Guild has accomplished.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Magu",
+    "defense": 2,
+    "health": 3,
+    "ability": "Magic Friendship",
+    "effect": "Exhaust her Hero card to unexhaust one Upgrade card, heal one Wound, and remove one Death Curse from an Ally.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Master Pim",
+    "defense": 3,
+    "health": 3,
+    "ability": "Umbrella Protection",
+    "effect": "Monsters roll -1 die when attacking him.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Mercury",
+    "defense": 2,
+    "health": 4,
+    "ability": "Fly By Night",
+    "effect": "May exhaust her Hero card to gain 2 extra Movement Points for use this turn.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Nina",
+    "defense": 2,
+    "health": 4,
+    "ability": "Bullseye",
+    "effect": "If she doesn't use all of her Movement Points this turn, she rolls +1 die on a Bow or Thrown Weapon Attack card.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Papa Ruk",
+    "defense": 2,
+    "health": 4,
+    "ability": "Bad Juju",
+    "effect": "Exhaust his Hero card to put his Guild token on an Enemy hero in LOS. That Hero rolls -1 die per token on all rolls. Tokens are removed when Papa Ruk dies.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Raven",
+    "defense": 1,
+    "health": 5,
+    "ability": "Last Man Standing",
+    "effect": "He gets +2 dice bonus to all rolls per Dead Ally.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Rivet",
+    "defense": 2,
+    "health": 4,
+    "ability": "Automated Response",
+    "effect": "When an Enemy close to him is attacked by an Ally, the Enemy suffers an additional 2 Wounds.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Sarya",
+    "defense": 2,
+    "health": 4,
+    "ability": "Hell of a Deal",
+    "effect": "Her Attack rolls get +1 die for each Exploration token in her possession.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Sir Bryce",
+    "defense": 4,
+    "health": 2,
+    "ability": "Ironclad",
+    "effect": "Ignore one Wound he would take from every attack.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Tao",
+    "defense": 2,
+    "health": 4,
+    "ability": "Iron Fist",
+    "effect": "Instead of using an Attack card, may exhaust his Hero card to perform a Melee attack, rolling as many dice as he has Life left.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Thornwood",
+    "defense": 2,
+    "health": 4,
+    "ability": "Eternal Sap",
+    "effect": "Heals one Wound for each Crit on his Defense roll before applying any Wounds from the current attack.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Tigris",
+    "defense": 2,
+    "health": 4,
+    "ability": "Phalanx",
+    "effect": "Rolls +1 die per Close Ally on non-Magic Melee attacks and Defense rolls.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Tyndall",
+    "defense": 2,
+    "health": 4,
+    "ability": "Spitefall",
+    "effect": "Once per activation, she may take 1 Wound to deal 2 Wound to an Enemy in Line of Sight.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Tyrek",
+    "defense": 1,
+    "health": 5,
+    "ability": "Hero's Bane",
+    "effect": "Rolls +1 die on Attack and Defense against Heroes.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Vexia, the Witch",
+    "defense": 3,
+    "health": 3,
+    "ability": "Crazy Pet Lady",
+    "effect": "She gains +2 Life and +2 Rerolls for each Allied Pet Close to her.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Wanda",
+    "defense": 2,
+    "health": 4,
+    "ability": "Snappy Comeback",
+    "effect": "Whenever she Resurrects, you may activate her at the end of the turn.",
+    "image": "",
+    "set": "infx"
+  },
+  {
+    "name": "Mamba",
+    "defense": "",
+    "health": "",
+    "ability": "",
+    "effect": "When she ends her movement close to an enemy, she may exhaust one of their cards.",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Roch",
+    "defense": "",
+    "health": "",
+    "ability": "",
+    "effect": "When he is killed, he can revive at the beginning of next turn without a guild rest.",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Anvil",
+    "defense": 1,
+    "health": 5,
+    "ability": "Weaponsmith",
+    "effect": "He may place the coin he gains from killing Enemies on non-Magic Attack cards of his Guild. These cards roll +1 die. (Limit 1 coin per card.)",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Valma",
+    "defense": 1,
+    "health": 5,
+    "ability": "Blood Rage",
+    "effect": "When attacking with a non-Magic Melee Attack card, she may take a Wound to roll +2 dice.",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Kuruk",
+    "defense": "",
+    "health": "",
+    "ability": "",
+    "effect": "When making a bow attack, he may exhaust his Hero card to roll again his entire attack from scratch, accepting the new result.",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Yona",
+    "defense": "",
+    "health": "",
+    "ability": "",
+    "effect": "Exhaust her Hero card, may resurrect dead ally Hero.",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Crash",
+    "defense": "",
+    "health": "",
+    "ability": "",
+    "effect": "When he reduces the hearts of the minor to zero, it will count as an overkill kill.",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Viola",
+    "defense": "",
+    "health": "",
+    "ability": "",
+    "effect": "When attacking a flanked target (a target with at least one other Enemy Close to it) with a Melee attack, the target does not roll Defence dice.",
+    "image": "",
+    "set": "infretail"
+  },
+  {
+    "name": "Greenhood",
+    "defense": 1,
+    "health": 5,
+    "ability": "Sneaky",
+    "effect": "Does not trigger Guard Reaction from flanked Monsters (a Monster with at least one other Enemy Close to it)",
+    "image": "",
+    "set": "pets"
+  },
+  {
+    "name": "Oak",
+    "defense": 2,
+    "health": 4,
+    "ability": "Evergreen",
+    "effect": "For each Outdoor Space that Oak leaves, he heals 1 wound",
+    "image": "",
+    "set": "pets"
+  },
+  {
+    "name": "Valerie",
+    "defense": 3,
+    "health": 3,
+    "ability": "Hammer of Justice",
+    "effect": "If her attack kills its target, you may heal one wound from her and her Allies.",
+    "image": "",
+    "set": "mas"
+  },
+  {
+    "name": "Greybark",
+    "defense": 2,
+    "health": 4,
+    "ability": "Call of the Wild",
+    "effect": "Exhaust his Hero card to activate a Minor Minion in Line of Sight, performing its movement and/or attack against any enemy Hero",
+    "image": "",
+    "set": "mas"
+  },
+  {
+    "name": "Jay",
+    "defense": 1,
+    "health": 5,
+    "ability": "Strike One",
+    "effect": "If his attack doesn't deal any Wounds, he may activate another attack card this turn.",
+    "image": "",
+    "set": "mas"
+  },
+  {
+    "name": "Algus",
+    "defense": 2,
+    "health": 4,
+    "ability": "Secret Fire",
+    "effect": "Instead of using an attack card, may exhaust his Hero card to perform a Ranged attack, rolling as many dice as Wounds he has.",
+    "image": "",
+    "set": "mas"
+  },
+  {
+    "name": "Mika",
+    "defense": 3,
+    "health": 3,
+    "ability": "Disarm",
+    "effect": "May exhaust one card from an Enemy when she enters their Space.",
+    "image": "",
+    "set": "mas"
+  },
+  {
+    "name": "Stump",
+    "defense": 1,
+    "health": 5,
+    "ability": "Hold Fast",
+    "effect": "After rolling defence, may exhaust his Hero card to roll +3 Defense dice.",
+    "image": "",
+    "set": "masv"
+  },
+  {
+    "name": "Lang Lang",
+    "defense": 0,
+    "health": 6,
+    "ability": "Bamboo Strike",
+    "effect": "If his melee attack rolls any crits, he may perform a free 3 dice Melee Attack against the same target after fully resolving the attack.",
+    "image": "",
+    "set": "masv"
+  },
+  {
+    "name": "Neffar",
+    "defense": 2,
+    "health": 4,
+    "ability": "Go for the eyes",
+    "effect": "Exhaust his Hero card to deal 1 Wound and exhaust 1 Attack card on a Hero in Line of Sight.",
+    "image": "",
+    "set": "masv"
+  },
+  {
+    "name": "Damian",
+    "defense": 3,
+    "health": 3,
+    "ability": "Daze of Wonder",
+    "effect": "If he 's attacked and doesn't suffer any Wounds, the attacker is dazed.",
+    "image": "",
+    "set": "masv"
+  },
+  {
+    "name": "Luna",
+    "defense": 3,
+    "health": 3,
+    "ability": "Mystic Path",
+    "effect": "If her Defense rolls any crits, may teleport to a Space Close to any Character in Line of Sight.",
+    "image": "",
+    "set": "masv"
+  },
+  {
+    "name": "Quan",
+    "defense": 3,
+    "health": 3,
+    "ability": "Inner Strength",
+    "effect": "May exhaust his Hero card to unexhaust two of his Upgrade cards.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Baruk",
+    "defense": 1,
+    "health": 5,
+    "ability": "Pillaging",
+    "effect": "Gains 1 additional coin when he kills an Enemy Hero.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Thereon",
+    "defense": 2,
+    "health": 4,
+    "ability": "Healing Hands",
+    "effect": "Heals 1 Wound from Allies when he enters their Space (Limit 1 Ally per turn).",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Lotus",
+    "defense": 3,
+    "health": 3,
+    "ability": "Pacifying Song",
+    "effect": "May exhaust her Hero card to cancel all Guard or Payback Reactions she triggers on this turn.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Tosh",
+    "defense": 2,
+    "health": 4,
+    "ability": "Headbutt",
+    "effect": "After a Melee attack, he may take 1 Wound to deal 1 extra Wound to his target.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Azure",
+    "defense": 3,
+    "health": 3,
+    "ability": "Shadowform",
+    "effect": "Rolls +1 Defense die for each unused Movement Point.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Blossom",
+    "defense": 2,
+    "health": 3,
+    "ability": "Headshot",
+    "effect": "When attacking with a Bow or Thrown Weapon attack card, the target does not roll Defense dice.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Toghor",
+    "defense": 2,
+    "health": 4,
+    "ability": "Double Dragon",
+    "effect": "Whenever he kills an Enemy, he heals all of his own Wounds.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Travis",
+    "defense": 2,
+    "health": 4,
+    "ability": "All Shook Up",
+    "effect": "May exhaust his Hero Card to daze one Close Enemy.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Raffi",
+    "defense": 3,
+    "health": 3,
+    "ability": "Ambush",
+    "effect": "Gains +2 Rerolls when attacking a flanked target (A target with at least one other Enemy Close to it).",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Luke the Lucky",
+    "defense": 2,
+    "health": 4,
+    "ability": "Beginner's Luck",
+    "effect": "2 Rerolls",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Prince Grenouille",
+    "defense": 2,
+    "health": 4,
+    "ability": "Leapfrog",
+    "effect": "Exhaust his Hero card to move him up to 2 spaces, ignoring blocking Enemies and Guard Reactions.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Makumba",
+    "defense": 3,
+    "health": 3,
+    "ability": "Spellbind",
+    "effect": "If her Magic attack rolls any Crits, she may move one Hero in Line of Sight 1 Space.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Hyldir",
+    "defense": 1,
+    "health": 5,
+    "ability": "Heavy Metal",
+    "effect": "May exhaust each Hammer and Axe attack card twice.",
+    "image": "",
+    "set": "masx"
+  },
+  {
+    "name": "Zsa Zsa",
+    "defense": 3,
+    "health": 3,
+    "ability": "Bastet's Curse",
+    "effect": "If her Magic Attack deals any Wounds, place her Guild token on the target's Hero card, who loses their Natural Ability (Resting removes this token).",
+    "image": "",
+    "set": "masx"
   }
 ]
