@@ -11,19 +11,32 @@ function mapStateToProps(store) {
 }
 
 class Nav extends Component {
+
+  navLink(props){
+    return (
+      <li>
+        <Link to={props.to} className="hidden-xs" >{props.label}</Link>
+        {(props.to === "logout")?
+          <Link to={props.to} className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse" onClick={(event) => this.props.dispatch(logoutUser()) }>{props.label}</Link>
+          : <Link to={props.to} className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{props.label}</Link>
+        }
+        
+      </li>
+    )
+  }
   
   renderProfileLink(){
     return(
       <li className="dropdown">
         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span className="caret"></span></a>
         <ul className="dropdown-menu">
-            <li><Link to="profile">Profile</Link></li>
-            <li><Link to="logout"onClick={(event) => this.props.dispatch(logoutUser()) } >Logout</Link></li>
+            { this.navLink({to: "profile", label: "Profile"}) }
+            { this.navLink({to: "logout", label: "Logout"}) }
         </ul>
       </li>
     );
   }
-  
+
   render() {
     const { isAuthenticated } = this.props;
     return (
@@ -37,11 +50,11 @@ class Nav extends Component {
             </div>
             <div className="collapse navbar-collapse" id="w0-collapse">
               <ul className="navbar-nav navbar-right nav" id="w1">
-                {  isAuthenticated && <li><Link to="campaigns">Campaigns</Link></li> }
-                {  isAuthenticated && <li><Link to="guilds">Guilds</Link></li> }
-                <li><Link to="heroes">Heroes</Link></li>
-                <li><Link to="items">Items</Link></li>
-                { !isAuthenticated && <li><Link to="login">Login</Link></li> }
+                {  isAuthenticated && this.navLink({to: "campaigns", label: "Campaigns"}) }
+                {  isAuthenticated && this.navLink({to: "guilds", label: "Guilds"}) }
+                { this.navLink({to: "heroes", label: "Heroes"}) }
+                { this.navLink({to: "items", label: "Items"}) }
+                { !isAuthenticated && this.navLink({to: "login", label: "Login"}) }
                 {  isAuthenticated && this.renderProfileLink() }
               </ul>
             </div>
