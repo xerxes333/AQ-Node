@@ -18,6 +18,7 @@ exports.postCampaigns = function(req, res) {
     campaign.description = req.body.description;
     campaign.players = [req.decoded._id];
     // campaign.guilds = req.body.guilds;
+    campaign.log = req.body.log;
     
     if(req.body.players){
         var friends = req.body.players.filter( function( friend, index, ret ) {
@@ -92,7 +93,9 @@ exports.putCampaign = function(req, res) {
         campaign.description = req.body.description || campaign.description;
         campaign.guilds = req.body.guilds || campaign.guilds;
         campaign.players = req.body.players || campaign.players;
-
+        campaign.expansion = req.body.expansion || campaign.expansion;
+        campaign.log = req.body.log || campaign.log;
+        
         campaign.save(function (err, campaign) {
             if (err) res.status(500).send(err);
             
@@ -135,6 +138,16 @@ exports.putCampaign = function(req, res) {
 exports.deleteCampaign = function(req, res) {
     Campaign.remove({_id: req.params.campaign_id, created_by: req.decoded._id}, function(err, campaign) {
         if (err) res.send(err);
+        //update all guilds that are assigned to this campaign
+        Guild.update(
+            {campaign: req.params.campaign_id}, 
+            {$unset: {campaign: ""}},
+            {multi: true },
+            function(err, guild){
+                if (err) res.status(500).send(err);
+            }
+        )
+                
         res.send({ success: true, message: 'Campaign removed successfully' });    
     });
 };

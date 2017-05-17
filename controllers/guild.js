@@ -105,6 +105,7 @@ exports.putGuild = function(req, res) {
     guild.name = req.body.name || guild.name;
     guild.description = req.body.description || guild.description;
     guild.heroes = req.body.heroes || guild.heroes;
+    guild.type = req.body.type || guild.type;
     
     // If we are removing our campaignguild from the guild unset the campaign
     guild.campaign = (req.body.campaign === 'LEAVE')? undefined : req.body.campaign || guild.campaign
