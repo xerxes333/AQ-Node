@@ -34,7 +34,7 @@ const renderItems = ({ fields, meta: { error } }) => {
   return (
     <ul className="list-unstyled">
       <li>
-        <button type="button" className="btn btn-success btn-sm" onClick={() => fields.push({})}>
+        <button type="button" className="btn btn-success btn-block" onClick={() => fields.push({})}>
           <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Item
         </button>
       </li>
