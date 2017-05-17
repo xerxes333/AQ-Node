@@ -1,15 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from 'react-router';
 
-import { fetchCampaign } from '../actions/campaignActions'
+import { fetchCampaigns, fetchCampaign, updateCampaign, deleteCampaign } from '../actions/campaignActions'
 import { fetchGuilds } from '../actions/guildActions'
-// import CampaignGuildBlock from './CampaignGuildBlock';
-// import { fetchUserProfile } from '../actions/userActions';
 import Breadcrumbs from './Breadcrumbs';
 
 import AssignMyGuild from './AssignMyGuild'
 import InviteFriends from './InviteFriends';
 import CampaignGuild from './CampaignGuild';
+import CampaignLog from './forms/CampaignLog';
+import CampaignLogSmall from './forms/CampaignLogSmall';
 import Loading from './Loading'
 
 
@@ -18,12 +19,11 @@ function mapStateToProps(store) {
   return { 
     campaigns: store.campaigns.campaigns,
     campaign: store.campaigns.campaign,
-    campaignFetching: store.campaigns.fetching,
+    campaignFetching: store.campaigns.campaignFetching,
     campaignFetched: store.campaigns.campaignFetched,
     availableGuilds: store.guilds.guilds,
     user: store.user,
     friends: store.user.user.friends || [],
-    isOwner: (store.user.user._id === store.campaigns.campaign.created_by)? true : false,
   };
 }
 
@@ -37,50 +37,103 @@ function getPlayerGuild(pid, guilds){
   return {}
 }
 
-function populateFours(players, campaign){
-  var Arr = [];
-  const MAX_PLAYERS = 4;
-  
-  for(var i = 0; i < MAX_PLAYERS; i++){
-    var obj = {};
-    
-    if(players[i] !== undefined){
-      obj.creator = (players[i]._id === campaign.created_by) ? true : false ;
-      obj.player = players[i];
-      obj.guild = getPlayerGuild(players[i]._id, campaign.guilds)
-    } else {
-      obj.creator = false;
-      obj.player = {};
-      obj.guild = {}
-    }
-    
-    Arr.push(obj)
-      
-  }
-  return Arr;
-}
 
 class Campaign extends React.Component {
-
+  
   componentWillMount() {
+    if(this.props.campaigns.length === 0)
+      this.props.dispatch(fetchCampaigns());
     this.props.dispatch(fetchCampaign(this.props.params.id));
     this.props.dispatch(fetchGuilds({available: true}));
+  }
+  
+  
+  componentWillReceiveProps(nextProps){
+    if(this.props.params.id !== nextProps.params.id)
+      this.props.dispatch(fetchCampaign(nextProps.params.id));
+    
+  }
+  
+  handleSubmit(values) {
+    this.props.dispatch(updateCampaign(this.props.params.id, values));
+  }
+  
+  handleDelete(values) {
+    if(confirm("Are you sure you want to delete this Campaign? This process can not be undone."))
+      this.props.dispatch(deleteCampaign(this.props.params.id))
+  }
+  
+  populateFours(){
+    
+    const campaign = this.props.campaign
+    const players = campaign.players
+    var Arr = []
+    const MAX_PLAYERS = 4
+    
+    for(var i = 0; i < MAX_PLAYERS; i++){
+      var obj = {};
+      
+      if(players[i] !== undefined){
+        obj.creator = (players[i]._id === campaign.created_by) ? true : false ;
+        obj.player = players[i];
+        obj.guild = getPlayerGuild(players[i]._id, campaign.guilds)
+      } else {
+        obj.creator = false;
+        obj.player = {};
+        obj.guild = {}
+      }
+      
+      Arr.push(obj)
+        
+    }
+    return Arr;
+  }
+  
+  getPlayerGuild(pid, guilds){
+    if(guilds){
+      for(var i = 0; i < guilds.length; i++)
+        if(guilds[i].user_id._id === pid)
+          return guilds[i]
+    }
+    return {}
   }
 
   render() {
     
-    const {campaignFetched, fetching, campaign, friends, isOwner, user } = this.props
+    const {campaignFetched, campaignFetching, campaigns, campaign, friends, user } = this.props
     
-    if(!campaignFetched || fetching)
+    if(campaignFetching || !campaignFetched)
       return <Loading title="Campaign"/>
     
-    const Fours = populateFours(campaign.players, campaign);
     
+    if (campaigns.length > 0){
+      
+      const index = campaigns.findIndex((camp,i)=>{
+        return camp._id === campaign._id
+      })
+      
+      var prev = null
+      var next = null
+      
+      if(index === -1)
+        prev = next = null
+      else if(index === 0)
+        next = campaigns[index + 1]._id
+      else if(index === campaigns.length - 1)
+        prev = campaigns[index - 1]._id
+      else {
+        prev = campaigns[index - 1]._id
+        next = campaigns[index + 1]._id
+      }
+      
+    }
+ 
+    const Fours = this.populateFours();
     const Grids = Fours.map((four, index)=>{
       
       // TODO: clean up this behemoth
       // This should probably be handled in a seperate Component 
-      if(isOwner){
+      if((user.user._id === campaign.created_by)){
         if(four.creator && !four.guild._id)
           return <AssignMyGuild key={index} />
         if(four.player._id && !four.guild._id)
@@ -103,7 +156,7 @@ class Campaign extends React.Component {
             else
               return <InviteFriends pending={true} name={four.player.name} key={index} />
           else
-            return <div className="col-md-3">
+            return <div className="col-md-3" key={index}>
               <div className="campaign-generic">
                 Waiting for players to join
               </div>
@@ -112,7 +165,7 @@ class Campaign extends React.Component {
       
     }) // end of Grids
     
-    
+    // TODO: seperate each tab into its own component 
     return (
       <div>
       
@@ -125,21 +178,62 @@ class Campaign extends React.Component {
               {campaign.name} 
               <small> {campaign.description} </small>
             </h2>
-            Share Code: {campaign.code}
+            <h4>Share Code: <span className="label label-primary"><samp>{campaign.code}</samp></span></h4>
           </div>
         </div>
         
         <div className="row">
-          {Fours && Grids}
+          <div className="col-md-12">
+          
+            <ul className="nav nav-tabs" role="tablist">
+              <li role="presentation" className="active"><a href="#log" aria-controls="log" role="tab" data-toggle="tab">Campaign Log</a></li>
+              <li role="presentation"><a href="#guilds" aria-controls="guilds" role="tab" data-toggle="tab">Guilds</a></li>
+            </ul>
+          
+            <div className="tab-content">
+              <div role="tabpanel" className="tab-pane active" id="log">
+                { (window.innerWidth < 768)? 
+                  <CampaignLogSmall
+                    onSubmit={this.handleSubmit.bind(this)} 
+                    onDelete={this.handleDelete.bind(this)}
+                  />
+                  : <CampaignLog 
+                    onSubmit={this.handleSubmit.bind(this)} 
+                    onDelete={this.handleDelete.bind(this)}
+                  />
+                }
+              </div>
+              <div role="tabpanel" className="tab-pane" id="guilds">
+                <div className="row">{Fours && Grids}</div>
+              </div>
+            </div>
+            
+          </div>
         </div>
         
-        { /*TODO: fix links to point to pre/next campaigns */ }
+        { /*TODO: Move this to its own Component ??? */ }
         <nav aria-label="...">
           <ul className="pager">
-            <li className="previous"><a href={"/campaigns/" + campaign._id}><span aria-hidden="true">&larr;</span> Prev</a></li>
-            <li className="next"><a href={"/campaigns/" + campaign._id}>Next <span aria-hidden="true">&rarr;</span></a></li>
+          
+            {prev && 
+              <li className="previous">
+                <Link to={`/campaigns/${prev}`}>
+                  <span aria-hidden="true" className="glyphicon glyphicon-chevron-left"> </span> Prev
+                </Link>
+              </li> 
+            }
+            
+            {next && 
+              <li className="next">
+                <Link to={`/campaigns/${next}`}>
+                  Next <span aria-hidden="true" className="glyphicon glyphicon-chevron-right"></span>
+                </Link>
+              </li> 
+            }
           </ul>
         </nav>
+        
+        
         
       </div>
     );
