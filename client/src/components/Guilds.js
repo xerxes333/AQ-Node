@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from "react-redux";
 
 import { fetchGuilds } from '../actions/guildActions';
@@ -17,6 +17,10 @@ class Guilds extends React.Component {
   
   componentWillMount() {
     this.props.dispatch(fetchGuilds());
+  }
+  
+  rowClicked(id){
+    browserHistory.push(`/guilds/${id}`);
   }
   
   render() {
@@ -48,6 +52,22 @@ class Guilds extends React.Component {
           </tr>
         )
       })
+      
+    const GuildRowsSmall = (!guilds.length)? 
+      <tr><td colSpan="4">No Guilds</td></tr> : 
+      this.props.guilds.map((guild)=>{
+        return (
+          <tr key={guild._id} onClick={() => this.rowClicked(guild._id)} >
+            <td>
+              <img src={require('../../public/images/guilds/'+ guild.type.toLowerCase() +'.png')} className="img-responsive guild-name-icon-48" alt="logo"/>
+              {guild.name}
+              {guild.campaign && 
+                <span className="glyphicon glyphicon-link pull-right"></span>
+              }
+            </td>
+          </tr>
+        )
+      })
     
     return (
       <div>
@@ -55,12 +75,18 @@ class Guilds extends React.Component {
         <h2>
           Guilds
           <Link to={`/guilds/new`} className="btn btn-primary new-guild">
-            <span className="glyphicon glyphicon-plus-sign" style={{paddingRight: "10px"}}></span>
-            New
+            <span className="glyphicon glyphicon-plus-sign" style={{paddingRight: "10px"}}></span>New
           </Link>
         </h2>
-        <div className="table-responsive">
-          <table className="table table-striped table-bordered">
+        
+        { (window.innerWidth < 768)? 
+          <table className="table table-striped table-bordered" style={{fontSize: "18px"}}>
+            <tbody>
+              {GuildRowsSmall}
+            </tbody>
+          </table>
+          
+          :<table className="table table-striped table-bordered">
             <thead>
               <tr>
                 <td>Name</td>
@@ -73,7 +99,7 @@ class Guilds extends React.Component {
               {GuildRows}
             </tbody>
           </table>
-        </div>
+        }
         
       </div>
     );
