@@ -8,6 +8,7 @@ import Loading from './Loading'
 function mapStateToProps(store) {
   return { 
     guild: store.guilds.guild,
+    guilds: store.guilds.guilds,
     heroes: store.guilds.guild && store.guilds.guild.heroes,
     guildFetched: store.guilds.guildFetched,
     isEditing: store.guilds.isEditing

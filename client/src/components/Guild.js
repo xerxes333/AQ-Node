@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchGuild, updateGuild, deleteGuild } from '../actions/guildActions'
+import { fetchGuild, fetchGuilds, updateGuild, deleteGuild } from '../actions/guildActions'
 import GuildView from './GuildView'
 import GuildEdit from './forms/GuildEdit'
-import Breadcrumbs from './Breadcrumbs';
+import PrevNext from './PrevNext'
 
 function mapStateToProps(store) {
   return { 
     guild: store.guilds.guild,
+    guilds: store.guilds.guilds,
     guildFetched: store.guilds.guildFetched,
     isEditing: store.guilds.isEditing,
     isUpdating: store.guilds.updating,
@@ -20,10 +21,20 @@ class Guild extends React.Component {
   
   componentWillMount() {
     this.props.dispatch(fetchGuild(this.props.params.id));
+    if(this.props.guilds.length === 0)
+      this.props.dispatch(fetchGuilds());
   }
   
   componentWillUnmount(){
     this.props.dispatch({type: "EDIT_GUILD", payload: false})
+  }
+  
+  componentWillReceiveProps(nextProps){
+    if(this.props.params.id !== nextProps.params.id){
+      this.props.dispatch({type: "EDIT_GUILD", payload: false})
+      this.props.dispatch(fetchGuild(nextProps.params.id));
+    }
+    
   }
   
   handleSubmit(values) {
@@ -47,7 +58,6 @@ class Guild extends React.Component {
     
     if(this.props.isEditing)
       return <div>
-        <Breadcrumbs />
         <GuildEdit 
           id={this.props.params.id} 
           onSubmit={this.handleSubmit.bind(this)}
@@ -55,12 +65,13 @@ class Guild extends React.Component {
           onSubmitFail={this.handleFail.bind(this)}
           onDelete={this.handleDelete.bind(this)}
         />
+        <PrevNext type="guilds" all={this.props.guilds} current={this.props.guild}/>
       </div>
       
     else
       return <div>
-        <Breadcrumbs />
         <GuildView />
+        <PrevNext type="guilds" all={this.props.guilds} current={this.props.guild}/>
       </div>
   }
 }

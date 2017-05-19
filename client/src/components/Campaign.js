@@ -1,10 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from 'react-router';
 
 import { fetchCampaigns, fetchCampaign, updateCampaign, deleteCampaign } from '../actions/campaignActions'
 import { fetchGuilds } from '../actions/guildActions'
-import Breadcrumbs from './Breadcrumbs';
 
 import AssignMyGuild from './AssignMyGuild'
 import InviteFriends from './InviteFriends';
@@ -12,6 +10,7 @@ import CampaignGuild from './CampaignGuild';
 import CampaignLog from './forms/CampaignLog';
 import CampaignLogSmall from './forms/CampaignLogSmall';
 import Loading from './Loading'
+import PrevNext from './PrevNext'
 
 
 
@@ -104,30 +103,7 @@ class Campaign extends React.Component {
     
     if(campaignFetching || !campaignFetched)
       return <Loading title="Campaign"/>
-    
-    
-    if (campaigns.length > 0){
-      
-      const index = campaigns.findIndex((camp,i)=>{
-        return camp._id === campaign._id
-      })
-      
-      var prev = null
-      var next = null
-      
-      if(index === -1)
-        prev = next = null
-      else if(index === 0)
-        next = campaigns[index + 1]._id
-      else if(index === campaigns.length - 1)
-        prev = campaigns[index - 1]._id
-      else {
-        prev = campaigns[index - 1]._id
-        next = campaigns[index + 1]._id
-      }
-      
-    }
- 
+
     const Fours = this.populateFours();
     const Grids = Fours.map((four, index)=>{
       
@@ -169,8 +145,6 @@ class Campaign extends React.Component {
     return (
       <div>
       
-        <Breadcrumbs path={"/campaigns/" + campaign.name}  />
-        
         <div className="row">
           <div className="col-md-12">
             <h2>
@@ -211,29 +185,7 @@ class Campaign extends React.Component {
           </div>
         </div>
         
-        { /*TODO: Move this to its own Component ??? */ }
-        <nav aria-label="...">
-          <ul className="pager">
-          
-            {prev && 
-              <li className="previous">
-                <Link to={`/campaigns/${prev}`}>
-                  <span aria-hidden="true" className="glyphicon glyphicon-chevron-left"> </span> Prev
-                </Link>
-              </li> 
-            }
-            
-            {next && 
-              <li className="next">
-                <Link to={`/campaigns/${next}`}>
-                  Next <span aria-hidden="true" className="glyphicon glyphicon-chevron-right"></span>
-                </Link>
-              </li> 
-            }
-          </ul>
-        </nav>
-        
-        
+        <PrevNext type="campaign" all={campaigns} current={campaign}/>
         
       </div>
     );
