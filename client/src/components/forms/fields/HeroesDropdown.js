@@ -34,24 +34,34 @@ class HeroesDropdown extends React.Component {
     if(Hero.length === 1)
       return Hero[0];
     
-    return {}
+    return null
   }
   
   getHeroImage(){
     
     const hero = this.getHero();
     
-    if(hero && Object.getOwnPropertyNames(hero).length > 0)
+    if(hero && Object.getOwnPropertyNames(hero).length > 0 && hero.image !== "")
       return  <img src={hero.image.replace(/^http?:/i, "")} className="img-responsive" alt={hero.name}/>
     
-    return null
+    return <img src={require('../../../../public/images/BlankCard-Hero.jpg')} className="img-responsive" alt={hero.name}/>
   }
   
   render(){
-    const { heroes, index, name } = this.props;
+    const { heroes, index, name, filter } = this.props;
     const fieldName = name;
+    const currentHero = this.getHero()
     
-    const Options = heroes.map((hero, index)=>{
+      
+    if(!currentHero)
+      return <div>Loading</div>
+    
+    const Options = heroes.filter((hero)=>{
+      if(filter)
+        return hero.set === filter || hero._id === currentHero._id
+      return true
+    })
+    .map((hero, index)=>{
       return (
         <option value={hero._id} key={hero._id}> {hero.name}</option>
       );
@@ -61,7 +71,6 @@ class HeroesDropdown extends React.Component {
       <div className="form-group">
         <label className="sr-only" htmlFor={fieldName} > Hero {index+1} </label>
           
-          {this.getHeroImage()}
           
           <div className="input-group">
             <span className="input-group-btn">
@@ -75,9 +84,9 @@ class HeroesDropdown extends React.Component {
               {Options}
             </Field>      
           </div>
-      
-        
-        
+          
+          {this.getHeroImage()}
+          
       </div>
     );  
   };

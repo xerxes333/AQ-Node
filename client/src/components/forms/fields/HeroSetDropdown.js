@@ -4,10 +4,6 @@ import { HeroSets } from '../../../CampaignData'
 
 class HeroSetDropdown extends React.Component {
 
-  handleChange(e,p){
-    console.log(e,p)
-  }
-  
   render(){
     
       const List = HeroSets.map((obj, index)=>{

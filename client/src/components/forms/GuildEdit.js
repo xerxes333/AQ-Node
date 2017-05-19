@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { browserHistory } from 'react-router';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { Field, FieldArray, reduxForm, arrayPush} from 'redux-form';
 import { fetchGuild, updateGuild } from '../../actions/guildActions'
 import { fetchCampaigns, updateCampaign } from '../../actions/campaignActions';
 
 import HeroesDropdown from './fields/HeroesDropdown';
 import ItemsDropdown from './fields/ItemsDropdown';
+import HeroSetDropdown from './fields/HeroSetDropdown'
+import ItemSetDropdown from './fields/ItemSetDropdown'
 
 function mapStateToProps(store) {
   return { 
@@ -30,7 +32,7 @@ const renderField = ({input, label, type, meta: { touched, error, warning } }) =
   );
 }
 
-const renderItems = ({ fields, meta: { error } }) => {
+const renderItems = ({ fields, filter, meta: { error } }) => {
   return (
     <ul className="list-unstyled">
       <li>
@@ -40,7 +42,7 @@ const renderItems = ({ fields, meta: { error } }) => {
       </li>
       {fields.map((item, index) =>
         <li key={index}>
-          <ItemsDropdown name={`${item}.id`} index={index} key={index} onClick={() => fields.remove(index)}/>
+          <ItemsDropdown name={`${item}.id`} index={index} key={index} itemId={fields.get(index).id} onClick={() => fields.remove(index)} filter={filter.items}/>
         </li>
       )}
       {error && <li className="error">{error}</li>}
@@ -48,7 +50,7 @@ const renderItems = ({ fields, meta: { error } }) => {
   )
 }
 
-const renderHeroes = ({ fields, form, meta: { touched, error } }) => {
+const renderHeroes = ({ fields, form, filter, meta: { touched, error } }) => {
   
   /* This part is pretty convoluted so here is whats going on:
    * We begin by reducing the fields into multiple chunks (arrays) that are
@@ -68,24 +70,16 @@ const renderHeroes = ({ fields, form, meta: { touched, error } }) => {
           var seq = i * HEROES_PER_ROW + j
           return (
             <div className="col-md-3" key={seq} >
-              <HeroesDropdown name={`${hero}.id`} index={seq} key={seq} removeHero={()=>{fields.remove(seq)}}/>
-              <FieldArray name={`${hero}.items`} component={renderItems} />
+              <HeroesDropdown name={`${hero}.id`} index={seq} key={seq} removeHero={()=>{fields.remove(seq)}} filter={filter.heroes}/>
+              <FieldArray name={`${hero}.items`} component={renderItems} filter={filter} />
             </div>
           )})
         }
       </div>
     ))
   
-  return <fieldset>
-    <legend>
-      Heroes
-      <button type="button" className="btn btn-success" disabled="" onClick={() => fields.push({})}>
-        <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Hero
-      </button>
-      {touched && error && <span>{error}</span>}
-    </legend>
-    {rows}
-  </fieldset>
+  return <div> {rows} </div>
+  
 };
 
 const validate = values => {
@@ -107,11 +101,25 @@ const validate = values => {
 class GuildEdit extends React.Component {
   
   constructor(props){
-    super(props);
+    super(props)
     this.state = {
       newGuild: false,
-      invitations: []
-    };
+      invitations: [],
+      filterHeroes: false,
+      filterItems: false,
+    }
+  }
+  
+  filterHeroSet(event) {
+    if(event.target.value === "" || !event.target.value)
+      this.setState({filterHeroes: false});
+    this.setState({filterHeroes: event.target.value})
+  }
+  
+  filterItemSet(event) {
+    if(!event.target.value)
+      this.setState({filterItems: false});
+    this.setState({filterItems: event.target.value});
   }
   
   componentWillMount() {
@@ -188,7 +196,10 @@ class GuildEdit extends React.Component {
     </div>
     
   }
-
+  
+  appendHero(){
+    this.props.dispatch(arrayPush('editGuild', 'heroes', {}))
+  }
   
   render() {
     
@@ -203,7 +214,9 @@ class GuildEdit extends React.Component {
     const imgName = (editGuildForm && editGuildForm.values.guildAnimal)?
       editGuildForm.values.guildAnimal.toLowerCase()
       : 'none'
-      
+    
+    // this.props.dispatch(arrayPush('editGuild', 'heroes', {}));
+    
     return (
       <div className="row">
         <div className="col-md-12 col-xs-12">
@@ -239,7 +252,30 @@ class GuildEdit extends React.Component {
               </div>
             </div>
             
-            <FieldArray name="heroes" component={renderHeroes} />
+            <FieldArray name="heroes" component={renderHeroes} filter={{heroes: this.state.filterHeroes, items: this.state.filterItems}}/>
+            
+            <div className="row">
+              <div className="col-md-12">
+                <div className="well">
+
+                  <div className="row">
+                    <div className="col-md-2">
+                      <button type="button" className="btn btn-success btn-block" onClick={ () => this.appendHero() }>
+                        <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Hero
+                      </button>
+                    </div>
+                    <div className="col-md-3">
+                      <HeroSetDropdown handleChange={this.filterHeroSet.bind(this)}/>
+                    </div>  
+                    <div className="col-md-3">
+                      <ItemSetDropdown handleChange={this.filterItemSet.bind(this)}/>
+                    </div>  
+                  </div>
+            
+                </div>
+              </div>
+            </div>
+
             
             <div className="row">
               <div className="col-md-12">

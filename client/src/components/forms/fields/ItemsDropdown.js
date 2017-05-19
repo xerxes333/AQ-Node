@@ -20,9 +20,14 @@ class ItemsDropdown extends React.Component {
   }
   
   render(){
-      const { items, name, input } = this.props;
+      const { items, name, input, filter, itemId } = this.props;
       
-      const Options = items.map((item, index)=>{
+      const Options = items.filter((item)=>{
+        if(filter)
+          return item.set === filter || item._id === itemId
+        return true
+      })
+      .map((item, index)=>{
         return (
           <option value={item._id} key={item._id}> {item.number} - {item.name}</option>
         );
