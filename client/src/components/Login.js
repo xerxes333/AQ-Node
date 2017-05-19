@@ -26,7 +26,9 @@ class Login extends React.Component {
     
     return (
         <div className="row">
-            <div className="col-md-6 col-md-offset-3 jumbotron">
+            <div className="col-md-6 col-md-offset-3">
+              <div className="jumbotron">
+              
                 <h2>Login</h2>
                 
                 <form action="" onSubmit={this.handleSubmit.bind(this)}>
@@ -51,6 +53,7 @@ class Login extends React.Component {
                 <br/>
                 Are you new here? <Link to={`/join`}>Join now!</Link>
                 
+              </div>
             </div>
         </div>
     )
