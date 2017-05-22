@@ -5,6 +5,7 @@ import { fetchGuild, fetchGuilds, updateGuild, deleteGuild } from '../actions/gu
 import GuildView from './GuildView'
 import GuildEdit from './forms/GuildEdit'
 import PrevNext from './PrevNext'
+import Loading from './Loading'
 
 function mapStateToProps(store) {
   return { 
@@ -55,6 +56,9 @@ class Guild extends React.Component {
   }
   
   render() {
+    
+    if(!this.props.guildFetched)
+      return <Loading title="Guilds"/>
     
     if(this.props.isEditing)
       return <div>
