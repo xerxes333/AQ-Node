@@ -13,8 +13,9 @@ function mapStateToProps(store) {
 class Nav extends Component {
 
   navLink(props){
+    var active = (this.props.pathname.indexOf(`${props.to}`) !== -1)? "active" : ""
     return (
-      <li>
+      <li className={active} >
         <Link to={props.to} className="hidden-xs" >{props.label}</Link>
         {(props.to === "logout")?
           <Link to={props.to} className="visible-xs" data-toggle="collapse" data-target=".navbar-collapse" onClick={(event) => this.props.dispatch(logoutUser()) }>{props.label}</Link>

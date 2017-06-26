@@ -369,3 +369,9 @@ div.campaign-generic{
     background-color: #DAA520;
     line-height: 2.2 !important;
 }
+
+.navbar-inverse .navbar-nav>.active>a, 
+.navbar-inverse .navbar-nav>.active>a:focus, 
+.navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: #337ab7;
+}
