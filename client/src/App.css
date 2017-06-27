@@ -374,4 +374,5 @@ div.campaign-generic{
 .navbar-inverse .navbar-nav>.active>a:focus, 
 .navbar-inverse .navbar-nav>.active>a:hover{
     background-color: #337ab7;
+    border-bottom: 3px solid orange;
 }
