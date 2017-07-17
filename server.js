@@ -58,3 +58,5 @@ app.get('/*', function (request, response){
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+module.exports = app
