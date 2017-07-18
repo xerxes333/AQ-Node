@@ -41,7 +41,7 @@ var guildsRouter    = require('./routes/guilds');
 var campaignsRouter = require('./routes/campaigns');
 
 // REGISTER OUR ROUTES -------------------------------
-// app.use('/api', helpRouter);
+app.use('/api', serverRouter);
 app.use('/api/help', helpRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
