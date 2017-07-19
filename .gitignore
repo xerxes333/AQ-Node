@@ -4,3 +4,4 @@ mongodOn
 mongodOff
 config.js
 /data
+/forever
