@@ -5,3 +5,5 @@ mongodOff
 config.js
 /data
 /forever
+/.forever
+/conf

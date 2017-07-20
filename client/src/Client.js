@@ -1,4 +1,5 @@
 const querystring = require('querystring');
+const URL = '//52.91.10.230:8080/'
 
 /* eslint-disable no-undef */
 function search(query, cb) {
@@ -10,7 +11,7 @@ function search(query, cb) {
     headers: { 'x-access-token': token }
   }
   
-  return fetch(`api/${query}`, config)
+  return fetch(`${URL}api/${query}`, config)
     .then(checkStatus)
     .then(parseJSON)
     .then(cb);

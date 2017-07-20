@@ -7,6 +7,13 @@ router.use(function(req, res, next) {
     console.log('============================================================');
     console.log('Something is happening in routes/server.js.');
     
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-Access-Token');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    
+    if('OPTIONS' === req.method)
+        res.send(200)
+    
     if(    (req.path == '/auth' && req.method == 'POST')
         || (req.path == '/users' && req.method == 'POST')
         || (req.path == '/users/init' && req.method == 'GET')
