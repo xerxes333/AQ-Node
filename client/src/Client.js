@@ -28,7 +28,7 @@ function searchCriteria(path, criteria, cb) {
   }
   var query = querystring.stringify(criteria);
   
-  return fetch(`api/${path}?${query}`, config)
+  return fetch(`${URL}api/${path}?${query}`, config)
     .then(checkStatus)
     .then(parseJSON)
     .then(cb);
@@ -46,7 +46,7 @@ function post(path, data, cb) {
     body: JSON.stringify(data)
   }
   
-  return fetch(`api/${path}`, config)
+  return fetch(`${URL}api/${path}`, config)
     .then(checkStatus)
     .then(parseJSON)
     .then(cb);
@@ -64,7 +64,7 @@ function put(path, data, cb) {
     body: JSON.stringify(data)
   }
   
-  return fetch(`api/${path}`, config)
+  return fetch(`${URL}api/${path}`, config)
     .then(checkStatus)
     .then(parseJSON)
     .then(cb);
@@ -81,14 +81,14 @@ function del(path, cb) {
     },
   }
   
-  return fetch(`api/${path}`, config)
+  return fetch(`${URL}api/${path}`, config)
     .then(checkStatus)
     .then(parseJSON)
     .then(cb);
 }
 
 function auth(config, cb) {
-  return fetch(`api/auth`, config)
+  return fetch(`${URL}api/auth`, config)
     .then(checkStatus)
     .then(parseJSON)
     .then(cb)
