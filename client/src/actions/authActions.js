@@ -26,7 +26,7 @@ export function loginUser(creds) {
         localStorage.setItem('token', data.token);
         dispatch({ type: LOGIN_SUCCESS, payload: data });
         dispatch(fetchUserProfile());
-        browserHistory.push('/');
+        browserHistory.push('/welcome');
       } else {
         dispatch({ type: LOGIN_FAILURE, payload: data });
       }

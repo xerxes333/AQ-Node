@@ -20,6 +20,8 @@ class Login extends React.Component {
     this.props.dispatch(loginUser(creds));
   }
   
+  // TODO: componentWillUnmount remove the errormessage
+  
   render() {
     
     const { errorMessage } = this.props.user
