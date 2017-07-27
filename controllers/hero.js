@@ -12,7 +12,7 @@ exports.getHeroes = function(req, res) {
             res.send(err);
 
         res.json(heroes);
-    });
+    }).sort({set_order:1, name:1});
 };
 
 
