@@ -38,7 +38,7 @@ exports.postAuth = function(req, res) {
                 createdAt: user.createdAt,
             };
             
-            var token = jwt.sign(safeInfo, config.secret, {expiresIn: '60 minutes'});
+            var token = jwt.sign(safeInfo, config.secret, {expiresIn: config.jwt_expiresIn});
             res.json({
                 success: true,
                 message: 'Enjoy your token!',
