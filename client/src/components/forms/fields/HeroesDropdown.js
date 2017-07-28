@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Field } from 'redux-form';
 
 import { fetchHeroes} from '../../../actions/heroActions';
+import GuildHeroInfo from '../../GuildHeroInfo';
 
 function mapStateToProps(store) {
   return { 
@@ -41,10 +42,15 @@ class HeroesDropdown extends React.Component {
     
     const hero = this.getHero();
     
-    if(hero && Object.getOwnPropertyNames(hero).length > 0 && hero.image !== "")
-      return  <img src={hero.image.replace(/^http?:/i, "")} className="img-responsive" alt={hero.name}/>
+    return <GuildHeroInfo 
+      hero={hero} 
+      isEditing={true} 
+      hasHero={(hero && Object.getOwnPropertyNames(hero).length > 0)}/>
     
-    return <img src={require('../../../../public/images/BlankCard-Hero.jpg')} className="img-responsive" alt={hero.name}/>
+    // if(hero && Object.getOwnPropertyNames(hero).length > 0 && hero.image !== "")
+    //   return  <img src={hero.image.replace(/^http?:/i, "")} className="img-responsive" alt={hero.name}/>
+    
+    // return <img src={require('../../../../public/images/BlankCard-Hero.jpg')} className="img-responsive" alt={hero.name}/>
   }
   
   render(){

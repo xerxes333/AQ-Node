@@ -1,4 +1,7 @@
 /* TODO: this needs to be cleaned up and organized, seriously! */
+
+@import url('https://fonts.googleapis.com/css?family=Exo');
+
 .App {
   text-align: center;
 }
@@ -205,6 +208,11 @@ table.hero-info th{
     background-color: #CCCCCC;
 }
 
+td.portrait-cell{
+    width: 90px;
+    vertical-align: top;
+}
+
 td img.hero-info-image-64{
     max-width:  64px;
 }
@@ -215,6 +223,35 @@ td img.hero-info-image-96{
 
 img.hero-info-image-128{
     max-width:  128px;
+}
+
+
+/********************
+*  Guild Hero Info  *
+*********************/
+table.guild-hero-info{
+    
+}
+
+table.guild-hero-info td.effect{
+    text-align: center;
+    font-family: 'Exo', sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    
+}
+
+table.guild-hero-info th{
+    text-align: center;
+    background-color: #d6d0bc;
+    font-size: 1.1em;
+    padding: 5px;
+    color: #aa2a0c;
+    border: 1px solid #917745;
+}
+
+table.guild-hero-info td{
+    padding: 10px 5px;
 }
 
 
@@ -295,6 +332,13 @@ div.icons .item-roll{
     left: -10px;
 }
 
+div.icons .hero-def{
+    color: #d75e00;
+}
+
+div.icons .hero-hp{
+    color: #3b2f5e;
+}
 
 
 .foo{

@@ -1,6 +1,6 @@
 import React from "react";
 
-// import CampaignHero from './CampaignHero';
+import GuildHeroInfo from './GuildHeroInfo';
 
 class GuildHero extends React.Component {
 
@@ -19,27 +19,13 @@ class GuildHero extends React.Component {
       
   render(){
       const hero = this.props.hero.hero_id;
-      // const items = this.props.hero.items;
-      var image = hero.image.replace(/^http?:/i, "");
       
-      // const Items = items.map((item, index)=>{
-      //   return (
-      //     <div className="col-md-6 col-xs-6 item-detail" key={index +'-'+ item._id}>
-      //       {item.number} {item.name} 
-      //       <img src={require('../../public/images/blank_melee.png')} className="img-responsive" alt={item.name} title={item.name}/>
-      //     </div>
-      //   );
-      // });
-      
+      if(!hero.icon) hero.icon = "none.png"
       
       return (
         <div className="col-md-3 hero-detail" >
         
-          <div className="row">
-            <div className="col-md-12">
-              <img src={image} className="img-responsive" alt={hero.name}/>
-            </div>
-          </div>
+          <GuildHeroInfo hero={hero} hasHero={(hero)}/>
           
           <div className="row">
             <div className="col-md-12">
