@@ -1,0 +1,58 @@
+[
+  {
+    "number": "D-00",
+    "name": "No Curse",
+    "set": "AQ",
+    "value": 0,
+    "description": "Nothing happens"
+  },
+  {
+    "number": "D-01",
+    "name": "Aquaphobia",
+    "set": "AQ",
+    "value": 1,
+    "description": "This hero cannot use Potion tokens."
+  },
+  {
+    "number": "D-02",
+    "name": "System Shock",
+    "set": "AQ",
+    "value": 2,
+    "description": "Occupies a card slot. No other effect."
+  },
+  {
+    "number": "D-03",
+    "name": "Nosebleed",
+    "set": "AQ",
+    "value": 3,
+    "description": "-1 Health"
+  },
+  {
+    "number": "D-04",
+    "name": "Amnesia",
+    "set": "AQ",
+    "value": 4,
+    "description": "Place on Hero card. This Hero loses his natural ability."
+  },
+  {
+    "number": "D-05",
+    "name": "Severe Nose Bleed",
+    "set": "AQ",
+    "value": 5,
+    "description": "Occupies a card slot. -1 Health"
+  },
+  {
+    "number": "D-06",
+    "name": "Accident Prone",
+    "set": "AQ",
+    "value": 6,
+    "description": "This Hero suffers 1 Wound if his attack deals no Wounds."
+  },
+  {
+    "number": "D-07",
+    "name": "Dazed and Confused",
+    "set": "AQ",
+    "value": 7,
+    "description": "If this Hero suffers at least 1 Wound"
+  }
+]

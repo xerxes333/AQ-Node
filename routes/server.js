@@ -21,6 +21,7 @@ router.use(function(req, res, next) {
         || (req.path == '/help')
         || (req.path == '/heroes' && req.method == 'GET')
         || (req.path == '/items' && req.method == 'GET')
+        || (req.path == '/curses' && req.method == 'GET')
     ) {
         next();
     } else {

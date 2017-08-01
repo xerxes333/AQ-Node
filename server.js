@@ -37,6 +37,7 @@ var authRouter      = require('./routes/auth');
 var usersRouter     = require('./routes/users');
 var heroesRouter    = require('./routes/heroes');
 var itemsRouter     = require('./routes/items');
+var cursesRouter     = require('./routes/curses');
 var guildsRouter    = require('./routes/guilds');
 var campaignsRouter = require('./routes/campaigns');
 
@@ -47,6 +48,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/heroes', heroesRouter);
 app.use('/api/items', itemsRouter);
+app.use('/api/curses', cursesRouter);
 app.use('/api/guilds', guildsRouter);
 app.use('/api/campaigns', campaignsRouter);
 
