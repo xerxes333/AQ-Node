@@ -27,13 +27,13 @@ class GuildHeroInfo extends React.Component {
                     <tr>
                       <td> 
                         <div className="icons">
-                          <img src={require('../../public/images/def.png')} className="img-responsive"/> 
+                          <img src={require('../../public/images/def.png')} className="img-responsive" alt="defense"/> 
                           <span className="hero-def">{hero.defense}</span>
                         </div>
                       </td>
                       <td> 
                         <div className="icons">
-                          <img src={require('../../public/images/hp.png')} className="img-responsive"/>
+                          <img src={require('../../public/images/hp.png')} className="img-responsive" alt="health"/>
                           <span className="hero-hp">{hero.health}</span>
                         </div>
                       </td>

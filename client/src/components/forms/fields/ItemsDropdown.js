@@ -38,7 +38,7 @@ class ItemsDropdown extends React.Component {
         <div className={`input-group`}>
           
           <span className="input-group-btn">
-            <button className="btn btn-danger" type="button" onClick={this.props.onClick}>
+            <button className="btn btn-danger btn-lg-remove" type="button" onClick={this.props.onClick}>
               <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
           </span>

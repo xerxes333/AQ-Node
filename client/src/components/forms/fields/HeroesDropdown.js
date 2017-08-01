@@ -80,7 +80,7 @@ class HeroesDropdown extends React.Component {
           
           <div className="input-group">
             <span className="input-group-btn">
-              <button className="btn btn-danger" type="button" onClick={this.props.removeHero}>
+              <button className="btn btn-danger btn-lg-remove" type="button" onClick={this.props.removeHero}>
                 <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </button>
             </span>

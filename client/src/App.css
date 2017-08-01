@@ -230,7 +230,7 @@ img.hero-info-image-128{
 *  Guild Hero Info  *
 *********************/
 table.guild-hero-info{
-    
+    background-color: #FFF;
 }
 
 table.guild-hero-info td.effect{
@@ -241,11 +241,12 @@ table.guild-hero-info td.effect{
     
 }
 
+
 table.guild-hero-info th{
     text-align: center;
     background-color: #d6d0bc;
-    font-size: 1.1em;
-    padding: 5px;
+    font-size: 1.5em;
+    padding: 2px;
     color: #aa2a0c;
     border: 1px solid #917745;
 }
@@ -254,6 +255,57 @@ table.guild-hero-info td{
     padding: 10px 5px;
 }
 
+.guild-controls{
+    margin-top: 20px;
+}
+
+@media (max-device-width: 480px) {
+    table.guild-hero-info td.effect{
+        font-size: 1.5em;
+    } 
+    
+    table.guild-hero-info th{
+        font-size: 2em;
+    }
+    
+    .form-control{
+        height: 46px;
+        font-size: 18px;
+        line-height: 1.33333;
+        padding: 10px 16px;
+        border-radius: 6px;
+    }
+    
+    .btn-lg-remove {
+    font-size: 18px;
+    line-height: 1.33333;
+    padding: 10px 16px;
+    border-radius: 6px;
+    }
+
+    .btn-add-hero, .btn-add-item {
+        margin-bottom: 15px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+        
+    }
+}
+
+.guild-hero-section{
+    margin-bottom: 10px;
+}
+
+.guild-hero-section > div:nth-child(odd){
+    background-color: #F5F5F5;
+}
+
+
+.guild-hero-info{
+    padding-top: 15px;
+    padding-bottom: 15px;
+} 
 
 /***********************
 *  Items Table Styles  *

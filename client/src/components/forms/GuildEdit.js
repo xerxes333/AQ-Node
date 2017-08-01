@@ -36,8 +36,8 @@ const renderItems = ({ fields, filter, meta: { error } }) => {
   return (
     <ul className="list-unstyled">
       <li>
-        <button type="button" className="btn btn-success btn-block" onClick={() => fields.push({})}>
-          <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Item
+        <button type="button" className="btn btn-success btn-block btn-add-item" onClick={() => fields.push({})}>
+          <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Item
         </button>
       </li>
       {fields.map((item, index) =>
@@ -65,11 +65,11 @@ const renderHeroes = ({ fields, form, filter, meta: { touched, error } }) => {
     return chunk;
   }, [])
   .map((chunk, i) => (
-      <div className="row" key={i}>
+      <div className="row guild-hero-section" key={i}>
         {chunk.map((hero, j) => {
           var seq = i * HEROES_PER_ROW + j
           return (
-            <div className="col-md-3" key={seq} >
+            <div className="col-md-3 guild-hero-info" key={seq} >
               <HeroesDropdown name={`${hero}.id`} index={seq} key={seq} removeHero={()=>{fields.remove(seq)}} filter={filter.heroes}/>
               <FieldArray name={`${hero}.items`} component={renderItems} filter={filter} />
             </div>
@@ -254,13 +254,13 @@ class GuildEdit extends React.Component {
             
             <FieldArray name="heroes" component={renderHeroes} filter={{heroes: this.state.filterHeroes, items: this.state.filterItems}}/>
             
-            <div className="row">
+            <div className="row guild-controls"> 
               <div className="col-md-12">
                 <div className="well">
 
                   <div className="row">
                     <div className="col-md-2">
-                      <button type="button" className="btn btn-success btn-block" onClick={ () => this.appendHero() }>
+                      <button type="button" className="btn btn-success btn-block btn-add-hero" onClick={ () => this.appendHero() }>
                         <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Hero
                       </button>
                     </div>
