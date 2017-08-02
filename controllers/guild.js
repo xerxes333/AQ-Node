@@ -43,6 +43,7 @@ exports.postGuilds = function(req, res) {
           guild: guild.populate('user_id', '_id, name')
             .populate('heroes.hero_id')
             .populate('heroes.items')
+            .populate('heroes.curses')
         });
       });
       
@@ -85,7 +86,8 @@ exports.getGuild = function(req, res) {
   .populate('user_id', '_id name')
   .populate('campaign', '_id name created_by players guilds')
   .populate('heroes.hero_id')
-  .populate('heroes.items');
+  .populate('heroes.items')
+  .populate('heroes.curses');
 };
 
 
@@ -106,6 +108,7 @@ exports.putGuild = function(req, res) {
     guild.description = req.body.description || guild.description;
     guild.heroes = req.body.heroes || guild.heroes;
     guild.type = req.body.type || guild.type;
+    guild.coin = req.body.coin || guild.coin;
     
     // If we are removing our campaignguild from the guild unset the campaign
     guild.campaign = (req.body.campaign === 'LEAVE')? undefined : req.body.campaign || guild.campaign
@@ -122,6 +125,7 @@ exports.putGuild = function(req, res) {
         { path: 'campaign', select: '_id name created_by players guilds' },
         { path: 'heroes.hero_id'},
         { path: 'heroes.items'},
+        { path: 'heroes.curses'},
       ]
       
       // I dont think I should be doing this here like this but it seems to work OK  ¯\_(ツ)_/¯

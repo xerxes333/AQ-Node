@@ -9,11 +9,15 @@ var GuildSchema   = new Schema({
     type: String,
     code: String,
     campaign: { type : Schema.ObjectId, ref: 'Campaign' },
+    coin: Boolean,
     heroes: [{
         _id: false,
         hero_id: {type : Schema.ObjectId, ref: 'Hero'},
         items: [
             {type : Schema.ObjectId, ref: 'Item'},
+        ],
+        curses: [
+            {type : Schema.ObjectId, ref: 'Curse'},
         ]
     }],
     
@@ -61,6 +65,13 @@ GuildSchema.methods.getItems = function getItems(hero_id, callback) {
         return hero.hero_id == hero_id;
     });
     return hero.items;
+}
+
+GuildSchema.methods.getCurses = function getCurses(hero_id, callback) {
+    var hero = this.heroes.find(function(hero){
+        return hero.hero_id == hero_id;
+    });
+    return hero.curses;
 }
 
 module.exports = mongoose.model('Guild', GuildSchema);
