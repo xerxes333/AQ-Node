@@ -14,13 +14,15 @@ class GuildHeroInfo extends React.Component {
             {hasHero && 
             <table className="table table-bordered guild-hero-info">
             
-              {!isEditing && <tr> <th colSpan="2"> {hero.name} </th> </tr> }
+              {!isEditing && <thead><tr><th colSpan="2">{hero.name}</th></tr></thead> }
               
+              <tbody>
               <tr>
                 <td className="effect">{hero.effect}</td>
                 <td className="portrait-cell">
                   
                   <table className="guild-hero-portrait">
+                    <tbody>
                     <tr>
                       <td colSpan="2"> <img src={`images/heroes/icons/${hero.icon}`} className="img-responsive" alt={hero.name} style={{margin: "auto"}}/> </td>
                     </tr>
@@ -38,10 +40,13 @@ class GuildHeroInfo extends React.Component {
                         </div>
                       </td>
                     </tr>
+                    </tbody>
                   </table>
             
                 </td>
               </tr>
+              </tbody>
+              
             </table>
             }
             

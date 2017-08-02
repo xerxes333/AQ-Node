@@ -54,6 +54,9 @@ class GuildView extends React.Component {
               <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive guild-name-icon" alt="logo" />
               {guild.name}
               <small> {guild.description} </small>
+              
+              {guild.coin && <img src={require(`../../public/images/item-card-price.png`)} className="img-responsive pull-right" alt="coin" style={{maxWidth: "48px", display: "inline"}} />}
+              
               <button type="button" className="btn btn-primary" onClick={() => this.toggleEditing() } >Edit</button>
               {guild.campaign && 
                 <span className="pull-right small">

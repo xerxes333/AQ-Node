@@ -7,6 +7,7 @@ import { fetchCampaigns, updateCampaign } from '../../actions/campaignActions';
 
 import HeroesDropdown from './fields/HeroesDropdown';
 import ItemsDropdown from './fields/ItemsDropdown';
+import CursesDropdown from './fields/CursesDropdown';
 import HeroSetDropdown from './fields/HeroSetDropdown'
 import ItemSetDropdown from './fields/ItemSetDropdown'
 
@@ -32,6 +33,29 @@ const renderField = ({input, label, type, meta: { touched, error, warning } }) =
   );
 }
 
+const renderFieldGuildAnimal = ({input, label, type, meta: { touched, error, warning } }) => {
+  
+  const animals = ["Lion","Panda","Fox","Eagle","Tiger","Crow","Serpent","Shark"] // TODO: move this to backend DB
+  const hasError = touched && error ? "has-error" : "";
+  const imgName = (input.value)? input.value.toLowerCase() : 'none'
+  
+  return (
+    <div className={`form-group ${hasError}`}>
+      <label className="control-label"> Logo </label>
+      <div className="input-group">
+        <Field name="guildAnimal" component="select" className="form-control" >
+          <option value="">-- Select --</option>
+          {animals.map( (animal, index) => {return <option value={animal} key={index} > {animal} </option>} )}
+        </Field>
+        <span className="input-group-addon guild-icon-addon">
+          <img src={require(`../../../public/images/guilds/${imgName}.png`)} className="img-responsive guild-name-icon-32" alt="logo"/>
+        </span>
+      </div>
+      {touched && ((error && <span className="help-block">{error}</span>) || (warning && <span>{warning}</span>))}
+    </div>              
+  );
+}
+
 const renderItems = ({ fields, filter, meta: { error } }) => {
   return (
     <ul className="list-unstyled">
@@ -40,12 +64,32 @@ const renderItems = ({ fields, filter, meta: { error } }) => {
           <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Item
         </button>
       </li>
+      
       {fields.map((item, index) =>
         <li key={index}>
           <ItemsDropdown name={`${item}.id`} index={index} key={index} itemId={fields.get(index).id} onClick={() => fields.remove(index)} filter={filter.items}/>
         </li>
       )}
       {error && <li className="error">{error}</li>}
+    </ul>
+  )
+}
+
+const renderCurses = ({ fields, filter, meta: { error } }) => {
+  return (
+    <ul className="list-unstyled">
+      <li>
+        <button type="button" className="btn btn-curse btn-block btn-add-item" onClick={() => fields.push({})}>
+          <span className="glyphicon glyphicon-flash" aria-hidden="true"></span> Add Curse
+        </button>
+      </li>
+      {fields.map((curse, index) =>
+        <li key={index}>
+          <CursesDropdown name={`${curse}.id`} index={index} key={index} curseId={fields.get(index).id} onClick={() => fields.remove(index)} filter={filter.items}/>
+        </li>
+      )}
+      {error && <li className="error">{error}</li>}
+      
     </ul>
   )
 }
@@ -72,6 +116,7 @@ const renderHeroes = ({ fields, form, filter, meta: { touched, error } }) => {
             <div className="col-md-3 guild-hero-info" key={seq} >
               <HeroesDropdown name={`${hero}.id`} index={seq} key={seq} removeHero={()=>{fields.remove(seq)}} filter={filter.heroes}/>
               <FieldArray name={`${hero}.items`} component={renderItems} filter={filter} />
+              <FieldArray name={`${hero}.curses`} component={renderCurses} filter={filter} />
             </div>
           )})
         }
@@ -91,9 +136,9 @@ const validate = values => {
     errors.guildName = 'Must be 30 characters or less'
   }
   
-  // if (!values.guildAnimal || values.guildAnimal === "") {
-  //   errors.guildAnimal = 'Required'
-  // }
+  if (!values.guildAnimal || values.guildAnimal === "") {
+    errors.guildAnimal = 'Required'
+  }
   
   return errors
 }
@@ -151,16 +196,21 @@ class GuildEdit extends React.Component {
 
   initializeForm(){
     const guild = this.props.guild
+    
     return {
       guildAnimal: guild.type,
       guildName: guild.name,
       guildDescription: guild.description,
+      guildCoin: guild.coin ? 1 : 0,
       heroes: guild.heroes.map((hero) => {
         return {
           id: hero.hero_id._id,
           items: hero.items.map((item) => {
             return {id: item._id}
-          })
+          }),
+          curses: (hero.curses)? hero.curses.map((curse) => {
+            return {id: curse._id}
+          }) : []
         }
       })
     }
@@ -204,7 +254,6 @@ class GuildEdit extends React.Component {
   render() {
     
     const { handleSubmit, onDelete, editGuildForm } = this.props;
-    const animals = ["Lion","Panda","Fox","Eagle","Tiger","Crow","Serpent","Shark"] // TODO: move this to backend DB
     
     // validation rules
     // const required = value => value ? undefined : 'Required'
@@ -223,36 +272,39 @@ class GuildEdit extends React.Component {
         
           <form onSubmit={handleSubmit}>  
             <div className="row">
+            
               <div className="col-md-2">
-                <div className="form-group">
-                  <label > Logo </label>
-                  <div className="input-group">
-                    <Field name="guildAnimal" component="select" className="form-control" >
-                      <option value="">-- Select --</option>
-                      {animals.map( (animal, index) => {return <option value={animal} key={index} > {animal} </option>} )}
-                    </Field>
-                    <span className="input-group-addon guild-icon-addon">
-                      <img src={require('../../../public/images/guilds/'+ imgName +'.png')} className="img-responsive guild-name-icon-32" alt="logo"/>
-                    </span>
-                    
-                  </div>
-                </div>
+                <Field name="guildAnimal" type="text" component={renderFieldGuildAnimal} label="Logo" imgName={imgName} />
               </div>
-              <div className="col-md-4">
+              
+              <div className="col-md-3">
                 <Field name="guildName" type="text" component={renderField} label="Name" />
               </div>
+              
               <div className="col-md-4">
                 <div className="form-group">
                   <label htmlFor="guildDescription">Description</label>
                   <Field name="guildDescription"  component="input" type="text" className="form-control" />
                 </div>
               </div>
+              
               <div className="col-md-2">
                 {this.renderCampaignField()}
               </div>
+              
+              <div className="col-md-1">
+                <div className="form-group">
+                  <label htmlFor="guildCoin">Coin</label>
+                  <Field name="guildCoin" component="select" className="form-control">
+                    <option />
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </Field>
+                </div>
+              </div>
             </div>
             
-            <FieldArray name="heroes" component={renderHeroes} filter={{heroes: this.state.filterHeroes, items: this.state.filterItems}}/>
+            <FieldArray name="heroes" component={renderHeroes} filter={{heroes: this.state.filterHeroes, items: this.state.filterItems, curses: this.state.filterItems}}/>
             
             <div className="row guild-controls"> 
               <div className="col-md-12">

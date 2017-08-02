@@ -44,6 +44,8 @@ function parseGuildData(data){
     obj.code = data.guildCamapignCode
   if(data.campaign)
     obj.campaign = data.campaign
+  if(data.guildCoin)
+    obj.coin = data.guildCoin
   if(data.heroes)
     obj.heroes = data.heroes.filter((hero) => {
       return (hero && hero.id) ? hero : null
@@ -58,6 +60,12 @@ function parseGuildData(data){
         })
         .map((item) => {
           return item.id
+        }),
+        curses: hero.curses.filter((curse)=>{
+          return (curse && curse.id) ? curse : null
+        })
+        .map((curse) => {
+          return curse.id
         })
       }
     })
