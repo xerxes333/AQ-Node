@@ -46,6 +46,10 @@
 }
 
 img.guild-name-icon{
+    margin-right: 5px;
+}
+
+img.guild-name-icon-64{
    max-width:  64px;
    max-height: 64px;
    display: inline-block;
@@ -555,4 +559,17 @@ div.campaign-generic{
 .navbar-inverse .navbar-nav>.active>a:hover{
     background-color: #337ab7;
     border-bottom: 3px solid orange;
+}
+
+.label-core {
+    background-color: #2a6bcb;
+}
+.label-btg {
+    background-color: #9b479f;
+}
+.label-inferno {
+    background-color: #d9391f;
+}
+.label-pets {
+    background-color: #57aa29;
 }

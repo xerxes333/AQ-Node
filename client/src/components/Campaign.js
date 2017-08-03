@@ -96,6 +96,17 @@ class Campaign extends React.Component {
     }
     return {}
   }
+  
+  logoImage(exp = "Core", size = "32"){
+    
+    const obj = {
+      "Core":             "core",
+      "Beyond The Grave": "btg",
+      "Inferno":          "inferno",
+      "Pets":             "pets",
+    }
+    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`img-responsive guild-name-icon guild-name-icon-${size}`} alt="logo"/>
+  }
 
   render() {
     
@@ -148,7 +159,7 @@ class Campaign extends React.Component {
         <div className="row">
           <div className="col-md-12">
             <h2>
-              <img src={require('../../public/images/logo-arcadia-quest.png')} className="img-responsive guild-name-icon" alt="logo"/>
+              {this.logoImage(campaign.expansion, 64)}
               {campaign.name} 
               <small> {campaign.description} </small>
             </h2>

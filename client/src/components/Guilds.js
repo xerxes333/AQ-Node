@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, browserHistory } from 'react-router';
 import { connect } from "react-redux";
+var dateFormat = require('dateformat');
 
 import { fetchGuilds } from '../actions/guildActions';
 import Loading from './Loading'
@@ -43,7 +44,7 @@ class Guilds extends React.Component {
               }
             </td>
             <td>{guild.description}</td>
-            <td>{guild.createdAt}</td>
+            <td>{dateFormat(guild.createdAt, "dd mmm yyyy")}</td>
             <td>
               <Link to={`/guilds/${guild._id}`}>
                 <span className="glyphicon glyphicon-search"></span>

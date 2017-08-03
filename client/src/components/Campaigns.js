@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, browserHistory  } from 'react-router';
 import { connect } from "react-redux";
+var dateFormat = require('dateformat');
 
 import { fetchCampaigns } from '../actions/campaignActions';
 import Loading from './Loading'
@@ -22,6 +23,20 @@ class Campaigns extends React.Component {
     browserHistory.push(`/campaigns/${id}`);
   }
   
+  expansionLabel(exp = "Core", pull = ""){
+    
+    const obj = {
+      "Core":             "core",
+      "Beyond The Grave": "btg",
+      "Inferno":          "inferno",
+      "Pets":             "pets",
+    }
+    
+    return <span className={`label label-${obj[exp]} ${pull}`}>{exp}</span>
+  }
+  
+  
+  
   render() {
     
     const { campaignsFetched, campaigns } = this.props
@@ -29,16 +44,17 @@ class Campaigns extends React.Component {
     if(!campaignsFetched)
      return <Loading title="Campaigns"/>
     
+  
     const CampaignRows = (!campaigns.length)? 
       <tr><td colSpan="4">No Campaigns</td></tr> : 
       campaigns.map((campaign)=>{
         return <tr key={campaign._id}>
           <td>
-            <img src={require('../../public/images/logo-arcadia-quest.png')} className="img-responsive guild-name-icon-32" alt="logo"/>
             {campaign.name}
           </td>
+          <td>{this.expansionLabel(campaign.expansion)}</td>
           <td>{campaign.description}</td>
-          <td>{campaign.createdAt}</td>
+          <td>{dateFormat(campaign.createdAt, "dd mmm yyyy")}</td>
           <td>
             <Link to={`/campaigns/${campaign._id}`}>
               <span className="glyphicon glyphicon-search"></span>
@@ -52,8 +68,8 @@ class Campaigns extends React.Component {
       campaigns.map((campaign)=>{
         return <tr key={campaign._id} onClick={() => this.rowClicked(campaign._id)}>
           <td>
-            <img src={require('../../public/images/logo-arcadia-quest.png')} className="img-responsive guild-name-icon-48" alt="logo"/>
             {campaign.name}
+            {this.expansionLabel(campaign.expansion, "pull-right")}
           </td>
         </tr>
       });
@@ -79,6 +95,7 @@ class Campaigns extends React.Component {
             <thead>
               <tr>
                 <td>Name</td>
+                <td>Expansion</td>
                 <td>Description</td>
                 <td>Created</td>
                 <td>View</td>
