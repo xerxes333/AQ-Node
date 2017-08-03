@@ -181,6 +181,48 @@ div.campaign-guild-user{
    border-color: #c24130;
 }
 
+
+.campaign-guild-Tiger .hero-row .hero-name{
+    background-color: #ffd25d;
+    color: white;
+}
+.campaign-guild-Tiger .item-table, 
+.campaign-guild-Tiger .item-table td,
+.campaign-guild-Tiger .item-table th{
+   border-color: #ffd25d;
+}
+
+.campaign-guild-Crow .hero-row .hero-name{
+    background-color: #75777a;
+    color: white;
+}
+.campaign-guild-Crow .item-table, 
+.campaign-guild-Crow .item-table td,
+.campaign-guild-Crow .item-table th{
+   border-color: #75777a;
+}
+
+.campaign-guild-Shark .hero-row .hero-name{
+    background-color: #00a3ac;
+    color: white;
+}
+.campaign-guild-Shark .item-table, 
+.campaign-guild-Shark .item-table td,
+.campaign-guild-Shark .item-table th{
+   border-color: #00a3ac;
+}
+
+.campaign-guild-Serpent .hero-row .hero-name{
+    background-color: #5d2d88;
+    color: white;
+}
+.campaign-guild-Serpent .item-table, 
+.campaign-guild-Serpent .item-table td,
+.campaign-guild-Serpent .item-table th{
+   border-color: #5d2d88;
+}
+
+
 .hero-detail{
     margin-bottom: 10px;
 }
@@ -231,6 +273,7 @@ img.hero-info-image-128{
 *********************/
 table.guild-hero-info{
     background-color: #FFF;
+    height: 220px;
 }
 
 table.guild-hero-info td.effect{
@@ -336,12 +379,14 @@ table.guild-hero-curses th{
     text-align:  center;
     background-color: #464545;
     color: #FFF;
+    border: 1px solid #222 !important;
 }
 
 table.guild-hero-items th{
     text-align:  center;
     background-color: #5cb85c;
     color: #FFF;
+    border: 1px solid #4cae4c !important;
 }
 
 
