@@ -5,6 +5,7 @@
 // Load required packages
 var Campaign = require('../models/campaign');
 var Guild = require('../models/guild');
+var shortid = require('shortid');
 
 /**
 * Creates a new campaign. The method assumes that the json supplied in the request
@@ -18,7 +19,10 @@ exports.postCampaigns = function(req, res) {
     campaign.description = req.body.description;
     campaign.players = [req.decoded._id];
     // campaign.guilds = req.body.guilds;
+    campaign.expansion = req.body.expansion;
     campaign.log = req.body.log;
+    campaign.code = shortid.generate();
+    
     
     if(req.body.players){
         var friends = req.body.players.filter( function( friend, index, ret ) {

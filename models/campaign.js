@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var shortid = require('shortid');
 var Schema = mongoose.Schema;
 
 const GUILD_LIMIT = 4;
@@ -8,7 +7,7 @@ var CampaignSchema   = new Schema({
     name: { type: String, required: true },
     created_by: { type : Schema.ObjectId, ref: 'User', required: true },
     description: String,
-    code: { type: String, default: shortid.generate(), unique: true},
+    code: { type: String, unique: true},
     expansion: { type: String, default: "Core"},
     players: {
         type: [{type: Schema.ObjectId, ref: 'User'}],
