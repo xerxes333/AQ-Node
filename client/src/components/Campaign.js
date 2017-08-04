@@ -216,9 +216,6 @@ class Campaign extends React.Component {
   }
 }
 
-Campaign.isMobileViewport
-
-
 Campaign.defaultProps = {
   isSmall: false,
 };

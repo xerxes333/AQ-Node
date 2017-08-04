@@ -168,14 +168,13 @@ class CampaignLogSmall extends React.Component {
         </tbody>
       </table>
       
-       { editLogEntry.length > 0 &&
-        <div>
-          <button type="submit" className="btn btn-primary">Save</button>
-          <button type="button" className="btn btn-warning" onClick={ () => this.cancel() } >Cancel</button>
+      <div className="row">
+        <div className="col-md-12 campaign-log-controls text-center">
+          { editLogEntry.length > 0 && <button type="submit" className="btn btn-primary">Save</button> }
+          { editLogEntry.length > 0 &&  <button type="button" className="btn btn-warning" onClick={ () => this.cancel() } >Cancel</button>}
+          { onDelete && <button type="button" className="btn btn-danger" onClick={onDelete} >Delete</button> }
         </div>
-      }
-      
-      { onDelete && <button type="button" className="btn btn-danger" onClick={onDelete} >Delete</button> }
+      </div>
       
     </form>
 

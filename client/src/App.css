@@ -588,6 +588,10 @@ div.campaign-generic{
     margin-bottom: 10px;
 }
 
+.campaign-log-controls button{
+    margin-right: 10px;
+}
+
 @media (max-device-width: 480px) {
     .text-center-xs{
         text-align: center;
