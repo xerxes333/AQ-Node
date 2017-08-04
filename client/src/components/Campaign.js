@@ -40,6 +40,7 @@ function getPlayerGuild(pid, guilds){
 class Campaign extends React.Component {
   
   componentWillMount() {
+    this.isSmall = window.innerWidth < 768
     if(this.props.campaigns.length === 0)
       this.props.dispatch(fetchCampaigns());
     this.props.dispatch(fetchCampaign(this.props.params.id));
@@ -155,18 +156,29 @@ class Campaign extends React.Component {
     // TODO: seperate each tab into its own component 
     return (
       <div>
-      
-        <div className="row">
+        
+        <div className="row" style={{marginBottom: "10px"}}>
           <div className="col-md-12">
-            <h2>
-              {this.logoImage(campaign.expansion, 64)}
-              {campaign.name} 
-              <small> {campaign.description} </small>
-            </h2>
-            <h4>Share Code: <span className="label label-primary"><samp>{campaign.code}</samp></span></h4>
+        
+            <div className="row">
+              <div className="col-md-1 text-center">
+                {this.logoImage(campaign.expansion, (this.isSmall)? 128 : 64)}
+              </div>
+              <div className="col-md-9 text-center-xs">
+                <h2>
+                  {campaign.name}
+                  <small className="hidden-xs"> {campaign.description} </small>
+                </h2>
+              </div>
+              <div className="col-md-2 text-center">
+                <h4>Share Code:</h4>
+                <span className="label label-primary" style={{fontSize: "1.5em"}}><samp>{campaign.code}</samp></span>
+              </div>
+            </div>
+        
           </div>
         </div>
-        
+
         <div className="row">
           <div className="col-md-12">
           
@@ -177,7 +189,7 @@ class Campaign extends React.Component {
           
             <div className="tab-content">
               <div role="tabpanel" className="tab-pane active" id="log">
-                { (window.innerWidth < 768)? 
+                { (this.isSmall)? 
                   <CampaignLogSmall
                     onSubmit={this.handleSubmit.bind(this)} 
                     onDelete={this.handleDelete.bind(this)}
@@ -203,5 +215,12 @@ class Campaign extends React.Component {
     
   }
 }
+
+Campaign.isMobileViewport
+
+
+Campaign.defaultProps = {
+  isSmall: false,
+};
 
 export default connect(mapStateToProps)(Campaign);

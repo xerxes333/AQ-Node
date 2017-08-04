@@ -38,7 +38,7 @@ class CampaignGuild extends React.Component {
         <div className={guildClasses} key={guild._id}>
           <div className="row">
             <div className="col-md-3">
-              <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive" alt="logo" />
+              <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive guild-name-icon guild-name-icon-64" alt="logo" />
             </div>
             <div className="col-md-9">
               <div className="campaign-guild-name">{guild.name}</div>

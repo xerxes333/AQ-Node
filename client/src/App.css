@@ -49,6 +49,12 @@ img.guild-name-icon{
     margin-right: 5px;
 }
 
+img.guild-name-icon-128{
+   max-width:  128px;
+   max-height: 128px;
+   display: inline-block;
+}
+
 img.guild-name-icon-64{
    max-width:  64px;
    max-height: 64px;
@@ -573,3 +579,18 @@ div.campaign-generic{
 .label-pets {
     background-color: #57aa29;
 }
+
+#guilds.tab-pane{
+    margin-top: 10px;
+}
+
+.campaign-grid{
+    margin-bottom: 10px;
+}
+
+@media (max-device-width: 480px) {
+    .text-center-xs{
+        text-align: center;
+    }
+}
+

@@ -45,21 +45,21 @@ class InviteFriends extends React.Component {
     const filteredFriends = this.filterFriends();
     
     if(pending)
-      return <div className="col-md-3">
+      return <div className="col-md-3 campaign-grid">
         <div className="campaign-generic">
           Waiting for <span className="text-primary">{name}</span> to add a guild
         </div>
       </div>
       
     if(!filteredFriends || !filteredFriends.length || filteredFriends.length <= index)
-      return <div className="col-md-3">
+      return <div className="col-md-3 campaign-grid">
         <div className="campaign-generic">
           Awww, you don't have any available friends! Use the <span className="text-primary">Share Code</span> to invite other players.
         </div>
       </div>
       
     return (
-      <div className="col-md-3 text-center">
+      <div className="col-md-3 campaign-grid text-center">
         <InviteFriend friends={filteredFriends} index={index} onSubmit={this.handleSubmit} />
       </div>
     );
