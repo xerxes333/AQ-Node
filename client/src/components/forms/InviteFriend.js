@@ -22,7 +22,7 @@ class InviteFriend extends React.Component {
           <label htmlFor={`friends[${index}]`} > Invite your Friend! </label>
           <FriendDropdown friends={friends} index={index}/>
         </div>
-        <button type="submit" className="btn btn-primary" >Invite</button>
+        <button type="submit" className="btn btn-primary btn-block btn-lg" >Invite</button>
         
       </form>
     );

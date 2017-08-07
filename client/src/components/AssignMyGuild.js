@@ -34,16 +34,16 @@ class AssignMyGuild extends React.Component {
   
   render(){
     const { availableGuilds, guild, guildFetched, form } = this.props;
-    const foo = (guildFetched && form.values !== undefined) ? <CampaignGuild guild={guild} isPreview="1" /> : <div> Choose one of your guilds! </div> ;
+    const foo = (guildFetched && form.values !== undefined) ? <CampaignGuild guild={guild} isPreview="1" /> : null ;
     
     if(!availableGuilds.length)
-      return <div className="col-md-3 text-center">
+      return <div className="col-md-3 text-center assign-my-guild">
         <br />
         <h4>You have no free guilds available</h4>
         <a className="btn btn-success btn-block" href="/guilds/new" role="button">Create Guild</a>
       </div>
       
-    return <div className="col-md-3 text-center">
+    return <div className="col-md-3 text-center assign-my-guild">
         <AvailableGuilds guilds={availableGuilds} onSubmit={this.handleSubmit} />
         {foo}
       </div>

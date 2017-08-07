@@ -130,14 +130,22 @@ class CampaignLogSmall extends React.Component {
         title  = entry.hasOwnProperty('title') && <PlayersDropdown players={campaign.players} name={`log[${index}].title`}/>
       }
     
-      return <table className="table table-striped table-condensed" key={index}>
+      return <table className="table table-striped table-condensed campaign-log-small" key={index}>
         <thead>
           <tr>
             <th className={`core-${entry.level}`} colSpan="2">
-              {entry.location}
-              <button className={`btn btn-${glyph} btn-sm pull-right`} type="button" onClick={ () => this.toggleEdit(index) } >
-                <span className={`glyphicon glyphicon-pencil`} aria-hidden="true"></span>
-              </button>
+              <div className="row">
+                <div className="col-xs-9 text-center location">
+                  <div>{entry.location}</div>
+                </div>
+                <div className="col-xs-3">
+                  <button className={`btn btn-${glyph} btn-lg pull-right`} type="button" onClick={ () => this.toggleEdit(index) } >
+                    <span className={`glyphicon glyphicon-pencil`} aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              
+              
             </th>
           </tr>
         </thead>
@@ -155,9 +163,9 @@ class CampaignLogSmall extends React.Component {
       <br/>
       {renderCampaignLog}
       
-      <table className="table table-striped table-condensed">
+      <table className="table table-striped table-condensed campaign-log-small">
         <thead>
-          <tr><th className="core-medal" colSpan="2">Medal Winner</th></tr>
+          <tr><th className="core-medal text-center location" colSpan="2">Medal Winner</th></tr>
         </thead>
         <tbody>
           <tr><td>Winner</td><td>{this.calcMedalWinner('winner')}</td></tr>

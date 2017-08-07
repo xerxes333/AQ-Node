@@ -37,17 +37,17 @@ class CampaignGuild extends React.Component {
       return (
         <div className={guildClasses} key={guild._id}>
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-xs-3">
               <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive guild-name-icon guild-name-icon-64" alt="logo" />
             </div>
-            <div className="col-md-9">
+            <div className="col-xs-9">
               <div className="campaign-guild-name">{guild.name}</div>
               <div className="campaign-guild-user">{guild.user_id.name}</div>
             </div>
           </div>
           {HeroRows}
           {(user._id === campaign.created_by) && !isPreview && 
-            <button type="button" className="btn btn-danger" onClick={ () => this.kick() }>Kick</button>
+            <button type="button" className="btn btn-danger btn-block btn-lg" onClick={ () => this.kick() }>{(guild.user_id._id === user._id)? "Leave" : "Kick"}</button>
           }
           
         </div>

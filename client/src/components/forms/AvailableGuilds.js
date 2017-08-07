@@ -26,7 +26,7 @@ class AvailableGuilds extends React.Component {
           <label htmlFor="guild" > Add My Guild </label>
           <GuildsDropdown guilds={this.props.guilds} index={1} onChange={ (event)=>{this.handleChange(event, this.props)} }/>
         </div>
-        <button type="submit" className="btn btn-success btn-block" >Add</button>
+        <button type="submit" className="btn btn-success btn-block btn-lg" >Add</button>
         
       </form>
     );

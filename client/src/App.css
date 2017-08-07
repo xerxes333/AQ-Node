@@ -592,9 +592,19 @@ div.campaign-generic{
     margin-right: 10px;
 }
 
+.assign-my-guild{
+    margin-bottom: 20px;
+}
+
+.campaign-log-small .location{
+    font-size: 1.5em;
+    line-height: 1;
+}
+
 @media (max-device-width: 480px) {
     .text-center-xs{
         text-align: center;
     }
 }
+
 
