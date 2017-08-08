@@ -299,7 +299,7 @@ table.guild-hero-info th{
     text-align: center;
     background-color: #d6d0bc;
     font-size: 1.5em;
-    padding: 2px;
+    padding: 2px !important;
     color: #aa2a0c;
     border: 1px solid #917745;
 }
@@ -312,6 +312,18 @@ table.guild-hero-info td{
     margin-top: 20px;
 }
 
+div.guild-info-edit{
+    
+}
+
+div.guild-info-edit .btn-leave-campaign{
+    margin-top: 25px;
+}
+
+div.guild-edit-buttons button{
+    margin: 5px;
+}
+
 @media (max-device-width: 480px) {
     table.guild-hero-info td.effect{
         font-size: 1.5em;
@@ -319,6 +331,15 @@ table.guild-hero-info td{
     
     table.guild-hero-info th{
         font-size: 2em;
+    }
+    
+    div.guild-info-edit .btn-leave-campaign{
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-size: 18px;
+        line-height: 1.33333;
+        padding: 10px 16px;
+        border-radius: 6px;
     }
     
     .form-control{
@@ -330,10 +351,10 @@ table.guild-hero-info td{
     }
     
     .btn-lg-remove {
-    font-size: 18px;
-    line-height: 1.33333;
-    padding: 10px 16px;
-    border-radius: 6px;
+        font-size: 18px;
+        line-height: 1.33333;
+        padding: 10px 16px;
+        border-radius: 6px;
     }
 
     .btn-add-hero, .btn-add-item {
@@ -343,6 +364,10 @@ table.guild-hero-info td{
         line-height: 1.3333333;
         border-radius: 6px;
         
+    }
+    
+    .guild-edit-buttons{
+        text-align: center;
     }
 }
 
@@ -601,9 +626,47 @@ div.campaign-generic{
     line-height: 1;
 }
 
+div.guild-info h2{
+    margin-top: 20px;
+}
+
+div.guild-info .guild-info-top-pad{
+    padding-top: 20px;
+}
+
+img.guild-has-coin{
+    width: 32px;
+    display: inline;
+    margin: 0px 5px;
+}
+
+
+.btn-mobile span.glyphicon{
+    padding-right: 5px;
+}
+    
 @media (max-device-width: 480px) {
+    
+    div.guild-info .guild-info-top-pad{
+        padding-top: 0px;
+    }
+
     .text-center-xs{
         text-align: center;
+    }
+    
+    .guild-name-icon-xs{
+        max-width:  128px;
+        max-height: 128px;
+        display: inline-block;
+    }
+    
+    .btn-mobile{
+        font-size: 18px;
+        line-height: 1.33333;
+        padding: 10px 16px;
+        border-radius: 6px;
+        margin: 10px auto;
     }
 }
 

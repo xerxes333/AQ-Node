@@ -217,9 +217,10 @@ class GuildEdit extends React.Component {
   }
   
   leaveGuild(){
+      
     const { guild } = this.props
     const campaign = guild.campaign
-    
+     
     const removedGuild = campaign.guilds.filter(function(g) { return g !== guild._id })
     const removedPlayer = campaign.players.filter(function(p) { 
       if(p === campaign.created_by) // the creator of the campaign can NOT leave
@@ -228,9 +229,11 @@ class GuildEdit extends React.Component {
         return p !== guild.user_id._id 
     })
     
+    if(confirm("Are you sure you want to leave the Campaign?")) {  
+      this.props.dispatch( updateGuild(guild._id, {campaign: "LEAVE"}) );
+      this.props.dispatch( updateCampaign(guild.campaign._id, {guilds: removedGuild, players: removedPlayer}) );
+    }
     
-    this.props.dispatch( updateGuild(guild._id, {campaign: "LEAVE"}) );
-    this.props.dispatch( updateCampaign(guild.campaign._id, {guilds: removedGuild, players: removedPlayer}) );
   }
   
   renderCampaignField(){
@@ -238,7 +241,7 @@ class GuildEdit extends React.Component {
     const { guild } = this.props;
 
     if(guild && guild.campaign)
-      return <button type="button" className="btn btn-warning" onClick={ () => this.leaveGuild() } >Leave Campaign</button>
+      return <button type="button" className="btn btn-warning btn-block btn-leave-campaign" onClick={ () => this.leaveGuild() } >Leave Campaign</button>
  
     return <div className="form-group">
       <label htmlFor="guildCamapignCode">Campaign</label>
@@ -267,7 +270,7 @@ class GuildEdit extends React.Component {
     // this.props.dispatch(arrayPush('editGuild', 'heroes', {}));
     
     return (
-      <div className="row">
+      <div className="row guild-info-edit">
         <div className="col-md-12 col-xs-12">
         
           <form onSubmit={handleSubmit}>  
@@ -329,7 +332,7 @@ class GuildEdit extends React.Component {
             </div>
 
             
-            <div className="row">
+            <div className="row guild-edit-buttons">
               <div className="col-md-12">
                 <button type="submit" className="btn btn-primary">Save</button>
                 <button type="button" className="btn btn-warning" onClick={ () => this.cancel() } >Cancel</button>
