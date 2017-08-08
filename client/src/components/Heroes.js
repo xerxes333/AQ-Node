@@ -5,6 +5,7 @@ import { fetchHeroes} from '../actions/heroActions';
 import HeroCard from './HeroCard';
 import Loading from './Loading'
 import HeroSetDropdown from './forms/fields/HeroSetDropdown'
+import GuildHeroInfo from './GuildHeroInfo';
 
 function mapStateToProps(store) {
   return { 
@@ -44,7 +45,8 @@ class Heroes extends React.Component {
       return true
     })
     .map((hero, index)=>{
-      return <HeroCard hero={hero} key={hero._id} />
+      // return <HeroCard hero={hero} key={hero._id} />
+      return <div className="col-md-3 hero-detail" ><GuildHeroInfo hero={hero} hasHero={(hero)}/></div>
     })
     
     

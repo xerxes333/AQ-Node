@@ -283,7 +283,7 @@ img.hero-info-image-128{
 *********************/
 table.guild-hero-info{
     background-color: #FFF;
-    height: 220px;
+    /*height: 220px;*/
 }
 
 table.guild-hero-info td.effect{
@@ -304,8 +304,12 @@ table.guild-hero-info th{
     border: 1px solid #917745;
 }
 
+table.guild-hero-portrait td{
+    padding-bottom: 10px;
+}
+
 table.guild-hero-info td{
-    padding: 10px 5px;
+    /*padding: 10px 5px;*/
 }
 
 .guild-controls{
