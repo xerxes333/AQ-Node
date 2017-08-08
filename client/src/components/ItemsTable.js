@@ -190,12 +190,18 @@ class Items extends React.Component {
     
     return (
       <div>
-        <h2>Items</h2>
         
-        <div className="row form-inline">
-          <div className="col-md-12">
-            <strong>Filter </strong>
-            <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
+        <div className="row">
+          <div className="col-md-1">
+            <h2>Items</h2>
+          </div>
+          <div className="col-md-4">
+            <div className="well form-inline">
+              <strong>Filter </strong>
+              <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
+            </div>
+          </div>
+          <div className="col-md-7">
           </div>
         </div>
         

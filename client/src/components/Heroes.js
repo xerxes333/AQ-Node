@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { fetchHeroes} from '../actions/heroActions';
-import HeroCard from './HeroCard';
 import Loading from './Loading'
 import HeroSetDropdown from './forms/fields/HeroSetDropdown'
 import GuildHeroInfo from './GuildHeroInfo';
@@ -65,14 +64,23 @@ class Heroes extends React.Component {
     
     return (
       <div>
-        <h2>Heroes</h2>
-        <div className="row form-inline">
-          <div className="col-md-12">
-            <strong>Filter </strong>
-            <HeroSetDropdown handleChange={this.handleChange.bind(this)}/>
+      
+        <div className="row">
+          <div className="col-md-1">
+            <h2>Heroes</h2>
+          </div>
+          <div className="col-md-4">
+            <div className="well form-inline">
+              <strong>Filter </strong>
+              <HeroSetDropdown handleChange={this.handleChange.bind(this)}/>
+            </div>
+          </div>
+          <div className="col-md-7">
           </div>
         </div>
+        
         {Rows}
+        
       </div>
     );
     
