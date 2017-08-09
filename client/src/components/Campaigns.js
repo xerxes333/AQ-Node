@@ -80,12 +80,12 @@ class Campaigns extends React.Component {
         <h2>
           Campaigns
           <Link to={`/campaigns/new`} className="btn btn-primary new-campaign">
-            <span className="glyphicon glyphicon-plus-sign" style={{paddingRight: "10px"}}></span>New
+            <span className="glyphicon glyphicon-plus-sign"></span>New
           </Link>
         </h2>
         
         { (window.innerWidth < 768)? 
-          <table className="table table-striped table-bordered" style={{fontSize: "18px"}}>
+          <table className="table table-striped table-bordered campaigns-small">
             <tbody>
               {CampaignRowsSmall}
             </tbody>

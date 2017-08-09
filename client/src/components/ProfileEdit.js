@@ -77,7 +77,7 @@ class ProfileEdit extends React.Component {
         <Field name="userConfirm" label="Confirm" component={renderField} type="password" />
 
         <div className="form-group">
-          <div className="col-md-offset-2 col-md-10">
+          <div className="col-md-offset-2 col-md-10 profile-edit-buttons">
             <button type="submit" className="btn btn-primary">Save</button>
             <button type="button" className="btn btn-warning" onClick={ () => this.cancel() } >Cancel</button>
           </div>

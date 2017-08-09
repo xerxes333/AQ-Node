@@ -48,7 +48,7 @@ class Login extends React.Component {
                 </form>
                 
                 {errorMessage &&
-                  <p style={{color:'red'}}>{errorMessage}</p>
+                  <p className="text-danger">{errorMessage}</p>
                 }
                 
                 <br/>

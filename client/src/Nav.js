@@ -30,7 +30,7 @@ class Nav extends Component {
     return(
       <li className="dropdown">
         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span className="caret"></span></a>
-        <ul className="dropdown-menu">
+        <ul className="dropdown-menu dropdown-lg">
             { this.navLink({to: "profile", label: "Profile"}) }
             { this.navLink({to: "logout", label: "Logout"}) }
         </ul>
@@ -41,7 +41,7 @@ class Nav extends Component {
   render() {
     const { isAuthenticated } = this.props;
     return (
-         <nav className="navbar-inverse navbar-fixed-top navbar" id="w0" role="navigation">
+         <nav className="navbar navbar-inverse navbar-fixed-top navbar-lg" id="w0" role="navigation">
           <div className="container">
             <div className="navbar-header">
               <button className="navbar-toggle" type="button" data-toggle="collapse" data-target="#w0-collapse">

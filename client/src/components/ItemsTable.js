@@ -165,15 +165,20 @@ class Items extends React.Component {
       </div>
     })
     
+    
     if(window.innerWidth < 768)
       return (
         <div>
-          <h2>Items</h2>
-          
-          <div className="row form-inline">
-            <div className="col-md-12">
-              <strong>Filter </strong>
-              <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
+        
+          <div className="row">
+            <div className="col-md-8">
+              <h2>Items</h2>
+            </div>
+            <div className="col-md-4">
+              <div className="well form-inline">
+                <strong>Filter </strong>
+                <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
+              </div>
             </div>
           </div>
           
@@ -192,7 +197,7 @@ class Items extends React.Component {
       <div>
         
         <div className="row">
-          <div className="col-md-1">
+          <div className="col-md-8">
             <h2>Items</h2>
           </div>
           <div className="col-md-4">
@@ -200,8 +205,6 @@ class Items extends React.Component {
               <strong>Filter </strong>
               <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
             </div>
-          </div>
-          <div className="col-md-7">
           </div>
         </div>
         

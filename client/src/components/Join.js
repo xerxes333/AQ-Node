@@ -61,7 +61,7 @@ class Join extends React.Component {
                 </form>
                 
                 {errorMessage &&
-                  <p style={{color:'red'}}>{errorMessage}</p>
+                  <p className="text-danger">{errorMessage}</p>
                 }
             </div>
         </div>

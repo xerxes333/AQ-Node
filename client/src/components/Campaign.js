@@ -157,7 +157,7 @@ class Campaign extends React.Component {
     return (
       <div>
         
-        <div className="row" style={{marginBottom: "10px"}}>
+        <div className="row header-row">
           <div className="col-md-12">
         
             <div className="row">
@@ -172,7 +172,7 @@ class Campaign extends React.Component {
               </div>
               <div className="col-md-2 text-center">
                 <h4>Share Code:</h4>
-                <span className="label label-primary" style={{fontSize: "1.5em"}}><samp>{campaign.code}</samp></span>
+                <span className="label label-primary label-share-code"><samp>{campaign.code}</samp></span>
               </div>
             </div>
         

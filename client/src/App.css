@@ -1,6 +1,9 @@
 /* TODO: this needs to be cleaned up and organized, seriously! */
-
 @import url('https://fonts.googleapis.com/css?family=Exo');
+
+div.content{
+    padding-top: 60px;
+}
 
 .App {
   text-align: center;
@@ -43,6 +46,15 @@
 @keyframes loading-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+.header-row{
+    margin-bottom: 10px;
+}
+
+.label-share-code{
+    font-size: 1.5em;
 }
 
 img.guild-name-icon{
@@ -324,55 +336,13 @@ div.guild-info-edit .btn-leave-campaign{
     margin-top: 25px;
 }
 
-div.guild-edit-buttons button{
+
+div.profile-edit-buttons button{
     margin: 5px;
 }
 
-@media (max-device-width: 480px) {
-    table.guild-hero-info td.effect{
-        font-size: 1.5em;
-    } 
-    
-    table.guild-hero-info th{
-        font-size: 2em;
-    }
-    
-    div.guild-info-edit .btn-leave-campaign{
-        margin-top: 0px;
-        margin-bottom: 10px;
-        font-size: 18px;
-        line-height: 1.33333;
-        padding: 10px 16px;
-        border-radius: 6px;
-    }
-    
-    .form-control{
-        height: 46px;
-        font-size: 18px;
-        line-height: 1.33333;
-        padding: 10px 16px;
-        border-radius: 6px;
-    }
-    
-    .btn-lg-remove {
-        font-size: 18px;
-        line-height: 1.33333;
-        padding: 10px 16px;
-        border-radius: 6px;
-    }
-
-    .btn-add-hero, .btn-add-item {
-        margin-bottom: 15px;
-        padding: 10px 16px;
-        font-size: 18px;
-        line-height: 1.3333333;
-        border-radius: 6px;
-        
-    }
-    
-    .guild-edit-buttons{
-        text-align: center;
-    }
+div.guild-edit-buttons button{
+    margin: 5px;
 }
 
 .guild-hero-section{
@@ -541,6 +511,21 @@ div.icons .hero-hp{
     margin-left: 10px;
 }
 
+.new-campaign > span.glyphicon,
+.new-guild > span.glyphicon
+{
+    margin-right: 10px;
+}
+
+table.campaigns-small,
+table.guilds-small {
+    font-size: 18px;
+}
+
+table.campaigns-small {
+    font-size: 18px;
+}
+
 div.campaign-generic{
     text-align: center;
     font-size: 14px;
@@ -638,18 +623,77 @@ div.guild-info .guild-info-top-pad{
     padding-top: 20px;
 }
 
+.top-pad-col{
+    padding-top: 20px;
+}
+
 img.guild-has-coin{
     width: 32px;
     display: inline;
     margin: 0px 5px;
 }
 
-
 .btn-mobile span.glyphicon{
     padding-right: 5px;
 }
-    
+
+.pager-lg{
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+}
+
 @media (max-device-width: 480px) {
+    
+    .navbar-lg, .dropdown-lg {
+        font-size: 21px;
+    }
+    
+    table.guild-hero-info td.effect{
+        font-size: 1.5em;
+    } 
+    
+    table.guild-hero-info th{
+        font-size: 2em;
+    }
+    
+    div.guild-info-edit .btn-leave-campaign{
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-size: 18px;
+        line-height: 1.33333;
+        padding: 10px 16px;
+        border-radius: 6px;
+    }
+    
+    .form-control{
+        height: 46px;
+        font-size: 18px;
+        line-height: 1.33333;
+        padding: 10px 16px;
+        border-radius: 6px;
+    }
+
+    .btn-lg-remove, .btn-lg-mobile {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+    }
+    
+
+    .btn-add-hero, .btn-add-item {
+        margin-bottom: 15px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+        
+    }
+    
+    .guild-edit-buttons, .profile-edit-buttons {
+        text-align: center;
+    }
     
     div.guild-info .guild-info-top-pad{
         padding-top: 0px;
@@ -673,5 +717,3 @@ img.guild-has-coin{
         margin: 10px auto;
     }
 }
-
-

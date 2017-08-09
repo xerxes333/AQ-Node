@@ -49,7 +49,7 @@ class CampaignCreate extends React.Component {
                 friends={friends} />
               
               {errorMessage &&
-                <p style={{color:'red'}}>{errorMessage}</p>
+                <p className="text-danger">{errorMessage}</p>
               }
           </div>
       </div>

@@ -76,12 +76,12 @@ class Guilds extends React.Component {
         <h2>
           Guilds
           <Link to={`/guilds/new`} className="btn btn-primary new-guild">
-            <span className="glyphicon glyphicon-plus-sign" style={{paddingRight: "10px"}}></span>New
+            <span className="glyphicon glyphicon-plus-sign"></span>New
           </Link>
         </h2>
         
         { (window.innerWidth < 768)? 
-          <table className="table table-striped table-bordered" style={{fontSize: "18px"}}>
+          <table className="table table-striped table-bordered guilds-small">
             <tbody>
               {GuildRowsSmall}
             </tbody>

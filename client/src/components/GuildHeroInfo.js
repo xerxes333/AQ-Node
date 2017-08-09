@@ -24,7 +24,7 @@ class GuildHeroInfo extends React.Component {
                   <table className="guild-hero-portrait">
                     <tbody>
                     <tr>
-                      <td colSpan="2"> <img src={`images/heroes/icons/${hero.icon}`} className="img-responsive" alt={hero.name} style={{margin: "auto"}}/> </td>
+                      <td colSpan="2"> <img src={`images/heroes/icons/${hero.icon}`} className="img-responsive" alt={hero.name} /> </td>
                     </tr>
                     <tr>
                       <td> 

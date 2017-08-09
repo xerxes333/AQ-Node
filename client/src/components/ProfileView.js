@@ -56,35 +56,38 @@ class ProfileView extends React.Component {
     })
      
     return (
-      <div className="row">
-        <div className="col-md-12">
-        
-          <h2>
-            {user.name}
-            <small> ({user.email}) </small>
-            <button type="button" className="btn btn-primary" onClick={() => this.toggleEditing() } >Edit</button>
-          </h2> 
-          
-          Joined: {joined}
-          <hr/>
-          
-          <h2>Friends</h2>
-          
-          <div className="row">
-            <div className="col-md-4">
-              
-              <AddFriend onSubmit={this.handleAddFriend.bind(this)} />
-              
-              { user.friends.length > 0 && 
-                <table className="table table-condensed table-bordered table-striped">
-                  <tbody>{friendsList}</tbody>
-                </table>
-              }
-              
-            </div>
+      <div>
+      
+        <div className="row text-center-xs">
+          <div className="col-md-11">
+            <h2>{user.name} <small> ({user.email}) </small></h2> 
+            Joined: {joined}
           </div>
-          
+          <div className="col-md-1 top-pad-col">
+            <button type="button" className="btn btn-primary btn-mobile btn-block" onClick={() => this.toggleEditing() } >Edit</button>
+          </div>
         </div>
+        
+        <hr/>
+      
+        <div className="row text-center-xs">
+          <div className="col-md-4">
+          
+            <h2>Friends</h2>
+            
+            <AddFriend onSubmit={this.handleAddFriend.bind(this)} />
+            
+            { user.friends.length > 0 && 
+              <table className="table table-condensed table-bordered table-striped">
+                <tbody>{friendsList}</tbody>
+              </table>
+            }
+            
+          </div>
+        </div>
+      
+      
+      
       </div>
     );
     

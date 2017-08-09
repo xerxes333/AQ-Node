@@ -31,7 +31,7 @@ class PrevNext extends React.Component {
     
     return (
       <nav aria-label="...">
-        <ul className="pager">
+        <ul className="pager pager-lg">
         
           {prev && 
             <li className="previous">

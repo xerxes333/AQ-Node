@@ -66,7 +66,7 @@ class Heroes extends React.Component {
       <div>
       
         <div className="row">
-          <div className="col-md-1">
+          <div className="col-md-8">
             <h2>Heroes</h2>
           </div>
           <div className="col-md-4">
@@ -74,8 +74,6 @@ class Heroes extends React.Component {
               <strong>Filter </strong>
               <HeroSetDropdown handleChange={this.handleChange.bind(this)}/>
             </div>
-          </div>
-          <div className="col-md-7">
           </div>
         </div>
         

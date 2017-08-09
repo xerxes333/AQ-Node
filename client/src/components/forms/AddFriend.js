@@ -29,7 +29,7 @@ const renderField = ({ input, label, type, name, placeholder, meta: { touched, e
     <div className="input-group">
       <input {...input} type={type} name={name} className="form-control" placeholder={placeholder}/>
       <span className="input-group-btn">
-          <button className={ "btn " + (touched && error? "btn-danger" : "btn-success" )}  type="submit">Add</button>
+          <button className={ "btn btn-lg-mobile " + (touched && error? "btn-danger" : "btn-success" )}  type="submit">Add</button>
       </span>
     </div>
     {touched && ((error && <span className="help-block">{error}</span>) || (warning && <span>{warning}</span>))}

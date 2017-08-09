@@ -17,7 +17,7 @@ class Layout extends Component {
         
         <Nav pathname={this.props.location.pathname} />
         
-        <div className="container" style={{'paddingTop': '60px'}}>
+        <div className="container content">
           {this.props.children}
         </div>
         
