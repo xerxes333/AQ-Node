@@ -1,0 +1,168 @@
+[
+  {
+    "name": "Ace",
+    "defense": 1,
+    "health":  2,
+    "ability": "Fetch",
+    "effect":  "Whenever Ace moves, he may move 1 Exploration Token in his Space along with him.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+    
+  },
+  {
+    "name": "Barnaby",
+    "defense": 1,
+    "health": 21,
+    "ability": "Fling Poop",
+    "effect":  "Close Enemies roll -2 Defense dice against Owners.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  
+  {
+    "name": "Bumble",
+    "defense": 1,
+    "health":  2,
+    "ability": "Hug Aura",
+    "effect":  "Enemy Heroes have to take 1 Wound to attack Close Owners.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+    {
+    "name": "Bumble",
+    "defense": 2,
+    "health":  3,
+    "ability": "Hug Aura",
+    "effect":  "Enemy Heroes have to take 1 Wound to attack Close Owners.",
+    "image":   "",
+    "set":     "pets",
+    "level":   2
+  },
+    {
+    "name": "Bumble",
+    "defense": 3,
+    "health":  3,
+    "ability": "Hug Aura",
+    "effect":  "Enemy Heroes have to take 2 Wounds to attack Close Owners.",
+    "image":   "",
+    "set":     "pets",
+    "level":   3
+  },
+  
+  {
+    "name": "Miau",
+    "defense": 1,
+    "health":  2,
+    "ability": "Lucky",
+    "effect":  "Close Owners get: [+2 Reroll Die]",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+    {
+    "name": "Miau",
+    "defense": 1,
+    "health":  3,
+    "ability": "Lucky",
+    "effect":  "Close Owners get: [+2 Reroll Die]",
+    "image":   "",
+    "set":     "pets",
+    "level":   2
+  },
+    {
+    "name": "Miau",
+    "defense": 1,
+    "health":  3,
+    "ability": "Lucky",
+    "effect":  "Close Owners get: [+3 Reroll Die]",
+    "image":   "",
+    "set":     "pets",
+    "level":   3
+  },
+  
+  {
+    "name": "Moonpie",
+    "defense": 1,
+    "health":  2,
+    "ability": "Aura Of Friendship",
+    "effect":  "Close Heros must exhaust an extra attack card to attack Owners.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  {
+    "name": "Newton",
+    "defense": 1,
+    "health":  2,
+    "ability": "Blend In",
+    "effect":  "Owners leaving Newton's Space don't trigger Guard Reaction. ",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  {
+    "name": "Padfeet",
+    "defense": 1,
+    "health":  2,
+    "ability": "Howl",
+    "effect":  "Close Enemies roll -1 die when attacking Owners.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  {
+    "name": "Puff",
+    "defense": 1,
+    "health":  1,
+    "ability": "Fire Breath",
+    "effect":  "When an Owner attacks an Enmy Close to Puff, each (*) deals and additional Hit.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  {
+    "name": "Rawr",
+    "defense": 1,
+    "health":  2,
+    "ability": "Roar",
+    "effect":  "Close Owners roll +1 die on attacks.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  {
+    "name": "Sheldon",
+    "defense": 1,
+    "health":  2,
+    "ability": "Shield",
+    "effect":  "Close Owners get [+2 Defense Die]",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  {
+    "name": "Tallon",
+    "defense": 1,
+    "health":  2,
+    "ability": "Rake",
+    "effect":  "When an Owners inflicts any Wounds to an Enemy Close to Talon, add an extra Wound.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  },
+  {
+    "name": "Tickles",
+    "defense": 1,
+    "health":  2,
+    "ability": "Skin Crawling",
+    "effect":  "Close Enemies -2 Rerolls against Owners.",
+    "image":   "",
+    "set":     "pets",
+    "level":   1
+  }
+
+
+]

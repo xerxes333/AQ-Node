@@ -20,6 +20,7 @@ router.use(function(req, res, next) {
         || (req.path == '/')
         || (req.path == '/help')
         || (req.path == '/heroes' && req.method == 'GET')
+        || (req.path == '/pets' && req.method == 'GET')
         || (req.path == '/items' && req.method == 'GET')
         || (req.path == '/curses' && req.method == 'GET')
     ) {
