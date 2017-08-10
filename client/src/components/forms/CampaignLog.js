@@ -111,10 +111,14 @@ class CampaignLog extends React.Component {
   
   render() {
     const { campaign, handleSubmit, editLogEntry, onDelete } = this.props
+    const style = campaign.expansion.toLowerCase().replace(/\s/g, '') || 'core'
+    
+    
+    
     const renderCampaignLog = campaign.log.map((entry, index) => {
       
       const glyph = editLogEntry.includes(index)? "primary" : "default"
-      const firstCol = <td>
+      const firstCol = <td className={`scenario ${style}-${entry.level}`}>
         {entry.location}
         <button className={`btn btn-${glyph} btn-sm pull-right`} type="button" onClick={ () => this.toggleEdit(index) } >
           <span className={`glyphicon glyphicon-pencil`} aria-hidden="true"></span>
@@ -158,7 +162,7 @@ class CampaignLog extends React.Component {
         </tbody>
         <tfoot>
           <tr>
-            <td>Medal Winner</td>
+            <td className="scenario medal">Medal Winner</td>
             <td>{this.calcMedalWinner('winner')}</td>
             <td>{this.calcMedalWinner('deaths')}</td>
             <td>{this.calcMedalWinner('coins')}</td>

@@ -115,6 +115,7 @@ class CampaignLogSmall extends React.Component {
     const renderCampaignLog = campaign.log.map((entry, index) => {
       
       const glyph = editLogEntry.includes(index)? "primary" : "default"
+      const prefix = campaign.expansion.toLowerCase().replace(/\s/g, '') || 'core'
       
       var winner = this.getPlayerName(entry.winner)
       var deaths = this.getPlayerName(entry.deaths)
@@ -133,7 +134,7 @@ class CampaignLogSmall extends React.Component {
       return <table className="table table-striped table-condensed campaign-log-small" key={index}>
         <thead>
           <tr>
-            <th className={`core-${entry.level}`} colSpan="2">
+            <th className={`scenario ${prefix}-${entry.level}`} colSpan="2">
               <div className="row">
                 <div className="col-xs-9 text-center location">
                   <div>{entry.location}</div>
@@ -165,7 +166,7 @@ class CampaignLogSmall extends React.Component {
       
       <table className="table table-striped table-condensed campaign-log-small">
         <thead>
-          <tr><th className="core-medal text-center location" colSpan="2">Medal Winner</th></tr>
+          <tr><th className="scenario medal text-center location" colSpan="2">Medal Winner</th></tr>
         </thead>
         <tbody>
           <tr><td>Winner</td><td>{this.calcMedalWinner('winner')}</td></tr>

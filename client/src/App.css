@@ -547,32 +547,44 @@ div.campaign-generic{
     text-align: center;
 }
 
+
 /* Campaign level colors */
-.core-1{
+
+table.campaign-log .scenario,
+table.campaign-log-small .scenario {
     color: #FFFFFF;
-    background-color: #dd5923;
     line-height: 2.2 !important;
 }
-.core-2{
-    color: #FFFFFF;
-    background-color: #be2e25;
-    line-height: 2.2 !important;
-}
-.core-3{
-    color: #FFFFFF;
-    background-color: #432e76;
-    line-height: 2.2 !important;
-}
-.core-4{
-    color: #FFFFFF;
-    background-color: #432e76;
-    line-height: 2.2 !important;
-}
-.core-medal{
-    color: #FFFFFF;
-    background-color: #DAA520;
-    line-height: 2.2 !important;
-}
+
+.medal{ background-color: #DAA520; }
+
+/* Core */
+.core-1{ background-color: #dd5923; }
+.core-2{ background-color: #be2e25; }
+.core-3{ background-color: #432e76; }
+.core-4{ background-color: #432e76; }
+
+/* Beyond The Grave */
+.beyondthegrave-1{ background-color: #577dab; }
+.beyondthegrave-2{ background-color: #6f3871; }
+.beyondthegrave-3{ background-color: #37317a; }
+.beyondthegrave-4{ background-color: #37317a; }
+
+/* Inferno */
+.inferno-1{ background-color: #f4814e; }
+.inferno-2{ background-color: #e94054; }
+.inferno-3{ background-color: #977cad; }
+.inferno-4{ background-color: #612a53; }
+.inferno-5{ background-color: #333333; }
+
+/* Pets*/
+.pets-1{ background-color: #eca203; }
+.pets-2{ background-color: #e87924; }
+.pets-3{ background-color: #ed706b; }
+.pets-4{ background-color: #e63031; }
+.pets-5{ background-color: #74306f; }
+.pets-6{ background-color: #243b7c; }
+
 
 .navbar-inverse .navbar-nav>.active>a, 
 .navbar-inverse .navbar-nav>.active>a:focus, 
