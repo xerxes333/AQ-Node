@@ -2,7 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CampaignHero from './CampaignHero';
+import CampaignPet from './CampaignPet';
 import { kickGuild } from '../actions/campaignActions'
+import { fetchGuilds } from '../actions/guildActions'
 
 function mapStateToProps(store) {
   return { 
@@ -17,8 +19,10 @@ class CampaignGuild extends React.Component {
     
     const { guild, campaign } = this.props;
     
-    if(confirm("Are you sure you want to remove this guild from the campaign?"))
-      this.props.dispatch( kickGuild(campaign, guild) );
+    if(confirm("Are you sure you want to remove this guild from the campaign?")){
+      this.props.dispatch( kickGuild(campaign, guild) )
+      this.props.dispatch(fetchGuilds({available: true}));
+    }
       
   }
   
@@ -34,6 +38,10 @@ class CampaignGuild extends React.Component {
         return <CampaignHero hero={hero} key={hero.hero_id._id} />
       });
       
+      const PetRows = guild.pets.map((pet)=>{
+        return <CampaignPet pet={pet} key={pet.pet_id._id} />
+      });
+      
       return (
         <div className={guildClasses} key={guild._id}>
           <div className="row">
@@ -46,6 +54,7 @@ class CampaignGuild extends React.Component {
             </div>
           </div>
           {HeroRows}
+          {PetRows}
           {(user._id === campaign.created_by) && !isPreview && 
             <button type="button" className="btn btn-danger btn-block btn-lg" onClick={ () => this.kick() }>{(guild.user_id._id === user._id)? "Leave" : "Kick"}</button>
           }

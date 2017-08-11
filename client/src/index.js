@@ -12,6 +12,7 @@ import Guilds from './components/Guilds';
 import Guild from './components/Guild';
 import GuildCreate from './components/GuildCreate';
 import Heroes from './components/Heroes';
+import Pets from './components/Pets';
 import Items from './components/ItemsTable';
 import Login from './components/Login';
 import Join from './components/Join';
@@ -41,6 +42,7 @@ ReactDOM.render(
       <Route path="guild/:id" component={requireAuthentication(Guild)}/>
       
       <Route path="heroes" component={Heroes}></Route>
+      <Route path="pets" component={Pets}></Route>
       <Route path="items" component={Items}></Route>
       
       <Route path="profile" component={requireAuthentication(Profile)}/>

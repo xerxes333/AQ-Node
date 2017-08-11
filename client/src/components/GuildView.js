@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from 'react-router'
 
 import GuildHero from './GuildHero';
+import GuildPet from './GuildPet';
 import Loading from './Loading'
 
 function mapStateToProps(store) {
@@ -10,6 +11,7 @@ function mapStateToProps(store) {
     guild: store.guilds.guild,
     guilds: store.guilds.guilds,
     heroes: store.guilds.guild && store.guilds.guild.heroes,
+    pets: store.guilds.guild && store.guilds.guild.pets,
     guildFetched: store.guilds.guildFetched,
     isEditing: store.guilds.isEditing
   };
@@ -27,7 +29,7 @@ class GuildView extends React.Component {
   
   render() {
     
-    const { guild, heroes, guildFetched } = this.props;
+    const { guild, heroes, pets, guildFetched } = this.props;
     
     if(!guild)
       return <div>
@@ -44,6 +46,10 @@ class GuildView extends React.Component {
     
     const Heroes = heroes.map((hero)=>{
       return <GuildHero hero={hero} key={hero.hero_id._id} />
+    });
+    
+    const Pets  = pets.map((pet)=>{
+      return <GuildPet pet={pet} key={pet.pet_id._id} />
     });
     
     return (
@@ -78,6 +84,11 @@ class GuildView extends React.Component {
         <div className="row">
           {Heroes}
         </div>
+        
+        <div className="row">
+          {Pets}
+        </div>
+        
       </div>
     );
     

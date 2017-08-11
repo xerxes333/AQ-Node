@@ -54,6 +54,7 @@ class Nav extends Component {
                 {  isAuthenticated && this.navLink({to: "campaigns", label: "Campaigns"}) }
                 {  isAuthenticated && this.navLink({to: "guilds", label: "Guilds"}) }
                 { this.navLink({to: "heroes", label: "Heroes"}) }
+                { this.navLink({to: "pets", label: "Pets"}) }
                 { this.navLink({to: "items", label: "Items"}) }
                 { !isAuthenticated && this.navLink({to: "login", label: "Login"}) }
                 {  isAuthenticated && this.renderProfileLink() }

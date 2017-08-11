@@ -20,11 +20,11 @@ class CursesDropdown extends React.Component {
   }
   
   render(){
-      const { curses, name, input, filter, curseID } = this.props;
-      
-      const Options = curses.filter((curse)=>{
+      const { curses, name, input, filter, curseId } = this.props;
+
+      const Options = curses.filter((curse, i)=>{
         if(filter)
-          return curse.set === filter || curse._id === curseID
+          return curse.set === filter || curse._id === curseId
         return true
       })
       .map((curse, index)=>{

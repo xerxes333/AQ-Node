@@ -6,6 +6,7 @@ import { fetchGuild, updateGuild } from '../../actions/guildActions'
 import { fetchCampaigns, updateCampaign } from '../../actions/campaignActions';
 
 import HeroesDropdown from './fields/HeroesDropdown';
+import PetsDropdown from './fields/PetsDropdown';
 import ItemsDropdown from './fields/ItemsDropdown';
 import CursesDropdown from './fields/CursesDropdown';
 import HeroSetDropdown from './fields/HeroSetDropdown'
@@ -95,7 +96,6 @@ const renderCurses = ({ fields, filter, meta: { error } }) => {
 }
 
 const renderHeroes = ({ fields, form, filter, meta: { touched, error } }) => {
-  
   /* This part is pretty convoluted so here is whats going on:
    * We begin by reducing the fields into multiple chunks (arrays) that are
    * no longer than HEROES_PER_ROW. Next we map each chunk into a row of heroes
@@ -104,7 +104,8 @@ const renderHeroes = ({ fields, form, filter, meta: { touched, error } }) => {
    */
   const HEROES_PER_ROW = 4
   var rows = fields.reduce((chunk, field, index) => {
-    if(index % HEROES_PER_ROW === 0) chunk.push([]);
+    if(index % HEROES_PER_ROW === 0) 
+      chunk.push([]);
     chunk[chunk.length - 1].push(field);
     return chunk;
   }, [])
@@ -117,6 +118,32 @@ const renderHeroes = ({ fields, form, filter, meta: { touched, error } }) => {
               <HeroesDropdown name={`${hero}.id`} index={seq} key={seq} removeHero={()=>{fields.remove(seq)}} filter={filter.heroes}/>
               <FieldArray name={`${hero}.items`} component={renderItems} filter={filter} />
               <FieldArray name={`${hero}.curses`} component={renderCurses} filter={filter} />
+            </div>
+          )})
+        }
+      </div>
+    ))
+  
+  return <div> {rows} </div>
+  
+};
+
+const renderPets = ({ fields, form, filter, meta: { touched, error } }) => {
+  const PETS_PER_ROW = 4
+  var rows = fields.reduce((chunk, field, index) => {
+    if(index % PETS_PER_ROW === 0) 
+      chunk.push([]);
+    chunk[chunk.length - 1].push(field);
+    return chunk;
+  }, [])
+  .map((chunk, i) => (
+      <div className="row guild-hero-section" key={i}>
+        {chunk.map((pet, j) => {
+          var seq = i * PETS_PER_ROW + j
+          return (
+            <div className="col-md-3 guild-hero-info" key={seq} >
+              <PetsDropdown name={`${pet}.id`} index={seq} key={seq} removePet={()=>{fields.remove(seq)}} filter={filter.pets}/>
+              <FieldArray name={`${pet}.items`} component={renderItems} filter={filter} />
             </div>
           )})
         }
@@ -152,6 +179,7 @@ class GuildEdit extends React.Component {
       invitations: [],
       filterHeroes: false,
       filterItems: false,
+      filterPets: "1",
     }
   }
   
@@ -165,6 +193,12 @@ class GuildEdit extends React.Component {
     if(!event.target.value)
       this.setState({filterItems: false});
     this.setState({filterItems: event.target.value});
+  }
+  
+  filterPetLevel(event) {
+    if(!event.target.value)
+      this.setState({filterPets: false});
+    this.setState({filterPets: event.target.value});
   }
   
   componentWillMount() {
@@ -212,7 +246,17 @@ class GuildEdit extends React.Component {
             return {id: curse._id}
           }) : []
         }
-      })
+      }),
+      pets: (guild.pets) ? guild.pets.map((pet) => {
+        return {
+          id: pet.pet_id._id,
+          items: pet.items.map((item) => {
+            return {id: item._id}
+          })
+        }
+      }) : [],
+      // attempting to combine heroes + pets so we only have to render one FieldArray
+      // concat: guild.heroes.concat(guild.pets)
     }
   }
   
@@ -254,6 +298,10 @@ class GuildEdit extends React.Component {
     this.props.dispatch(arrayPush('editGuild', 'heroes', {}))
   }
   
+  appendPet(){
+    this.props.dispatch(arrayPush('editGuild', 'pets', {}))
+  }
+  
   render() {
     
     const { handleSubmit, onDelete, editGuildForm } = this.props;
@@ -266,8 +314,6 @@ class GuildEdit extends React.Component {
     const imgName = (editGuildForm && editGuildForm.values.guildAnimal)?
       editGuildForm.values.guildAnimal.toLowerCase()
       : 'none'
-    
-    // this.props.dispatch(arrayPush('editGuild', 'heroes', {}));
     
     return (
       <div className="row guild-info-edit">
@@ -308,6 +354,7 @@ class GuildEdit extends React.Component {
             </div>
             
             <FieldArray name="heroes" component={renderHeroes} filter={{heroes: this.state.filterHeroes, items: this.state.filterItems, curses: this.state.filterItems}}/>
+            <FieldArray name="pets" component={renderPets} filter={{pets: this.state.filterPets, items: this.state.filterItems}}/>
             
             <div className="row guild-controls"> 
               <div className="col-md-12">
@@ -319,11 +366,25 @@ class GuildEdit extends React.Component {
                         <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Hero
                       </button>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-2">
+                      <button type="button" className="btn btn-success btn-block btn-add-pet" onClick={ () => this.appendPet() }>
+                        <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Pet
+                      </button>
+                    </div>
+                    <div className="col-md-2">
                       <HeroSetDropdown handleChange={this.filterHeroSet.bind(this)}/>
                     </div>  
-                    <div className="col-md-3">
+                    <div className="col-md-2">
                       <ItemSetDropdown handleChange={this.filterItemSet.bind(this)}/>
+                    </div>  
+                    <div className="col-md-2">
+                      <div className="form-group">
+                        <select className="form-control" onChange={this.filterPetLevel.bind(this)} >
+                          <option value="1">Pet Level 1</option>
+                          <option value="2">Pet Level 2</option>
+                          <option value="3">Pet Level 3</option>
+                        </select>
+                      </div>
                     </div>  
                   </div>
             

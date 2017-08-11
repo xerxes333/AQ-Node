@@ -69,6 +69,24 @@ function parseGuildData(data){
         })
       }
     })
+    
+  if(data.pets)
+    obj.pets = data.pets.filter((pet) => {
+      return (pet && pet.id) ? pet : null
+    })
+    .map((pet) => {
+      if(!pet.items)   // if pet has no items just set the pet id
+        return {pet_id: pet.id}
+      return {
+        pet_id: pet.id,
+        items: pet.items.filter((item)=>{
+          return (item && item.id) ? item : null
+        })
+        .map((item) => {
+          return item.id
+        })
+      }
+    })
   
   return obj;
 }

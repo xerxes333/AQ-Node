@@ -58,7 +58,6 @@ class HeroesDropdown extends React.Component {
     const fieldName = name;
     const currentHero = this.getHero()
     
-      
     if(!currentHero)
       return <div>Loading</div>
     

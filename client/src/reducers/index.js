@@ -4,8 +4,9 @@ import { reducer as formReducer } from 'redux-form'
 import campaigns from "./campaignsReducer";
 import guilds from "./guildsReducer";
 import heroes from "./heroesReducer";
-import curses from "./cursesReducer";
+import pets from "./petsReducer";
 import items from "./itemsReducer";
+import curses from "./cursesReducer";
 import auth from "./authReducer";
 import user from "./userReducer";
 
@@ -13,6 +14,7 @@ const appReducer = combineReducers({
   campaigns,
   guilds,
   heroes,
+  pets,
   items,
   curses,
   auth,

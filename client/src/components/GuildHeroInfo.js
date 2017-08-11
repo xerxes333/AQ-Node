@@ -7,6 +7,8 @@ class GuildHeroInfo extends React.Component {
       
       if(!hero.icon) hero.icon = "none.png"
       
+      const lvl = (hero.level && hero.level > 1) ? <sup>{hero.level}</sup> : "";
+      
       return (
         <div className="row">
           <div className="col-md-12">
@@ -14,7 +16,7 @@ class GuildHeroInfo extends React.Component {
             {hasHero && 
             <table className="table table-bordered guild-hero-info">
             
-              {!isEditing && <thead><tr><th colSpan="2">{hero.name}</th></tr></thead> }
+              {!isEditing && <thead><tr><th colSpan="2">{hero.name}{lvl}</th></tr></thead> }
               
               <tbody>
               <tr>
