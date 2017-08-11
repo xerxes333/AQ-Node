@@ -74,7 +74,16 @@ exports.getCampaign = function(req, res) {
         {
             path: 'heroes.items',
             model: 'Item'
-        }]
+        },{
+            path: 'pets.pet_id',
+            model: 'Pet'
+        },
+        {
+            path: 'pets.items',
+            model: 'Item'
+        }
+        
+        ]
     })
 };
 
