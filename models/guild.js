@@ -20,6 +20,13 @@ var GuildSchema   = new Schema({
             {type : Schema.ObjectId, ref: 'Curse'},
         ]
     }],
+    pets: [{
+        _id: false,
+        pet_id: {type : Schema.ObjectId, ref: 'Pet'},
+        items: [
+            {type : Schema.ObjectId, ref: 'Item'},
+        ]
+    }],
     
 }, {collection: 'guilds', timestamps: true});
 
@@ -58,6 +65,10 @@ GuildSchema.pre('save', function(next) {
 
 GuildSchema.methods.getHeroes = function getHeroes(callback) {
     return this.heroes;
+}
+
+GuildSchema.methods.getPets = function getPets(callback) {
+    return this.pets;
 }
 
 GuildSchema.methods.getItems = function getItems(hero_id, callback) {

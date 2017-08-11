@@ -17,6 +17,7 @@ exports.postGuilds = function(req, res) {
     guild.description = req.body.description;
     guild.type = req.body.type;
     guild.heroes = req.body.heroes;
+    guild.pets = req.body.pets;
     
     
     // look for and assign the campaign ID to a guild if a code was included 
@@ -44,6 +45,8 @@ exports.postGuilds = function(req, res) {
             .populate('heroes.hero_id')
             .populate('heroes.items')
             .populate('heroes.curses')
+            .populate('pets.pet_id')
+            .populate('pets.items')
         });
       });
       
@@ -87,7 +90,9 @@ exports.getGuild = function(req, res) {
   .populate('campaign', '_id name created_by players guilds')
   .populate('heroes.hero_id')
   .populate('heroes.items')
-  .populate('heroes.curses');
+  .populate('heroes.curses')
+  .populate('pets.pet_id')
+  .populate('pets.items')
 };
 
 
@@ -107,6 +112,7 @@ exports.putGuild = function(req, res) {
     guild.name = req.body.name || guild.name;
     guild.description = req.body.description || guild.description;
     guild.heroes = req.body.heroes || guild.heroes;
+    guild.pets = req.body.pets || guild.pets;
     guild.type = req.body.type || guild.type;
     guild.coin = req.body.coin || guild.coin;
     
@@ -116,7 +122,7 @@ exports.putGuild = function(req, res) {
     // We are assigning the guild to a campaign based on a share code
     // The model handles linking the campaign and guild to one another during the pre-save
     guild.code = req.body.code || undefined
-
+    
     guild.save(function (err, guild) {
       if (err) res.status(500).send(err);
       
@@ -126,6 +132,8 @@ exports.putGuild = function(req, res) {
         { path: 'heroes.hero_id'},
         { path: 'heroes.items'},
         { path: 'heroes.curses'},
+        { path: 'pets.pet_id'},
+        { path: 'pets.items'},
       ]
       
       // I dont think I should be doing this here like this but it seems to work OK  ¯\_(ツ)_/¯

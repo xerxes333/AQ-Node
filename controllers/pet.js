@@ -12,7 +12,7 @@ exports.getPets = function(req, res) {
             res.send(err);
 
         res.json(pets);
-    }).sort({name:1, level:1});
+    }).sort({level:1, name:1});
 };
 
 
