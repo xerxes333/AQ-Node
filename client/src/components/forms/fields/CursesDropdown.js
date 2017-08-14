@@ -33,12 +33,12 @@ class CursesDropdown extends React.Component {
         );
       });
       
-      return (
-        
-        <div className={`input-group`}>
-          
+    return (
+      <div className="form-group">
+      
+        <div className="input-group input-group-lg-mobile">
           <span className="input-group-btn">
-            <button className="btn btn-danger btn-lg-remove" type="button" onClick={this.props.onClick}>
+            <button className="btn btn-danger" type="button" onClick={this.props.onClick}>
               <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>
           </span>
@@ -49,8 +49,10 @@ class CursesDropdown extends React.Component {
           </Field>
           
         </div>
-        
-      );  
+          
+      </div>
+    )
+    
   };
 }
 

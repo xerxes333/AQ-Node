@@ -395,9 +395,9 @@ class GuildEdit extends React.Component {
             
             <div className="row guild-edit-buttons">
               <div className="col-md-12">
-                <button type="submit" className="btn btn-primary">Save</button>
-                <button type="button" className="btn btn-warning" onClick={ () => this.cancel() } >Cancel</button>
-                { onDelete && <button type="button" className="btn btn-danger" onClick={onDelete} >Delete</button> }
+                <button type="submit" className="btn btn-primary btn-lg-mobile">Save</button>
+                <button type="button" className="btn btn-warning btn-lg-mobile" onClick={ () => this.cancel() } >Cancel</button>
+                { onDelete && <button type="button" className="btn btn-danger btn-lg-mobile" onClick={onDelete} >Delete</button> }
               </div>
             </div>
             

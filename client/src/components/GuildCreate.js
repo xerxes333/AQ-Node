@@ -4,7 +4,6 @@ import { browserHistory } from 'react-router';
 
 import { createGuild } from '../actions/guildActions'
 import GuildEdit from './forms/GuildEdit'
-import Breadcrumbs from './Breadcrumbs';
 
 function mapStateToProps(store) {
   return {
@@ -38,7 +37,6 @@ class GuildCreate extends React.Component {
   
   render() {
     return <div>
-        <Breadcrumbs />
         <h2>Create Guild</h2>
         <GuildEdit 
           id={this.props.params.id} 

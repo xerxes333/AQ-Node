@@ -76,25 +76,24 @@ class HeroesDropdown extends React.Component {
       <div className="form-group">
         <label className="sr-only" htmlFor={fieldName} > Hero {index+1} </label>
           
+        <div className="input-group input-group-lg-mobile">
+          <span className="input-group-btn">
+            <button className="btn btn-danger" type="button" onClick={this.props.removeHero}>
+              <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </span>
           
-          <div className="input-group">
-            <span className="input-group-btn">
-              <button className="btn btn-danger btn-lg-remove" type="button" onClick={this.props.removeHero}>
-                <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </button>
-            </span>
-            
-            <Field name={fieldName} component="select" className="form-control">
-              <option value="">-- Choose Hero --</option>
-              {Options}
-            </Field>      
-          </div>
+          <Field name={fieldName} component="select" className="form-control">
+            <option value="">-- Choose Hero --</option>
+            {Options}
+          </Field>      
+        </div>
           
-          {this.getHeroImage()}
+        {this.getHeroImage()}
           
       </div>
-    );  
-  };
+    )
+  }
 }
 
 export default connect(mapStateToProps)(HeroesDropdown);

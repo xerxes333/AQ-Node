@@ -79,7 +79,7 @@ class Campaigns extends React.Component {
         
         <h2>
           Campaigns
-          <Link to={`/campaigns/new`} className="btn btn-primary new-campaign">
+          <Link to={`/campaigns/new`} className="btn btn-primary new-campaign btn-lg-mobile">
             <span className="glyphicon glyphicon-plus-sign"></span>New
           </Link>
         </h2>

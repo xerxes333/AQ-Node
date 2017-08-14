@@ -67,30 +67,27 @@ class PetsDropdown extends React.Component {
     });
     
     return (
-      <div>
       <div className="form-group">
         <label className="sr-only" htmlFor={fieldName} > Pet {index+1} </label>
           
+        <div className="input-group input-group-lg-mobile">
+          <span className="input-group-btn">
+            <button className="btn btn-danger" type="button" onClick={this.props.removePet}>
+              <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </span>
           
-          <div className="input-group">
-            <span className="input-group-btn">
-              <button className="btn btn-danger btn-lg-remove" type="button" onClick={this.props.removePet}>
-                <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </button>
-            </span>
-            
-            <Field name={fieldName} component="select" className="form-control">
-              <option value="">-- Choose Pet --</option>
-              {Options}
-            </Field>      
-          </div>
+          <Field name={fieldName} component="select" className="form-control">
+            <option value="">-- Choose Pet --</option>
+            {Options}
+          </Field>      
+        </div>
           
-          {this.getPetInfo()}
+        {this.getPetInfo()}
           
       </div>
-      </div>
-    );  
-  };
+    )
+  }
 }
 
 export default connect(mapStateToProps)(PetsDropdown);

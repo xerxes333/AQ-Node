@@ -75,7 +75,7 @@ class Guilds extends React.Component {
         
         <h2>
           Guilds
-          <Link to={`/guilds/new`} className="btn btn-primary new-guild">
+          <Link to={`/guilds/new`} className="btn btn-primary new-guild btn-lg-mobile">
             <span className="glyphicon glyphicon-plus-sign"></span>New
           </Link>
         </h2>
