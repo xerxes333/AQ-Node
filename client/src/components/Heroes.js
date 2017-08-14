@@ -64,7 +64,7 @@ class Heroes extends React.Component {
     
     return (
       <div>
-      
+        
         <div className="row">
           <div className="col-md-8">
             <h2>Heroes</h2>

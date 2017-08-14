@@ -5,6 +5,7 @@ var dateFormat = require('dateformat');
 
 import { fetchCampaigns } from '../actions/campaignActions';
 import Loading from './Loading'
+import SectionHeader from './SectionHeader'
 
 function mapStateToProps(store) {
   return { 
@@ -76,37 +77,35 @@ class Campaigns extends React.Component {
      
     return (
       <div>
-        
-        <h2>
-          Campaigns
-          <Link to={`/campaigns/new`} className="btn btn-primary new-campaign btn-lg-mobile">
-            <span className="glyphicon glyphicon-plus-sign"></span>New
-          </Link>
-        </h2>
-        
-        { (window.innerWidth < 768)? 
-          <table className="table table-striped table-bordered campaigns-small">
-            <tbody>
-              {CampaignRowsSmall}
-            </tbody>
-          </table>
-          
-          :<table className="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <td>Name</td>
-                <td>Expansion</td>
-                <td>Description</td>
-                <td>Created</td>
-                <td>View</td>
-              </tr>
-            </thead>
-            <tbody>
-              {CampaignRows}
-            </tbody>
-          </table>
-        }
-        
+       
+       <SectionHeader name="Campaigns" create={true} filter={false} />
+       
+       <div className="row"> 
+        <div className="col-md-12"> 
+          { (window.innerWidth < 768)? 
+            <table className="table table-striped table-bordered campaigns-small">
+              <tbody>
+                {CampaignRowsSmall}
+              </tbody>
+            </table>
+            
+            :<table className="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <td>Name</td>
+                  <td>Expansion</td>
+                  <td>Description</td>
+                  <td>Created</td>
+                  <td>View</td>
+                </tr>
+              </thead>
+              <tbody>
+                {CampaignRows}
+              </tbody>
+            </table>
+          }
+        </div>
+      </div>
         
         
         

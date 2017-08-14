@@ -5,6 +5,7 @@ var dateFormat = require('dateformat');
 
 import { fetchGuilds } from '../actions/guildActions';
 import Loading from './Loading'
+import SectionHeader from './SectionHeader'
 
 function mapStateToProps(store) {
   return { 
@@ -73,12 +74,7 @@ class Guilds extends React.Component {
     return (
       <div>
         
-        <h2>
-          Guilds
-          <Link to={`/guilds/new`} className="btn btn-primary new-guild btn-lg-mobile">
-            <span className="glyphicon glyphicon-plus-sign"></span>New
-          </Link>
-        </h2>
+        <SectionHeader name="Guilds" create={1} filter={0} />
         
         { (window.innerWidth < 768)? 
           <table className="table table-striped table-bordered guilds-small">

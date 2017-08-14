@@ -53,6 +53,10 @@ div.content{
     margin-bottom: 10px;
 }
 
+.header-row .header-row-btns{
+    padding-top: 20px;
+}
+
 .label-share-code{
     font-size: 1.5em;
 }
@@ -507,12 +511,12 @@ div.icons .hero-hp{
     text-align: center;
 }
 
-.btn.new-campaign, .btn.new-guild {
+.btn.new-campaigns, .btn.new-guilds {
     margin-left: 10px;
 }
 
-.new-campaign > span.glyphicon,
-.new-guild > span.glyphicon
+.new-campaigns > span.glyphicon,
+.new-guilds > span.glyphicon
 {
     margin-right: 10px;
 }
@@ -686,18 +690,18 @@ img.guild-has-coin{
         border-radius: 6px;
     }
     
-.input-group-lg-mobile>.form-control,
-.input-group-lg-mobile>.input-group-btn>.btn{
-    height: 46px;
-    padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 6px;
-}
-.input-group-lg-mobile>.input-group-btn:first-child > .btn {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
+    .input-group-lg-mobile>.form-control,
+    .input-group-lg-mobile>.input-group-btn>.btn{
+        height: 46px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+    }
+    .input-group-lg-mobile>.input-group-btn:first-child > .btn {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
 
 
     .btn-lg-remove, .btn-lg-mobile {
@@ -744,4 +748,11 @@ img.guild-has-coin{
         border-radius: 6px;
         margin: 10px auto;
     }
+    
+    .header-row-btns .btn{
+        display: block;
+        margin-left: 0px;
+    }
+    
+    
 }

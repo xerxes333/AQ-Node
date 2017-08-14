@@ -68,7 +68,10 @@ const CampaignCreateForm = (props) => {
           { renderFourFriends(props) }
         </fieldset>
         
-        <button type="submit" className="btn btn-primary">Create</button>
+        <div className="text-center-xs">
+          <button type="submit" className="btn btn-primary btn-lg-mobile">Create</button>
+        </div>
+        
       </form>
     );
 }
