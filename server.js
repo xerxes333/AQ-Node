@@ -5,7 +5,7 @@
 // call the packages we need
 var express      = require('express');        // call express
 var app          = express();                 // define our app using express
-var port         = process.env.PORT || 8080;
+var port         = 8081 || process.env.PORT || 8080;
 var bodyParser   = require('body-parser');
 // var passport     = require('passport');
 var mongoose     = require('mongoose');
