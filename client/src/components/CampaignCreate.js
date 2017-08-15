@@ -41,7 +41,7 @@ class CampaignCreate extends React.Component {
     return (
       <div className="row">
           <div className="col-md-4 col-md-offset-4">
-              <h2>Create New Campaign</h2>
+              <h2>Create Campaign</h2>
               
                <CampaignCreateForm
                 onSubmit={this.handleSubmit.bind(this)} 
