@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from 'react-router';
 
-import HeroSetDropdown from './forms/fields/HeroSetDropdown'
-
 class SectionHeader extends React.Component {
   
   render() {
-    const { name, create, filter } = this.props
+    const { name, create } = this.props
     const nameLC = name.toLowerCase()
     
     return(
