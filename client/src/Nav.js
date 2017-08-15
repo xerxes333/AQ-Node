@@ -47,7 +47,7 @@ class Nav extends Component {
               <button className="navbar-toggle" type="button" data-toggle="collapse" data-target="#w0-collapse">
                   <span className="sr-only">Toggle navigation</span><span className="icon-bar"></span><span className="icon-bar"></span><span className="icon-bar"></span>
               </button>
-              <Link to="/" className="navbar-brand">AQ Guild Manager</Link>
+              <Link to="/" className="navbar-brand">AQ Campaign Manager</Link>
             </div>
             <div className="collapse navbar-collapse" id="w0-collapse">
               <ul className="navbar-nav navbar-right nav" id="w1">

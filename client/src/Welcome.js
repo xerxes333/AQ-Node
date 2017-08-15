@@ -15,7 +15,7 @@ class Content extends Component {
      return(
          <div className="welcome row">
            <div className="col-md-12">
-              <h1>Welcome to the Arcadia Quest Guild Manager</h1>
+              <h1>Welcome to the Arcadia Quest Campaign Manager</h1>
               <img src={logo} className="img-responsive logo" alt="logo"/>
           </div>
         </div>
