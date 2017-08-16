@@ -47,7 +47,7 @@ class Campaigns extends React.Component {
     
   
     const CampaignRows = (!campaigns.length)? 
-      <tr><td colSpan="4">No Campaigns</td></tr> : 
+      <tr><td colSpan="5">No Campaigns</td></tr> : 
       campaigns.map((campaign)=>{
         return <tr key={campaign._id}>
           <td>
@@ -65,7 +65,7 @@ class Campaigns extends React.Component {
       });
       
       const CampaignRowsSmall = (!campaigns.length)? 
-      <tr><td colSpan="4">No Campaigns</td></tr> : 
+      <tr><td colSpan="5">No Campaigns</td></tr> : 
       campaigns.map((campaign)=>{
         return <tr key={campaign._id} onClick={() => this.rowClicked(campaign._id)}>
           <td>

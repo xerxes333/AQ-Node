@@ -10,7 +10,7 @@ class PrevNext extends React.Component {
     var prev = null
     var next = null
     
-    if (all.length > 0){
+    if (all.length > 1){
       
       const index = all.findIndex((obj,i)=>{
         return obj._id === current._id

@@ -25,7 +25,7 @@ class CampaignCreate extends React.Component {
     const data = { 
       name: values.campaignName.trim(), 
       description: (values.campaignDescription)? values.campaignDescription.trim() : null,
-      expansion: values.campaignExpansion,
+      expansion: values.campaignExpansion || "Core",
       players: values.friends,
       log: getLog(values.campaignExpansion)
     }
