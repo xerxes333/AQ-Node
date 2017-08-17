@@ -51,8 +51,8 @@ function parseGuildData(data){
       return (hero && hero.id) ? hero : null
     })
     .map((hero) => {
-      if(!hero.items)   // if hero has no items just set the hero id
-        return {hero_id: hero.id}
+      if(!hero.items) hero.items = []
+      if(!hero.curses) hero.curses = []
       return {
         hero_id: hero.id,
         items: hero.items.filter((item)=>{
