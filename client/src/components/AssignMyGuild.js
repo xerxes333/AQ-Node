@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateCampaign, fetchCampaign } from '../actions/campaignActions'
+import { updateCampaign } from '../actions/campaignActions'
 import { updateGuild } from '../actions/guildActions'
 
 import AvailableGuilds from './forms/AvailableGuilds';
@@ -9,6 +9,8 @@ import CampaignGuild from './CampaignGuild';
 function mapStateToProps(store) {
   return {
     campaign: store.campaigns.campaign,
+    campaignFetching: store.campaigns.campaignFetching,
+    campaignFetched: store.campaigns.campaignFetched,
     availableGuilds: store.guilds.guilds,
     guild: store.guilds.guild,
     guildFetched: store.guilds.guildFetched,
@@ -28,7 +30,6 @@ class AssignMyGuild extends React.Component {
       
     this.props.dispatch( updateCampaign(this.props.campaign._id, {guilds: this.props.campaign.guilds.concat(values.guild)} ) );
     this.props.dispatch( updateGuild(values.guild, {campaign:  this.props.campaign._id} ) );
-    this.props.dispatch( fetchCampaign(this.props.campaign._id) );
     
   }
   

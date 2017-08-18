@@ -131,7 +131,18 @@ exports.putCampaign = function(req, res) {
                     },{
                         path: 'heroes.items',
                         model: 'Item'
-                    }] }
+                    },{
+                        path: 'heroes.curses',
+                        model: 'Curse'
+                    },{
+                        path: 'pets.pet_id',
+                        model: 'Pet'
+                    },{
+                        path: 'pets.items',
+                        model: 'Item'
+                    }
+                    
+                    ] }
             ]
             
             // I dont think I should be doing this here like this but it seems to work OK  ¯\_(ツ)_/¯

@@ -1,16 +1,20 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { reduxForm } from 'redux-form'
-import { fetchGuild } from '../../actions/guildActions'
+import { fetchGuild, fetchGuilds } from '../../actions/guildActions'
 import GuildsDropdown from './fields/GuildsDropdown'
 
 function mapStateToProps(store) {
   return {
-    
+    guilds: store.guilds.guilds,
   };
 }
 
 class AvailableGuilds extends React.Component {
+  
+  componentWillMount() {
+    this.props.dispatch( fetchGuilds({available: true}) )
+  }
   
   handleChange = (e,p) => {
     this.props.dispatch(fetchGuild(e.target.value));
@@ -18,13 +22,13 @@ class AvailableGuilds extends React.Component {
 
   render(){
     
-    const { handleSubmit } = this.props;
+    const { handleSubmit, guilds } = this.props;
     return (
       <form onSubmit={handleSubmit}>
       
         <div className="form-group">
           <label htmlFor="guild" > Add My Guild </label>
-          <GuildsDropdown guilds={this.props.guilds} index={1} onChange={ (event)=>{this.handleChange(event, this.props)} }/>
+          <GuildsDropdown guilds={guilds} index={1} onChange={ (event)=>{this.handleChange(event, this.props)} }/>
         </div>
         <button type="submit" className="btn btn-success btn-block btn-lg" >Add</button>
         

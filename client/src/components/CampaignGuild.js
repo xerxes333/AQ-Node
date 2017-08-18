@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import CampaignHero from './CampaignHero';
 import CampaignPet from './CampaignPet';
 import { kickGuild } from '../actions/campaignActions'
-import { fetchGuilds } from '../actions/guildActions'
 
 function mapStateToProps(store) {
   return { 
@@ -21,7 +20,6 @@ class CampaignGuild extends React.Component {
     
     if(confirm("Are you sure you want to remove this guild from the campaign?")){
       this.props.dispatch( kickGuild(campaign, guild) )
-      this.props.dispatch(fetchGuilds({available: true}));
     }
       
   }
