@@ -10,6 +10,7 @@ function mapStateToProps(store) {
     campaign: store.campaigns.campaign,
     isUpdated: store.campaigns.updated,
     editLogEntry: store.campaigns.editLogEntry || [],
+    user: store.user,
   };
 }
 
@@ -18,8 +19,6 @@ class CampaignLog extends React.Component {
   
   componentWillMount() {
     const { campaign } = this.props
-    
-    // TODO: calc medal winner values
     
     if(!campaign.log || !campaign.log.length)
       this.props.initialize({log: Core});
@@ -110,10 +109,11 @@ class CampaignLog extends React.Component {
   }
   
   render() {
-    const { campaign, handleSubmit, editLogEntry, onDelete } = this.props
+    const { campaign, handleSubmit, editLogEntry, onDelete, user } = this.props
     const prefix = campaign.expansion.toLowerCase().replace(/\s/g, '') || 'core'
     
-    
+    const isOwner = (campaign.created_by === user.user._id) ? true : false;
+      
     
     const renderCampaignLog = campaign.log.map((entry, index) => {
       
@@ -175,7 +175,7 @@ class CampaignLog extends React.Component {
         <div className="col-md-12 campaign-log-controls">
           { editLogEntry.length > 0 && <button type="submit" className="btn btn-primary">Save</button> }
           { editLogEntry.length > 0 &&  <button type="button" className="btn btn-warning" onClick={ () => this.cancel() } >Cancel</button>}
-          { onDelete && <button type="button" className="btn btn-danger" onClick={onDelete} >Delete</button> }
+          { onDelete && isOwner && <button type="button" className="btn btn-danger" onClick={onDelete} >Delete</button> }
         </div>
       </div>
     </form>
