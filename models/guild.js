@@ -31,35 +31,20 @@ var GuildSchema   = new Schema({
 }, {collection: 'guilds', timestamps: true});
 
 GuildSchema.pre('save', function(next) {
-
+  
   // if we are assigning the guild to campaign based on a share code
-  if(this.code){
+  if(this.code && this.code !== ""){
     
     var self = this
     
-    // Append guild user id to the campaign players array
-    // and the guild id to the campaign guilds array
-    Campaign.findOneAndUpdate(
-      { code: self.code || "" },  // find campaign based on share code
-      { $addToSet: {players: self.user_id, guilds: self._id} }, // append data
-      function(err,campaign){
-        
-        self.code = undefined // always unset the guild code
-        
-        if (err){ // something goes wrong leave guild campaign as is or undefined
-          self.campaign = self.campaign || undefined 
-        } else {  // assign the campaign id to the guild campaign
-          self.campaign = campaign._id 
-        }
-        
-        next()
-        
-      })
-      
+    Campaign.addPlayerByCode_STATIC(self.code, self.user_id, self._id, (err, campaign)=>{
+      if(!err) self.campaign = campaign._id
+      next(err)
+    })
+    
   } else {
     next()
   }
-  
   
 });
 

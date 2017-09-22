@@ -16,10 +16,10 @@ class CampaignGuild extends React.Component {
   
   kick(){
     
-    const { guild, campaign } = this.props;
+    const { guild, campaign, grid } = this.props;
     
     if(confirm("Are you sure you want to remove this guild from the campaign?")){
-      this.props.dispatch( kickGuild(campaign, guild) )
+      this.props.dispatch( kickGuild(campaign, guild, grid) )
     }
       
   }

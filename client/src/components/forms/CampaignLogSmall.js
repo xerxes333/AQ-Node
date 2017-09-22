@@ -10,6 +10,7 @@ function mapStateToProps(store) {
     campaign: store.campaigns.campaign,
     isUpdated: store.campaigns.updated,
     editLogEntry: store.campaigns.editLogEntry || [],
+    user: store.user,
   };
 }
 
@@ -18,8 +19,6 @@ class CampaignLogSmall extends React.Component {
   
   componentWillMount() {
     const { campaign } = this.props
-    
-    // TODO: calc medal winner values
     
     if(!campaign.log || !campaign.log.length)
       this.props.initialize({log: Core});
@@ -62,10 +61,12 @@ class CampaignLogSmall extends React.Component {
     if(!id) return null
       
     const player = this.props.campaign.players.find((p)=>{
-      return p._id === id;
+        return p && p.player._id === id;
     })
     
-    return player.name
+    if(!player) return null
+    
+    return player.player.name
   }
   
   calcMedalWinner(column){
@@ -110,25 +111,35 @@ class CampaignLogSmall extends React.Component {
   }
   
   render() {
-    const { campaign, handleSubmit, editLogEntry, onDelete } = this.props
-
+    const { campaign, handleSubmit, editLogEntry, onDelete, user } = this.props
+    const prefix = campaign.expansion.toLowerCase().replace(/\s/g, '') || 'core'
+    
+    const isOwner = (campaign.created_by === user.user._id) ? true : false;
+    
+    const campaignPlayers = campaign.players
+    .filter((player, i)=>{
+      return player !== null && player !== undefined
+    })
+    .map((player, index)=>{
+      return player.player
+    })
+    
     const renderCampaignLog = campaign.log.map((entry, index) => {
       
       const glyph = editLogEntry.includes(index)? "primary" : "default"
-      const prefix = campaign.expansion.toLowerCase().replace(/\s/g, '') || 'core'
       
       var winner = this.getPlayerName(entry.winner)
       var deaths = this.getPlayerName(entry.deaths)
       var coins  = this.getPlayerName(entry.coins)
       var reward = this.getPlayerName(entry.reward)   
       var title  = this.getPlayerName(entry.title)
-      
+
       if( editLogEntry.includes(index) ){
-        winner = <PlayersDropdown players={campaign.players} name={`log[${index}].winner`}/>
-        deaths = <PlayersDropdown players={campaign.players} name={`log[${index}].deaths`}/>
-        coins  = <PlayersDropdown players={campaign.players} name={`log[${index}].coins`}/>
-        reward = entry.hasOwnProperty('reward') && <PlayersDropdown players={campaign.players} name={`log[${index}].reward`}/>
-        title  = entry.hasOwnProperty('title') && <PlayersDropdown players={campaign.players} name={`log[${index}].title`}/>
+        winner = <PlayersDropdown players={campaignPlayers} name={`log[${index}].winner`}/>
+        deaths = <PlayersDropdown players={campaignPlayers} name={`log[${index}].deaths`}/>
+        coins  = <PlayersDropdown players={campaignPlayers} name={`log[${index}].coins`}/>
+        reward = entry.hasOwnProperty('reward') && <PlayersDropdown players={campaignPlayers} name={`log[${index}].reward`}/>
+        title  = entry.hasOwnProperty('title') && <PlayersDropdown players={campaignPlayers} name={`log[${index}].title`}/>
       }
     
       return <table className="table table-striped table-condensed campaign-log-small" key={index}>
@@ -181,7 +192,7 @@ class CampaignLogSmall extends React.Component {
         <div className="col-md-12 campaign-log-controls text-center">
           { editLogEntry.length > 0 && <button type="submit" className="btn btn-primary btn-lg">Save</button> }
           { editLogEntry.length > 0 &&  <button type="button" className="btn btn-warning btn-lg" onClick={ () => this.cancel() } >Cancel</button>}
-          { onDelete && <button type="button" className="btn btn-danger btn-lg" onClick={onDelete} >Delete</button> }
+          { onDelete && isOwner && <button type="button" className="btn btn-danger btn-lg" onClick={onDelete} >Delete</button> }
         </div>
       </div>
       

@@ -9,6 +9,7 @@ function mapStateToProps(store) {
     form: store.form.inviteFriend || {},
     players: store.campaigns.campaign.players || [],
     guilds: store.campaigns.campaign.guilds || [],
+    friends: store.user.user.friends || [],
   };
 }
 
@@ -16,33 +17,13 @@ function mapStateToProps(store) {
 class InviteFriends extends React.Component {
 
   handleSubmit = (values) => {
-    this.props.dispatch( 
-      inviteFriend(
-        this.props.campaign._id, 
-        {currentPlayers: this.props.players, invitePlayers: values.friends} 
-    ));
-  }
-  
-  filterFriends(){
-    const friends = this.props.friends;
-    const players = this.props.campaign.players;
-    var unique = [];
-    
-    if(friends && players){
-      unique = friends.filter(function(friend){
-          return players.filter(function(player){
-              return player._id === friend._id
-          }).length === 0
-      });
-    }
-    return unique;
+    const { campaign, grid } = this.props
+    this.props.dispatch( inviteFriend(campaign, values.friends[grid-1], grid) )
   }
 
   render(){
 
-    const { grid, pending, name } = this.props;
-    const index = grid - 1;
-    const filteredFriends = this.filterFriends();
+    const { grid, pending, name, friends } = this.props
     
     if(pending)
       return <div className="col-md-3 campaign-grid">
@@ -51,7 +32,7 @@ class InviteFriends extends React.Component {
         </div>
       </div>
       
-    if(!filteredFriends || !filteredFriends.length || filteredFriends.length <= index)
+    if(!friends)
       return <div className="col-md-3 campaign-grid">
         <div className="campaign-generic">
           Awww, you don't have any available friends! Use the <span className="text-primary">Share Code</span> to invite other players.
@@ -60,7 +41,7 @@ class InviteFriends extends React.Component {
       
     return (
       <div className="col-md-3 campaign-grid text-center">
-        <InviteFriend friends={filteredFriends} index={index} onSubmit={this.handleSubmit} />
+        <InviteFriend friends={friends} index={grid-1} onSubmit={this.handleSubmit} />
       </div>
     );
   };

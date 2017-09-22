@@ -6,7 +6,7 @@ class FriendDropdown extends React.Component {
   render(){
       const { friends, index } = this.props;
       
-      const List = friends.map((friend, index)=>{
+      const List = friends.map((friend, i)=>{
         return (
           <option value={friend._id} key={friend._id}> {friend.name}</option>
         );

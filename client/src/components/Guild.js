@@ -9,6 +9,7 @@ import Loading from './Loading'
 
 function mapStateToProps(store) {
   return { 
+    G: store.guilds,
     guild: store.guilds.guild,
     guilds: store.guilds.guilds,
     guildFetched: store.guilds.guildFetched,
@@ -35,19 +36,25 @@ class Guild extends React.Component {
       this.props.dispatch({type: "EDIT_GUILD", payload: false})
       this.props.dispatch(fetchGuild(nextProps.params.id));
     }
+  }
+
+  handleSubmit(values, dispatch) {
+    console.log(values, "======================SUBMIT")
+    this.props.dispatch( updateGuild(this.props.params.id, values) )
     
+    // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+    // return sleep(3000).then(() => {
+    //   console.log(values, "======================SUBMIT")
+    //   this.props.dispatch( updateGuild(this.props.params.id, values) )
+    // })
   }
   
-  handleSubmit(values) {
-    this.props.dispatch(updateGuild(this.props.params.id, values));
+  handleSuccess(values, dispatch) {
+    console.log([values, dispatch], "======================SUCCESS")
   }
   
-  handleSuccess(values) {
-    console.log(values, "======================SUCCESS")
-  }
-  
-  handleFail(values) {
-    console.log(values, "================FAIL")
+  handleFail(values, dispatch) {
+    console.log([this, dispatch], "================FAIL")
   }
   
   handleDelete(values) {

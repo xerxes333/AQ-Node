@@ -61,10 +61,12 @@ class CampaignLog extends React.Component {
     if(!id) return null
       
     const player = this.props.campaign.players.find((p)=>{
-      return p._id === id;
+      return p && p.player._id === id;
     })
     
-    return player.name
+    if(!player) return null
+      
+    return player.player.name
   }
   
   calcMedalWinner(column){
@@ -113,7 +115,14 @@ class CampaignLog extends React.Component {
     const prefix = campaign.expansion.toLowerCase().replace(/\s/g, '') || 'core'
     
     const isOwner = (campaign.created_by === user.user._id) ? true : false;
-      
+    
+    const campaignPlayers = campaign.players
+    .filter((player, i)=>{
+      return player !== null && player !== undefined
+    })
+    .map((player, index)=>{
+      return player.player
+    })
     
     const renderCampaignLog = campaign.log.map((entry, index) => {
       
@@ -128,11 +137,11 @@ class CampaignLog extends React.Component {
       if( editLogEntry.includes(index) )
         return <tr key={index}>
           {firstCol}
-          <td><PlayersDropdown players={campaign.players} name={`log[${index}].winner`}/></td>
-          <td><PlayersDropdown players={campaign.players} name={`log[${index}].deaths`}/></td>
-          <td><PlayersDropdown players={campaign.players} name={`log[${index}].coins`}/></td>
-          <td>{entry.hasOwnProperty('reward') && <PlayersDropdown players={campaign.players} name={`log[${index}].reward`} />}</td>
-          <td>{entry.hasOwnProperty('title') && <PlayersDropdown players={campaign.players} name={`log[${index}].title`} />}</td>
+          <td><PlayersDropdown players={campaignPlayers} name={`log[${index}].winner`}/></td>
+          <td><PlayersDropdown players={campaignPlayers} name={`log[${index}].deaths`}/></td>
+          <td><PlayersDropdown players={campaignPlayers} name={`log[${index}].coins`}/></td>
+          <td>{entry.hasOwnProperty('reward') && <PlayersDropdown players={campaignPlayers} name={`log[${index}].reward`} />}</td>
+          <td>{entry.hasOwnProperty('title') && <PlayersDropdown players={campaignPlayers} name={`log[${index}].title`} />}</td>
         </tr>
       else
         return <tr key={index}>

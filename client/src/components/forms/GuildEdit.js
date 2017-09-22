@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { browserHistory } from 'react-router';
-import { Field, FieldArray, reduxForm, arrayPush} from 'redux-form';
+import { Field, FieldArray, reduxForm, arrayPush } from 'redux-form';
 import { fetchGuild, updateGuild } from '../../actions/guildActions'
-import { fetchCampaigns, updateCampaign } from '../../actions/campaignActions';
+import { fetchCampaigns, leaveCampaign } from '../../actions/campaignActions';
 
 import HeroesDropdown from './fields/HeroesDropdown';
 import PetsDropdown from './fields/PetsDropdown';
@@ -14,6 +14,7 @@ import ItemSetDropdown from './fields/ItemSetDropdown'
 
 function mapStateToProps(store) {
   return { 
+    guilds: store.guilds,
     guild: store.guilds.guild,
     guildFetched: store.guilds.guildFetched,
     isEditing: store.guilds.isEditing,
@@ -261,36 +262,28 @@ class GuildEdit extends React.Component {
   }
   
   leaveGuild(){
-      
     const { guild } = this.props
-    const campaign = guild.campaign
-     
-    const removedGuild = campaign.guilds.filter(function(g) { return g !== guild._id })
-    const removedPlayer = campaign.players.filter(function(p) { 
-      if(p === campaign.created_by) // the creator of the campaign can NOT leave
-        return p
-      else
-        return p !== guild.user_id._id 
-    })
     
     if(confirm("Are you sure you want to leave the Campaign?")) {  
       this.props.dispatch( updateGuild(guild._id, {campaign: "LEAVE"}) );
-      this.props.dispatch( updateCampaign(guild.campaign._id, {guilds: removedGuild, players: removedPlayer}) );
+      this.props.dispatch( leaveCampaign(guild) );
     }
-    
   }
   
   renderCampaignField(){
     
     const { guild } = this.props;
-
+    
+    // WARNING: This is a dirty hack to show the Campaign Code errors
+    // I tried to throw a submissionError in handleSubmit but could not get it working properly
+    // due to using async functions with redux thunks.  I've been stuck for over a week
+    // trying to get it working so this is fine for now.
+    const campaignErrorHack = (this.props.guilds.error) ? {error: this.props.guilds.errorMessage, touched: true} : {}
+    
     if(guild && guild.campaign)
       return <button type="button" className="btn btn-warning btn-block btn-leave-campaign" onClick={ () => this.leaveGuild() } >Leave Campaign</button>
- 
-    return <div className="form-group">
-      <label htmlFor="guildCamapignCode">Campaign</label>
-      <Field name="guildCamapignCode"  component="input" type="text" className="form-control" placeholder="Share Code"/>
-    </div>
+
+    return <Field name="guildCamapignCode" type="text" component={renderField} label="Campaign" meta={campaignErrorHack}/>
     
   }
   
@@ -307,6 +300,7 @@ class GuildEdit extends React.Component {
     const { handleSubmit, onDelete, editGuildForm } = this.props;
     
     // validation rules
+    
     // const required = value => value ? undefined : 'Required'
     // const maxLength = max => value => value && value.length > max ? `Must be ${max} characters or less` : undefined
     // const maxLength30 = maxLength(30)
@@ -314,6 +308,8 @@ class GuildEdit extends React.Component {
     const imgName = (editGuildForm && editGuildForm.values.guildAnimal)?
       editGuildForm.values.guildAnimal.toLowerCase()
       : 'none'
+    
+
     
     return (
       <div className="row guild-info-edit">
@@ -331,10 +327,7 @@ class GuildEdit extends React.Component {
               </div>
               
               <div className="col-md-4">
-                <div className="form-group">
-                  <label htmlFor="guildDescription">Description</label>
-                  <Field name="guildDescription"  component="input" type="text" className="form-control" />
-                </div>
+                <Field name="guildDescription" type="text" component={renderField} label="Description" />
               </div>
               
               <div className="col-md-2">
@@ -395,7 +388,7 @@ class GuildEdit extends React.Component {
             
             <div className="row guild-edit-buttons">
               <div className="col-md-12">
-                <button type="submit" className="btn btn-primary btn-lg-mobile">Save</button>
+                <button type="submit" className="btn btn-primary btn-lg-mobile" disabled={this.props.guilds.updating}>Save</button>
                 <button type="button" className="btn btn-warning btn-lg-mobile" onClick={ () => this.cancel() } >Cancel</button>
                 { onDelete && <button type="button" className="btn btn-danger btn-lg-mobile" onClick={onDelete} >Delete</button> }
               </div>

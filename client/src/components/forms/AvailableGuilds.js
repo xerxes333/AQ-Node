@@ -1,37 +1,56 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { reduxForm } from 'redux-form'
-import { fetchGuild, fetchGuilds } from '../../actions/guildActions'
+import { fetchGuilds } from '../../actions/guildActions'
 import GuildsDropdown from './fields/GuildsDropdown'
+import CampaignGuild from '../CampaignGuild'
 
 function mapStateToProps(store) {
   return {
     guilds: store.guilds.guilds,
+    guild: store.guilds.guild || {},
+    guildsFetched: store.guilds.fetched,
   };
 }
 
 class AvailableGuilds extends React.Component {
   
+  constructor(props){
+    super(props)
+    this.state = {
+      selectedGuildID: null,
+      localGuild: {}
+    }
+  }
+  
   componentWillMount() {
-    this.props.dispatch( fetchGuilds({available: true}) )
+    if(!this.props.guilds)
+      this.props.dispatch( fetchGuilds({available: true}) )
   }
   
   handleChange = (e,p) => {
-    this.props.dispatch(fetchGuild(e.target.value));
+    this.setState((prevState) => {
+      return {
+        selectedGuildID: e.target.value,
+        localGuild: this.props.guilds.find((guild)=>{
+          return guild._id === e.target.value
+        }),
+      }
+    })
   }
 
   render(){
     
-    const { handleSubmit, guilds } = this.props;
+    const { handleSubmit, guilds, index, guildsFetched } = this.props;
+    
     return (
       <form onSubmit={handleSubmit}>
-      
         <div className="form-group">
           <label htmlFor="guild" > Add My Guild </label>
-          <GuildsDropdown guilds={guilds} index={1} onChange={ (event)=>{this.handleChange(event, this.props)} }/>
+          <GuildsDropdown guilds={guilds} index={index} onChange={ (event)=>{this.handleChange(event, this.props)} }/>
         </div>
         <button type="submit" className="btn btn-success btn-block btn-lg" >Add</button>
-        
+        {this.state.selectedGuildID && guildsFetched && <CampaignGuild guild={this.state.localGuild} isPreview="1" />}
       </form>
     );
     
@@ -40,7 +59,7 @@ class AvailableGuilds extends React.Component {
 }
 
 AvailableGuilds = reduxForm({
-  form: 'availableGuilds'
+  // form: 'availableGuilds'
 })(AvailableGuilds);
 
 export default connect(mapStateToProps)(AvailableGuilds);

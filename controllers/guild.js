@@ -72,7 +72,14 @@ exports.getGuilds = function(req, res) {
         if (err)
             res.send(err);
         res.json({ success: true, guilds: guilds });
-    }).sort('-createdAt');
+    }).sort('-createdAt')
+    .populate('user_id', '_id name')
+    .populate('campaign', '_id name created_by players guilds')
+    .populate('heroes.hero_id')
+    .populate('heroes.items')
+    .populate('heroes.curses')
+    .populate('pets.pet_id')
+    .populate('pets.items')
 };
 
 
@@ -117,14 +124,20 @@ exports.putGuild = function(req, res) {
     guild.coin = req.body.coin || guild.coin;
     
     // If we are removing our campaignguild from the guild unset the campaign
-    guild.campaign = (req.body.campaign === 'LEAVE')? undefined : req.body.campaign || guild.campaign
+    guild.campaign = (req.body.campaign === 'LEAVE')? undefined : req.body.campaign
     
     // We are assigning the guild to a campaign based on a share code
     // The model handles linking the campaign and guild to one another during the pre-save
     guild.code = req.body.code || undefined
     
     guild.save(function (err, guild) {
-      if (err) res.status(500).send(err);
+      if (err){
+        if(err.campaignFull)
+          res.send({ success: false, message: 'Campaign is full' });
+        if(!err.foundCampaign)
+          res.send({ success: false, message: 'Campaign not found' });
+        res.status(500).send(err);
+      }
       
       var opts = [
         { path: 'user_id', select: '_id name' },

@@ -17,24 +17,20 @@ exports.postCampaigns = function(req, res) {
     campaign.name = req.body.name;
     campaign.created_by = req.decoded._id;
     campaign.description = req.body.description;
-    campaign.players = [req.decoded._id];
-    // campaign.guilds = req.body.guilds;
+    campaign.players = [{player: req.decoded._id},null,null,null];
     campaign.expansion = req.body.expansion;
     campaign.log = req.body.log;
     campaign.code = shortid.generate();
     
-    
     if(req.body.players){
-        var friends = req.body.players.filter( function( friend, index, ret ) {
-            if (friend)
-                return ret.indexOf(friend) == index
-        })
-        campaign.players = campaign.players.concat(friends)
+        for (var i = 0; i < req.body.players.length; i++ ) {
+            campaign.players[i+1] = { player: req.body.players[i] }
+        }
     }
     
     campaign.save(function (err, campaign) {
         if (err) res.status(500).send(err);
-        res.json({success: true, message: 'Guild Created', campaign: campaign});
+        res.json({success: true, message: 'Campaign Created', campaign: campaign});
     });
     
 };
@@ -43,7 +39,7 @@ exports.postCampaigns = function(req, res) {
 * Returns all campaigns the user either created or is a member of.
 */
 exports.getCampaigns = function(req, res) {
-    Campaign.find({$or: [{created_by: req.decoded._id}, {players: req.decoded._id}]}, function(err, campaigns) {
+    Campaign.find({$or: [{created_by: req.decoded._id}, {'players.player': req.decoded._id}]}, function(err, campaigns) {
         if (err)
             res.status(500).send(err);
         res.json({ success: true, campaigns: campaigns });
@@ -55,13 +51,24 @@ exports.getCampaigns = function(req, res) {
 * Gets the full populated campaign info for the requested campaign.
 */
 exports.getCampaign = function(req, res) {
+    
     Campaign.findById(req.params.campaign_id, function(err, campaign) {
-        if (err) res.send(err);
+        if (err) 
+            res.send(err);
+            
+        if( !playerCanView(req.decoded._id, campaign) ){
+            return res.send({ success: false, message: 'You do not have permission to access this campaign' });    
+        }
+        
         res.status(200).json({ success: true, campaigns: campaign });
     })
-    .populate('players', '_id name')
     .populate({
-        path: 'guilds',
+        path: 'players.player',
+        model: 'User',
+        select: '_id name'
+    })
+    .populate({
+        path: 'players.guild',
         model: 'Guild',
         populate: [{
             path: 'user_id',
@@ -98,29 +105,62 @@ exports.putCampaign = function(req, res) {
         if (err)
             res.send(err);
             
-        // make sure the user owns the campaign
-        // if(campaign.user_id != req.decoded._id)
-        //     return res.send({ success: false, message: 'You do not have permission to update this campaign' });    
+        // if we are updating the players prop make sure the user has access
+        if( req.body.players && !playerCanAddGuild(req.decoded._id, campaign) ){
+            return res.send({ success: false, message: 'You do not have permission to update this campaign' });    
+        }
+        
         
         // we are assuming that the data provided is valid and formatted properly
         // campaign.name = req.body.name || campaign.name;      // can't change campaign name? 
         campaign.description = req.body.description || campaign.description;
         campaign.guilds = req.body.guilds || campaign.guilds;
-        campaign.players = req.body.players || campaign.players;
         campaign.expansion = req.body.expansion || campaign.expansion;
         campaign.log = req.body.log || campaign.log;
+
+        // we have to handle players differently because assigning the array 
+        // from the client does not work as expected
+        if(req.body.players)
+            req.body.players.forEach((player, index) => {
+              campaign.players[index]  = player
+            })
+        else 
+            campaign.players = campaign.players
+
+        if(req.body.kick){
+            Guild.findByIdAndUpdate({_id: req.body.kick}, {$unset: {campaign: "", code: ""}},function(err, guild){
+                if (err) res.status(500).send(err)
+            })
+            
+            // remove all instances of the kickee from the log
+            const newLog = campaign.log.map((obj, index)=>{
+                if(obj.winner === req.body.playerID) obj.winner = null
+                if(obj.deaths === req.body.playerID) obj.deaths = null
+                if(obj.coins === req.body.playerID) obj.coins = null
+                if(obj.reward === req.body.playerID) obj.reward = null
+                if(obj.title === req.body.playerID) obj.title = null
+                return obj
+            })
+
+            campaign.log = newLog
+            campaign.markModified('log');   // have to let mongoose know the field has changed
+            
+        }
         
         campaign.save(function (err, campaign) {
             if (err) res.status(500).send(err);
             
-            if(req.body.kick)
-                Guild.findByIdAndUpdate({_id: req.body.kick}, {$unset: {campaign: ""}},function(err, guild){
-                    if (err) res.status(500).send(err);
+                        
+            if(req.body.addingGuild){
+                Guild.findByIdAndUpdate({_id: req.body.guildID}, {$set: {campaign: campaign._id}},function(err, guild){
+                    if (err) res.status(500).send(err)
                 })
+            }
             
             var opts = [
-                { path: 'players', select: '_id name' },
-                { path: 'guilds', 
+                { path: 'players.player', model: 'User', select: '_id name' },
+                { path: 'players.guild', 
+                    model: 'Guild',
                     populate: [{
                         path: 'user_id',
                         model: 'User',
@@ -176,3 +216,23 @@ exports.deleteCampaign = function(req, res) {
         res.send({ success: true, message: 'Campaign removed successfully' });    
     });
 };
+
+
+function playerCanModify(id, campaign){
+    if(campaign.created_by == id)
+        return true
+    return false
+}
+
+function playerCanView(id, campaign){
+    var ret = false
+    campaign.players.forEach(function(player){
+        if( player && (player.player == id || player.player._id == id) )
+            ret = true
+    })
+    return ret
+}
+
+function playerCanAddGuild(id, campaign){
+    return playerCanView(id, campaign)
+}

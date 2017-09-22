@@ -111,7 +111,7 @@ export function updateGuild(id, data) {
       dispatch({type: "UPDATE_GUILD"});
       Client.put(`guilds/${id}`, parsed, (payload) => {
         if(!payload.success) {
-          dispatch({ type: "UPDATE_GUILD_FAILURE", payload: payload });
+          dispatch( {type: "UPDATE_GUILD_FAILURE", payload: payload} )
         } else {
           dispatch({ type: "UPDATE_GUILD_FULFILLED", payload: payload });
         }
