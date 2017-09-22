@@ -141,12 +141,12 @@ class Campaign extends React.Component {
           <div className="col-md-12">
           
             <ul className="nav nav-tabs" role="tablist">
-              <li role="presentation" className=""><a href="#log" aria-controls="log" role="tab" data-toggle="tab">Campaign Log</a></li>
-              <li role="presentation" className="active"><a href="#guilds" aria-controls="guilds" role="tab" data-toggle="tab">Guilds</a></li>
+              <li role="presentation" className="active"><a href="#log" aria-controls="log" role="tab" data-toggle="tab">Campaign Log</a></li>
+              <li role="presentation" className=""><a href="#guilds" aria-controls="guilds" role="tab" data-toggle="tab">Guilds</a></li>
             </ul>
           
             <div className="tab-content">
-              <div role="tabpanel" className="tab-pane" id="log">
+              <div role="tabpanel" className="tab-pane active" id="log">
                 { (this.isSmall)? 
                   <CampaignLogSmall
                       onSubmit={this.handleSubmit.bind(this)} 
@@ -156,7 +156,7 @@ class Campaign extends React.Component {
                       onDelete={this.handleDelete.bind(this)} />
                 }
               </div>
-              <div role="tabpanel" className="tab-pane active" id="guilds">
+              <div role="tabpanel" className="tab-pane" id="guilds">
                 <div className="row">
                   {Fours && Grids}
                 </div>
