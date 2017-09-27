@@ -26,9 +26,9 @@ const root = document.getElementById('root');
 
 ReactDOM.render(
   <Provider store={store}>
-  <Router history={browserHistory}>
+  <Router history={browserHistory} onUpdate={()=>{window.scrollTo(0,0)}}>
     <Route path="/" component={Layout}>
-      
+    
       <IndexRoute component={Welcome}></IndexRoute>
       
       <Route path="campaigns" component={requireAuthentication(Campaigns)}/>
