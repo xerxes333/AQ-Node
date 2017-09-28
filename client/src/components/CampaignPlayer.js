@@ -56,9 +56,11 @@ class CampaignPlayer extends React.Component {
       return <AssignMyGuild key={index} index={index} />
       
     if((user.user._id === campaign.created_by))
-      return <div className="col-md-3" key={index}>
-        <button type="submit" className="btn btn-primary btn-block btn-lg" onClick={ () => {this.addMyGuild()} } >Add My Guild</button>
-        <button type="submit" className="btn btn-primary btn-block btn-lg" onClick={ () => {this.inviteFriend()} } >Invite Friend</button>
+      return <div className="col-md-3 campaign-grid" key={index}>
+        <div className="campaign-generic">
+          <button type="submit" className="btn btn-primary btn-block btn-lg" onClick={ () => {this.addMyGuild()} } >Add My Guild</button>
+          <button type="submit" className="btn btn-primary btn-block btn-lg" onClick={ () => {this.inviteFriend()} } >Invite Friend</button>
+        </div>
       </div>
     
     else

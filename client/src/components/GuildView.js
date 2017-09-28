@@ -60,7 +60,7 @@ class GuildView extends React.Component {
             <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive guild-name-icon guild-name-icon-xs" alt="logo" />
             
           </div>
-          <div className="col-md-8 text-center-xs">
+          <div className="col-md-7 text-center-xs">
             <h2>
               {guild.name}
               <small className="hidden-xs"> {guild.description} </small>
@@ -72,8 +72,8 @@ class GuildView extends React.Component {
             { guild.coin && 
               <img src={require(`../../public/images/item-card-price.png`)} className="img-responsive guild-has-coin" alt="coin" /> }
           </div>
-          <div className="col-md-1 text-right guild-info-top-pad">
-            <button className="btn btn-primary btn-block btn-mobile" type="button" onClick={ () => this.toggleEditing() } >
+          <div className="col-md-2 text-right guild-info-top-pad">
+            <button className="btn btn-primary btn-block btn-lg" type="button" onClick={ () => this.toggleEditing() } >
               <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
               Edit
             </button>

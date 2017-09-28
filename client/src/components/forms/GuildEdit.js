@@ -62,7 +62,7 @@ const renderItems = ({ fields, filter, meta: { error } }) => {
   return (
     <ul className="list-unstyled">
       <li>
-        <button type="button" className="btn btn-success btn-block btn-add-item" onClick={() => fields.push({})}>
+        <button type="button" className="btn btn-success btn-block btn-add-item btn-lg" onClick={() => fields.push({})}>
           <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Item
         </button>
       </li>
@@ -81,7 +81,7 @@ const renderCurses = ({ fields, filter, meta: { error } }) => {
   return (
     <ul className="list-unstyled">
       <li>
-        <button type="button" className="btn btn-curse btn-block btn-add-item" onClick={() => fields.push({})}>
+        <button type="button" className="btn btn-curse btn-block btn-add-item btn-lg" onClick={() => fields.push({})}>
           <span className="glyphicon glyphicon-flash" aria-hidden="true"></span> Add Curse
         </button>
       </li>
@@ -355,12 +355,12 @@ class GuildEdit extends React.Component {
 
                   <div className="row">
                     <div className="col-md-2">
-                      <button type="button" className="btn btn-success btn-block btn-add-hero" onClick={ () => this.appendHero() }>
+                      <button type="button" className="btn btn-success btn-lg btn-block btn-add-hero" onClick={ () => this.appendHero() }>
                         <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Hero
                       </button>
                     </div>
                     <div className="col-md-2">
-                      <button type="button" className="btn btn-success btn-block btn-add-pet" onClick={ () => this.appendPet() }>
+                      <button type="button" className="btn btn-success btn-block btn-lg btn-add-pet" onClick={ () => this.appendPet() }>
                         <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Pet
                       </button>
                     </div>
@@ -387,10 +387,14 @@ class GuildEdit extends React.Component {
 
             
             <div className="row guild-edit-buttons">
-              <div className="col-md-12">
-                <button type="submit" className="btn btn-primary btn-lg-mobile" disabled={this.props.guilds.updating}>Save</button>
-                <button type="button" className="btn btn-warning btn-lg-mobile" onClick={ () => this.cancel() } >Cancel</button>
-                { onDelete && <button type="button" className="btn btn-danger btn-lg-mobile" onClick={onDelete} >Delete</button> }
+              <div className="col-md-2">
+                <button type="submit" className="btn btn-primary btn-lg btn-block" disabled={this.props.guilds.updating}>Save</button>
+              </div>
+              <div className="col-md-2">
+                <button type="button" className="btn btn-warning btn-lg btn-block" onClick={ () => this.cancel() } >Cancel</button>
+              </div>
+              <div className="col-md-2">
+                { onDelete && <button type="button" className="btn btn-danger btn-lg btn-block" onClick={onDelete} >Delete</button> }
               </div>
             </div>
             

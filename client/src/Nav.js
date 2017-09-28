@@ -41,7 +41,7 @@ class Nav extends Component {
   render() {
     const { isAuthenticated } = this.props;
     return (
-         <nav className="navbar navbar-inverse navbar-fixed-top navbar-lg" id="w0" role="navigation">
+         <nav className="navbar navbar-default navbar-fixed-top navbar-lg" id="w0" role="navigation">
           <div className="container">
             <div className="navbar-header">
               <button className="navbar-toggle" type="button" data-toggle="collapse" data-target="#w0-collapse">

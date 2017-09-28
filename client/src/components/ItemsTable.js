@@ -147,7 +147,7 @@ class Items extends React.Component {
           <a role="button" data-toggle="collapse" data-parent="#accordion" href={`#collapse${item._id}`} aria-expanded="false" aria-controls={`collapse${item._id}`}>
             <div className="items-panel-title">
               <h4 className="panel-title">
-                  <strong>{item.number} </strong>{item.name}
+                  <strong>{item.number}:</strong> <span className="text-info">{item.name}</span>
               </h4>
               {this.renderPriceIcon(item)}
               {this.renderAtkIcon(item)}

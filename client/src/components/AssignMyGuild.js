@@ -42,7 +42,9 @@ class AssignMyGuild extends React.Component {
       </div>
     
     return <div className="col-md-3 text-center assign-my-guild">
-      <AvailableGuilds guilds={availableGuilds} onSubmit={this.handleSubmit} form={formName} index={index} />
+      <div className="campaign-generic">
+        <AvailableGuilds guilds={availableGuilds} onSubmit={this.handleSubmit} form={formName} index={index} />
+      </div>
     </div>
   };
   

@@ -27,9 +27,11 @@ const renderField = ({ input, label, type, name, placeholder, meta: { touched, e
   <div className={ "form-group " + (touched && error? "has-error" : "" ) }>
     <label className="sr-only" htmlFor={name}>{label}</label>
     <div className="input-group">
-      <input {...input} type={type} name={name} className="form-control" placeholder={placeholder}/>
+      <input {...input} type={type} name={name} className="form-control add-friend-input" placeholder={placeholder}/>
       <span className="input-group-btn">
-          <button className={ "btn btn-lg-mobile " + (touched && error? "btn-danger" : "btn-success" )}  type="submit">Add</button>
+          <button className={ "btn btn-lg-mobile " + (touched && error? "btn-danger" : "btn-success" )}  type="submit">
+            <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add
+          </button>
       </span>
     </div>
     {touched && ((error && <span className="help-block">{error}</span>) || (warning && <span>{warning}</span>))}

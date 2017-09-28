@@ -36,7 +36,16 @@ class Campaigns extends React.Component {
     return <span className={`label label-${obj[exp]} ${pull}`}>{exp}</span>
   }
   
-  
+  logoImage(exp = "Core", size = "32"){
+    
+    const obj = {
+      "Core":             "core",
+      "Beyond The Grave": "btg",
+      "Inferno":          "inferno",
+      "Pets":             "pets",
+    }
+    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`img-responsive guild-name-icon guild-name-icon-${size}`} alt="logo"/>
+  }
   
   render() {
     
@@ -51,6 +60,7 @@ class Campaigns extends React.Component {
       campaigns.map((campaign)=>{
         return <tr key={campaign._id}>
           <td>
+            {this.logoImage(campaign.expansion, 32)}
             {campaign.name}
           </td>
           <td>{this.expansionLabel(campaign.expansion)}</td>
@@ -69,6 +79,7 @@ class Campaigns extends React.Component {
       campaigns.map((campaign)=>{
         return <tr key={campaign._id} onClick={() => this.rowClicked(campaign._id)}>
           <td>
+            {this.logoImage(campaign.expansion, 48)}
             {campaign.name}
             {this.expansionLabel(campaign.expansion, "pull-right")}
           </td>

@@ -41,7 +41,9 @@ class InviteFriends extends React.Component {
       
     return (
       <div className="col-md-3 campaign-grid text-center">
-        <InviteFriend friends={friends} index={grid-1} onSubmit={this.handleSubmit} />
+        <div className="campaign-generic">
+          <InviteFriend friends={friends} index={grid-1} onSubmit={this.handleSubmit} />
+        </div>
       </div>
     );
   };

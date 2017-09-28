@@ -170,7 +170,7 @@ class CampaignLog extends React.Component {
           {renderCampaignLog}
         </tbody>
         <tfoot>
-          <tr>
+          <tr className="medal">
             <td className="scenario medal">Medal Winner</td>
             <td>{this.calcMedalWinner('winner')}</td>
             <td>{this.calcMedalWinner('deaths')}</td>
@@ -182,9 +182,9 @@ class CampaignLog extends React.Component {
       </table>
       <div className="row">
         <div className="col-md-12 campaign-log-controls">
-          { editLogEntry.length > 0 && <button type="submit" className="btn btn-primary">Save</button> }
-          { editLogEntry.length > 0 &&  <button type="button" className="btn btn-warning" onClick={ () => this.cancel() } >Cancel</button>}
-          { onDelete && isOwner && <button type="button" className="btn btn-danger" onClick={onDelete} >Delete</button> }
+          { editLogEntry.length > 0 && <button type="submit" className="btn btn-primary btn-lg">Save</button> }
+          { editLogEntry.length > 0 &&  <button type="button" className="btn btn-warning btn-lg" onClick={ () => this.cancel() } >Cancel</button>}
+          { onDelete && isOwner && <button type="button" className="btn btn-danger btn-lg" onClick={onDelete} >Delete</button> }
         </div>
       </div>
     </form>

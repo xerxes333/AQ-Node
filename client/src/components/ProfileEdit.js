@@ -78,8 +78,8 @@ class ProfileEdit extends React.Component {
 
         <div className="form-group">
           <div className="col-md-offset-2 col-md-10 profile-edit-buttons">
-            <button type="submit" className="btn btn-primary btn-lg-mobile">Save</button>
-            <button type="button" className="btn btn-warning btn-lg-mobile" onClick={ () => this.cancel() } >Cancel</button>
+            <button type="submit" className="btn btn-primary btn-lg">Save</button>
+            <button type="button" className="btn btn-warning btn-lg" onClick={ () => this.cancel() } >Cancel</button>
           </div>
         </div>
         

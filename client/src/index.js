@@ -34,7 +34,7 @@ ReactDOM.render(
       <Route path="campaigns" component={requireAuthentication(Campaigns)}/>
       <Route path="campaigns/new" component={requireAuthentication(CampaignCreate)}/>
       <Route path="campaigns/:id" component={requireAuthentication(Campaign)}/>
-      <Route path="campaign/:id" component={requireAuthentication(Campaign)}/>
+      <Route path="campaigns/:id" component={requireAuthentication(Campaign)}/>
       
       <Route path="guilds" component={requireAuthentication(Guilds)}/>
       <Route path="guilds/new" component={requireAuthentication(GuildCreate)}/>

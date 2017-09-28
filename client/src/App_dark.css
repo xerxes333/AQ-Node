@@ -1,4 +1,4 @@
-/* App.css */
+/* App_darkly.css */
 /* TODO: this needs to be cleaned up and organized, seriously! */
 @import url('https://fonts.googleapis.com/css?family=Exo');
 
@@ -58,8 +58,12 @@ div.content{
     padding-top: 20px;
 }
 
+.header-row .glyphicon{
+    padding-right: 5px;
+}
+
 .label-share-code{
-    font-size: 1.5em;
+    font-size: 1.5em !important;
 }
 
 img.guild-name-icon{
@@ -93,6 +97,10 @@ img.guild-name-icon-48{
 
 /* ===============================================  */
 /* ===============================================  */
+
+ul.aq-tabs li{
+    font-size: 26px;
+}
 
 .campaign-guild{
     margin: 5px;
@@ -162,9 +170,6 @@ div.campaign-guild-user{
     text-align: right;
 }
 
-.panel-default > div.{
-    
-}
 
 .campaign-guild-Lion .hero-row .hero-name{
     background-color: #de6b39;
@@ -299,7 +304,7 @@ img.hero-info-image-128{
 *  Guild Hero Info  *
 *********************/
 table.guild-hero-info{
-    background-color: #FFF;
+    background-color: #666;
     /*height: 220px;*/
 }
 
@@ -314,7 +319,7 @@ table.guild-hero-info td.effect{
 
 table.guild-hero-info th{
     text-align: center;
-    background-color: #d6d0bc;
+    background-color: #AAA;
     font-size: 1.5em;
     padding: 2px !important;
     color: #aa2a0c;
@@ -332,6 +337,12 @@ table.guild-hero-info td{
 .guild-controls{
     margin-top: 20px;
 }
+.guild-controls .form-group{
+    margin-top: 10px;
+}
+.guild-controls button{
+    margin-bottom: 10px
+}
 
 div.guild-info-edit{
     
@@ -346,8 +357,16 @@ div.profile-edit-buttons button{
     margin: 5px;
 }
 
-div.guild-edit-buttons button{
-    margin: 5px;
+/*div.guild-edit-buttons button{*/
+/*    margin: 5px;*/
+/*}*/
+
+div.campaign-edit-buttons button{
+    margin-bottom: 10px;
+}
+
+div.add-invite{
+    margin-bottom: 20px;
 }
 
 .guild-hero-section{
@@ -355,7 +374,7 @@ div.guild-edit-buttons button{
 }
 
 .guild-hero-section > div:nth-child(odd){
-    background-color: #F5F5F5;
+    background-color: #303030;
 }
 
 
@@ -437,7 +456,7 @@ div.icons{
 }
 .items-panel-title > h4{
     display: inline-block;
-    color: #333;
+    color: #CCC;
 }
 
 .items-panel-body{
@@ -513,7 +532,7 @@ div.icons .hero-hp{
 }
 
 .btn.new-campaigns, .btn.new-guilds {
-    margin-left: 10px;
+    /*margin-left: 10px;*/
 }
 
 .new-campaigns > span.glyphicon,
@@ -536,7 +555,7 @@ div.campaign-generic{
     font-size: 14px;
     font-weight: bold;
     padding: 20px 10px;
-    background-color: #f5f5f5;
+    background-color: #303030;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -545,7 +564,7 @@ div.campaign-generic{
 
 .guild-icon-addon{
     padding: 0px 3px !important;
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
 }
 
 .campaign-log th, .campaign-log td{
@@ -561,7 +580,8 @@ table.campaign-log-small .scenario {
     line-height: 2.2 !important;
 }
 
-.medal{ background-color: #DAA520; }
+tr.medal { background-color: #806520; } 
+td.medal, th.medal{ background-color: #DAA520; }
 
 /* Core */
 .core-1{ background-color: #dd5923; }
@@ -591,91 +611,12 @@ table.campaign-log-small .scenario {
 .pets-6{ background-color: #243b7c; }
 
 
-.navbar-default .navbar-nav>.active>a, 
-.navbar-default .navbar-nav>.active>a:focus, 
-.navbar-default .navbar-nav>.active>a:hover{
-    background-color: #337ab7;
-    border-bottom: 3px solid orange;
-}
-
-.navbar-default {
-  background-color: #222;
-  border-color: #080808;
-}
-.navbar-default .navbar-brand {
-  color: #9d9d9d;
-}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #fff;
-  background-color: transparent;
-}
-.navbar-default .navbar-text {
-  color: #9d9d9d;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #9d9d9d;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: #fff;
-  background-color: transparent;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #fff;
-  background-color: #080808;
-}
-.navbar-default .navbar-nav > .disabled > a,
-.navbar-default .navbar-nav > .disabled > a:hover,
-.navbar-default .navbar-nav > .disabled > a:focus {
-  color: #444;
-  background-color: transparent;
-}
-.navbar-default .navbar-toggle {
-  border-color: #333;
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  background-color: #333;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #fff;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-  border-color: #101010;
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-  color: #fff;
-  background-color: #080808;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*.navbar-inverse .navbar-nav>.active>a, */
+/*.navbar-inverse .navbar-nav>.active>a:focus, */
+/*.navbar-inverse .navbar-nav>.active>a:hover{*/
+/*    background-color: #337ab7;*/
+/*    border-bottom: 3px solid orange;*/
+/*}*/
 
 .label-core {
     background-color: #2a6bcb;
@@ -700,6 +641,7 @@ table.campaign-log-small .scenario {
 
 .campaign-log-controls button{
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .assign-my-guild{
@@ -738,6 +680,13 @@ img.guild-has-coin{
     font-size: 18px;
     line-height: 1.3333333;
 }
+
+table.friends-list{
+    margin-top: 10px;
+}
+
+
+
 
 @media (max-device-width: 480px) {
     
@@ -779,7 +728,7 @@ img.guild-has-coin{
         border-radius: 6px;
     }
     .input-group-lg-mobile>.input-group-btn:first-child > .btn {
-        border-top-right-radius: 0px;
+        border-top-right-radius: 0px; 
         border-bottom-right-radius: 0px;
     }
 
@@ -788,18 +737,22 @@ img.guild-has-coin{
         padding: 10px 16px;
         font-size: 18px;
         line-height: 1.3333333;
-        border-radius: 6px;
+        border-radius: 6px; 
+    }
+    
+    .add-friend-input{
+        height: 48px;
     }
     
 
     .btn-add-hero, 
     .btn-add-item, 
     .btn-add-pet {
-        margin-bottom: 15px;
-        padding: 10px 16px;
-        font-size: 18px;
-        line-height: 1.3333333;
-        border-radius: 6px;
+        /*margin-bottom: 15px;*/
+        /*padding: 10px 16px;*/
+        /*font-size: 18px;*/
+        /*line-height: 1.3333333;*/
+        /*border-radius: 6px;*/
         
     }
     

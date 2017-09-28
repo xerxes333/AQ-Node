@@ -140,7 +140,7 @@ class Campaign extends React.Component {
         <div className="row">
           <div className="col-md-12">
           
-            <ul className="nav nav-tabs" role="tablist">
+            <ul className="nav nav-tabs aq-tabs" role="tablist">
               <li role="presentation" className="active"><a href="#log" aria-controls="log" role="tab" data-toggle="tab">Campaign Log</a></li>
               <li role="presentation" className=""><a href="#guilds" aria-controls="guilds" role="tab" data-toggle="tab">Guilds</a></li>
             </ul>
@@ -166,7 +166,7 @@ class Campaign extends React.Component {
           </div>
         </div>
         
-        <PrevNext type="campaign" all={campaigns} current={campaign}/>
+        <PrevNext type="campaigns" all={campaigns} current={campaign}/>
         
       </div>
     );

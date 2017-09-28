@@ -189,11 +189,23 @@ class CampaignLogSmall extends React.Component {
       </table>
       
       <div className="row">
-        <div className="col-md-12 campaign-log-controls text-center">
-          { editLogEntry.length > 0 && <button type="submit" className="btn btn-primary btn-lg">Save</button> }
-          { editLogEntry.length > 0 &&  <button type="button" className="btn btn-warning btn-lg" onClick={ () => this.cancel() } >Cancel</button>}
-          { onDelete && isOwner && <button type="button" className="btn btn-danger btn-lg" onClick={onDelete} >Delete</button> }
-        </div>
+          { editLogEntry.length > 0 && 
+            <div className="col-md-2 campaign-log-controls">
+              <button type="submit" className="btn btn-primary btn-lg btn-block">Save</button>
+            </div>
+          }
+          
+          { editLogEntry.length > 0 &&  
+            <div className="col-md-2 campaign-log-controls">
+              <button type="button" className="btn btn-warning btn-lg btn-block" onClick={ () => this.cancel() } >Cancel</button>
+            </div>
+          }
+          
+          { onDelete && isOwner && 
+            <div className="col-md-2 campaign-log-controls">
+              <button type="button" className="btn btn-danger btn-lg btn-block" onClick={onDelete} >Delete</button> 
+            </div>
+          }  
       </div>
       
     </form>

@@ -78,7 +78,7 @@ class ProfileView extends React.Component {
             <AddFriend onSubmit={this.handleAddFriend.bind(this)} />
             
             { user.friends.length > 0 && 
-              <table className="table table-condensed table-bordered table-striped">
+              <table className="table table-condensed table-bordered table-striped friends-list">
                 <tbody>{friendsList}</tbody>
               </table>
             }

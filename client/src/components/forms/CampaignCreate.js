@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import { Field, reduxForm } from 'redux-form';
 import FriendDropdown from './fields/FriendDropdown';
 import ExpansionsDropdown from './fields/ExpansionsDropdown';
@@ -68,8 +69,13 @@ const CampaignCreateForm = (props) => {
           { renderFourFriends(props) }
         </fieldset>
         
-        <div className="text-center-xs">
-          <button type="submit" className="btn btn-primary btn-lg-mobile">Create</button>
+        <div className="row text-center-xs campaign-edit-buttons">
+          <div className="col-md-6">
+            <button type="submit" className="btn btn-primary btn-lg btn-block">Create</button>
+          </div>
+          <div className="col-md-6">
+            <Link to="/campaigns" className="btn btn-warning btn-lg btn-block">Cancel</Link>
+          </div>
         </div>
         
       </form>
