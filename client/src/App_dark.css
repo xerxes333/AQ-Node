@@ -52,6 +52,7 @@ div.content{
 
 .header-row{
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .header-row .header-row-btns{
@@ -780,11 +781,6 @@ table.friends-list{
         padding: 10px 16px;
         border-radius: 6px;
         margin: 10px auto;
-    }
-    
-    .header-row-btns .btn{
-        display: block;
-        margin-left: 0px;
     }
     
     

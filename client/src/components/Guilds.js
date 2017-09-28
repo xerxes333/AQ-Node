@@ -74,7 +74,7 @@ class Guilds extends React.Component {
     return (
       <div>
         
-        <SectionHeader name="Guilds" create={1} filter={0} />
+        <SectionHeader name="Guilds" create={true} filter={false} />
         
         { (window.innerWidth < 768)? 
           <table className="table table-striped table-bordered guilds-small">

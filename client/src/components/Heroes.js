@@ -5,6 +5,7 @@ import { fetchHeroes} from '../actions/heroActions';
 import Loading from './Loading'
 import HeroSetDropdown from './forms/fields/HeroSetDropdown'
 import GuildHeroInfo from './GuildHeroInfo';
+import SectionHeader from './SectionHeader'
 
 function mapStateToProps(store) {
   return { 
@@ -65,17 +66,18 @@ class Heroes extends React.Component {
     return (
       <div>
         
-        <div className="row">
-          <div className="col-md-8">
-            <h2>Heroes</h2>
-          </div>
-          <div className="col-md-4">
-            <div className="well form-inline">
-              <strong>Filter </strong>
-              <HeroSetDropdown handleChange={this.handleChange.bind(this)}/>
+        <SectionHeader name="Heroes" create={false} filter={true}>
+          
+          <form className="form-horizontal">
+            <div className="form-group">
+              <label className="col-sm-2 control-label">Filter</label>
+              <div className="col-sm-10">
+                <HeroSetDropdown handleChange={this.handleChange.bind(this)} />
+              </div>
             </div>
-          </div>
-        </div>
+          </form>
+          
+        </SectionHeader>
         
         {Rows}
         

@@ -11,11 +11,9 @@ class PetLevelDropdown extends React.Component {
       })
       
       return (
-        <div className="form-group">
-          <select className="form-control" onChange={this.props.handleChange} >
-            {List}
-          </select>
-        </div>
+        <select className="form-control" onChange={this.props.handleChange} >
+          {List}
+        </select>
       
       );  
   };

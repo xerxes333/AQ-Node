@@ -5,6 +5,7 @@ import { fetchPets } from '../actions/petActions';
 import Loading from './Loading'
 import PetLevelDropdown from './forms/fields/PetLevelDropdown'
 import GuildHeroInfo from './GuildHeroInfo';
+import SectionHeader from './SectionHeader'
 
 function mapStateToProps(store) {
   return { 
@@ -65,18 +66,19 @@ class Pets extends React.Component {
     
     return (
       <div>
-      
-        <div className="row">
-          <div className="col-md-8">
-            <h2>Pets</h2>
-          </div>
-          <div className="col-md-4">
-            <div className="well form-inline">
-              <strong>Filter </strong>
-              <PetLevelDropdown handleChange={this.handleChange.bind(this)}/>
+
+        <SectionHeader name="Pets" create={false} filter={true}>
+          
+          <form className="form-horizontal">
+            <div className="form-group">
+              <label className="col-sm-2 control-label">Filter</label>
+              <div className="col-sm-10">
+                <PetLevelDropdown handleChange={this.handleChange.bind(this)} />
+              </div>
             </div>
-          </div>
-        </div>
+          </form>
+          
+        </SectionHeader>
         
         {Rows}
         

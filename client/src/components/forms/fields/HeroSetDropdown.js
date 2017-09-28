@@ -13,12 +13,10 @@ class HeroSetDropdown extends React.Component {
       })
       
       return (
-        <div className="form-group">
-          <select className="form-control" onChange={this.props.handleChange} >
-            <option value="">-- Hero Set --</option>
-            {List}
-          </select>
-        </div>
+        <select className="form-control" onChange={this.props.handleChange} >
+          <option value="">-- Hero Set --</option>
+          {List}
+        </select>
       
       );  
   };

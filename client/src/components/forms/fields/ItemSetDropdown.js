@@ -13,12 +13,10 @@ class ItemSetDropdown extends React.Component {
       })
       
       return (
-        <div className="form-group">
-          <select className="form-control" onChange={this.props.handleChange} >
-            <option value="">-- Item Set --</option>
-            {List}
-          </select>
-        </div>
+        <select className="form-control" onChange={this.props.handleChange} >
+          <option value="">-- Item Set --</option>
+          {List}
+        </select>
       
       );  
   };
