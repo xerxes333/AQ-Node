@@ -24,12 +24,12 @@ const validate = (values, meta) => {
 }
 
 const renderField = ({ input, label, type, name, placeholder, meta: { touched, error, warning } }) => (
-  <div className={ "form-group " + (touched && error? "has-error" : "" ) }>
+  <div className={ "form-group form-group-fat " + (touched && error? "has-error" : "" ) }>
     <label className="sr-only" htmlFor={name}>{label}</label>
-    <div className="input-group">
-      <input {...input} type={type} name={name} className="form-control add-friend-input" placeholder={placeholder}/>
+    <div className="input-group input-group-fat">
+      <input {...input} type={type} name={name} className="form-control" placeholder={placeholder}/>
       <span className="input-group-btn">
-          <button className={ "btn btn-lg-mobile " + (touched && error? "btn-danger" : "btn-success" )}  type="submit">
+          <button className={ "btn btn-fat " + (touched && error? "btn-danger" : "btn-success" )}  type="submit">
             <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add
           </button>
       </span>

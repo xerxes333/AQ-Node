@@ -36,7 +36,7 @@ class CursesDropdown extends React.Component {
     return (
       <div className="form-group">
       
-        <div className="input-group input-group-lg-mobile">
+        <div className="input-group input-group-fat">
           <span className="input-group-btn">
             <button className="btn btn-danger" type="button" onClick={this.props.onClick}>
               <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>

@@ -73,10 +73,10 @@ class HeroesDropdown extends React.Component {
     });
     
     return (
-      <div className="form-group">
+      <div className="form-group form-group-fat">
         <label className="sr-only" htmlFor={fieldName} > Hero {index+1} </label>
           
-        <div className="input-group input-group-lg-mobile">
+        <div className="input-group input-group-fat">
           <span className="input-group-btn">
             <button className="btn btn-danger" type="button" onClick={this.props.removeHero}>
               <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>

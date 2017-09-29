@@ -44,7 +44,7 @@ class Items extends React.Component {
       var attackClass = (item.class === 'Ranged Attack' ) ? 'item-card-ranged.png' : 'item-card-melee.png' ;
       
       return (
-        <div className="icons pull-right">
+        <div className="icons">
           <img src={require('../../public/images/' + attackClass)} className="img-responsive item-card-icon-32" alt="item attack"/>
           <span className="item-atk">{item.atk}</span>
         </div>
@@ -106,12 +106,13 @@ class Items extends React.Component {
     );
   }
   
-  renderDescription(item){
+  renderDescription(item, small = false){
     return (
-      <div>
-        <span className="item-type">{this.renderClassType(item)}</span>
+      <div className="item-description">
+        <span className="text-primary">{this.renderClassType(item)}</span>
         {item.description}
         <div>
+          {small && this.renderAtkIcon(item)}
           {this.renderHpIcon(item)}
           {this.renderDefIcon(item)}
           {this.renderRollIcon(item)}
@@ -133,9 +134,9 @@ class Items extends React.Component {
     
     const Items = FilteredItems.map((item)=>{
       return <tr key={item._id}>
-        <td className="text-nowrap">{item.number}</td>
+        <td className="text-nowrap text-success"><strong>{item.number}</strong></td>
+        <td className="text-nowrap text-info"><strong>{item.name}</strong></td>
         <td>{this.renderPriceIcon(item)}</td>
-        <td className="text-nowrap">{item.name}</td>
         <td>{this.renderAtkIcon(item)}</td>
         <td>{this.renderDescription(item)}</td>
       </tr>
@@ -147,11 +148,8 @@ class Items extends React.Component {
         <div className="panel-heading" role="tab" id={item._id}>  
           <a role="button" data-toggle="collapse" data-parent="#accordion" href={`#collapse${item._id}`} aria-expanded="false" aria-controls={`collapse${item._id}`}>
             <div className="items-panel-title">
-              <h4 className="panel-title">
-                  <strong>{item.number}:</strong> <span className="text-info">{item.name}</span>
-              </h4>
+              <strong>{item.number}:</strong> <span className="text-info">{item.name}</span>
               {this.renderPriceIcon(item)}
-              {this.renderAtkIcon(item)}
             </div>
           </a>
         </div>
@@ -159,7 +157,7 @@ class Items extends React.Component {
         <div id={`collapse${item._id}`} className="panel-collapse collapse" role="tabpanel" aria-labelledby={item._id}>
           <div className="panel-body items-panel-body">
             
-            {this.renderDescription(item)}
+            {this.renderDescription(item, true)}
           </div>
         </div>
         
@@ -171,18 +169,17 @@ class Items extends React.Component {
       return (
         <div>
         
-          <div className="row">
-            <div className="col-md-8">
-              <h2>Items</h2>
-            </div>
-            <div className="col-md-4">
-              <div className="well form-inline">
-                <strong>Filter </strong>
+        <SectionHeader name="Items" create={false} filter={true}>
+          <form className="form-horizontal">
+            <div className="form-group">
+              <label className="col-sm-2 control-label">Filter</label>
+              <div className="col-sm-10">
                 <ItemSetDropdown handleChange={this.handleChange.bind(this)}/>
               </div>
             </div>
-          </div>
-          
+          </form>  
+        </SectionHeader>
+        
           <div className="row">
             <div className="col-md-12">
               <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -216,8 +213,8 @@ class Items extends React.Component {
               <thead>
                 <tr>
                   <td>ID</td>
-                  <td>Price</td>
                   <td>Name</td>
+                  <td>Price</td>
                   <td>Atk</td>
                   <td>Description</td>
                 </tr>

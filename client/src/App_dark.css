@@ -338,8 +338,8 @@ table.guild-hero-info td{
 .guild-controls{
     margin-top: 20px;
 }
-.guild-controls .form-group{
-    margin-top: 10px;
+.guild-controls .form-control{
+    margin-bottom: 10px;
 }
 .guild-controls button{
     margin-bottom: 10px
@@ -358,9 +358,9 @@ div.profile-edit-buttons button{
     margin: 5px;
 }
 
-/*div.guild-edit-buttons button{*/
-/*    margin: 5px;*/
-/*}*/
+div.guild-edit-buttons button{
+    margin-bottom: 10px;
+}
 
 div.campaign-edit-buttons button{
     margin-bottom: 10px;
@@ -451,23 +451,18 @@ div.icons{
     display: inline-block;
 }
 
+div.item-description .icons{
+    margin-right: 10px;
+}
 
 .items-panel-title{
-    font-size: 1.5em;
-}
-.items-panel-title > h4{
-    display: inline-block;
-    color: #CCC;
+    font-size: 1.2em;
 }
 
 .items-panel-body{
     padding: 5px 15px;
 }
 
-.item-type{
-    font-weight: bold;
-    color: #999;
-}
 
 div.icons>span{
     font-family: Arial Black,Arial Bold,Gadget,sans-serif;
@@ -645,9 +640,9 @@ td.medal, th.medal{ background-color: #DAA520; }
     margin-bottom: 10px;
 }
 
-.assign-my-guild{
-    margin-bottom: 20px;
-}
+/*.assign-my-guild{*/
+/*    margin-bottom: 20px;*/
+/*}*/
 
 .campaign-log-small .location{
     font-size: 1.5em;
@@ -667,7 +662,7 @@ div.guild-info .guild-info-top-pad{
 }
 
 img.guild-has-coin{
-    width: 32px;
+    width: 48px;
     display: inline;
     margin: 0px 5px;
 }
@@ -687,7 +682,16 @@ table.friends-list{
 }
 
 
+.guild-icon-addon img{
+    max-width:  32px;
+    max-height: 32px;
+    display: inline-block;
+}
 
+div.guild-hero-info .hero-item-list .form-group,
+div.guild-hero-info .hero-curse-list .form-group{
+    margin-bottom: 1px;
+}
 
 @media (max-device-width: 480px) {
     
@@ -741,9 +745,6 @@ table.friends-list{
         border-radius: 6px; 
     }
     
-    .add-friend-input{
-        height: 48px;
-    }
     
 
     .btn-add-hero, 
@@ -783,5 +784,54 @@ table.friends-list{
         margin: 10px auto;
     }
     
+    .form-group-fat .form-control,
+    .input-group-fat>.form-control, 
+    .input-group-fat>.input-group-addon, 
+    .input-group-fat>.input-group-btn>.btn {
+        height: 66px;
+        padding: 18px 27px;
+        font-size: 19px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+    }
+    
+    .input-group-fat>.input-group-addon:last-child {
+        border-left: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+    
+    .input-group-btn:last-child>.btn-fat {
+        border-left: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+    
+    .input-group-fat>.input-group-btn:first-child>.btn {
+        border-right: 0;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+    
+    select.input-fat {
+        height: 66px;
+        line-height: 66px;
+    }
+    
+    button.btn-fat,
+    a.btn-fat{
+        padding: 18px 27px;
+        font-size: 19px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+    }
+    
+    .guild-icon-addon img{
+        max-width:  48px;
+        max-height: 48px;
+        display: inline-block;
+    }
     
 }
+
+    

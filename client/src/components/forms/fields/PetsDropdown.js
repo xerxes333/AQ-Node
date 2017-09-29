@@ -70,7 +70,7 @@ class PetsDropdown extends React.Component {
       <div className="form-group">
         <label className="sr-only" htmlFor={fieldName} > Pet {index+1} </label>
           
-        <div className="input-group input-group-lg-mobile">
+        <div className="input-group input-group-fat">
           <span className="input-group-btn">
             <button className="btn btn-danger" type="button" onClick={this.props.removePet}>
               <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>

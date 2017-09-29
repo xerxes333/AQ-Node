@@ -64,7 +64,7 @@ class ProfileView extends React.Component {
             Joined: {joined}
           </div>
           <div className="col-md-1 top-pad-col">
-            <button type="button" className="btn btn-primary btn-mobile btn-block" onClick={() => this.toggleEditing() } >Edit</button>
+            <button type="button" className="btn btn-primary btn-fat btn-block" onClick={() => this.toggleEditing() } >Edit</button>
           </div>
         </div>
         
@@ -79,6 +79,7 @@ class ProfileView extends React.Component {
             
             { user.friends.length > 0 && 
               <table className="table table-condensed table-bordered table-striped friends-list">
+                <thead><tr className="info"><th>Friends</th></tr></thead>
                 <tbody>{friendsList}</tbody>
               </table>
             }

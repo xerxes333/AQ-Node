@@ -13,7 +13,7 @@ class PlayersDropdown extends React.Component {
       })
       
       return (
-        <Field name={name} component="select" className="form-control">
+        <Field name={name} component="select" className="form-control input-fat">
           <option value=""></option>
           {List}
         </Field>

@@ -14,7 +14,7 @@ const renderFourFriends = (props) => {
   
   for(var i = 0; i < MAX_FRIENDS && i < props.friends.length; i++)
     fourFriends.push( 
-      <div className="form-group" key={i}>
+      <div className="form-group form-group-fat" key={i}>
         <label htmlFor={`friends[${i}]`} > Friend {i+1} </label>
         <FriendDropdown friends={props.friends} index={i} key={i} /> 
       </div>
@@ -28,7 +28,7 @@ const renderFourFriends = (props) => {
 const renderField = ({input, label, type, meta: { touched, error, warning } }) => {
   const hasError = touched && error ? "has-error" : "";
   return (
-    <div className={`form-group ${hasError}`}>
+    <div className={`form-group form-group-fat ${hasError}`}>
       <label htmlFor={input.name} className="control-label">{label}</label>
       <input {...input} placeholder={label} type={type} className="form-control" />
       {touched && ((error && <span className="help-block">{error}</span>) || (warning && <span>{warning}</span>))}
@@ -47,19 +47,10 @@ const CampaignCreateForm = (props) => {
     return (
       <form onSubmit={handleSubmit}>
         
-          <Field name="campaignName"
-            type="text"
-            component={renderField} 
-            validate={[ required, maxLength15 ]}
-            label="Name"
-          />
-      
-        <div className="form-group">
-          <label htmlFor="campaignDescription">Description</label>
-          <Field name="campaignDescription"  component="input" type="text" className="form-control" placeholder="Description" />
-        </div>
+        <Field name="campaignName" type="text" component={renderField} validate={[ required, maxLength15 ]} label="Name" />
+        <Field name="campaignDescription" type="text" component={renderField} label="Description" />
         
-        <div className="form-group">
+        <div className="form-group form-group-fat">
           <label htmlFor="campaignExpansion">Expansion</label>
           <ExpansionsDropdown /> 
         </div>

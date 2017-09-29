@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 class PetLevelDropdown extends React.Component {
 
   render(){
@@ -11,7 +13,7 @@ class PetLevelDropdown extends React.Component {
       })
       
       return (
-        <select className="form-control" onChange={this.props.handleChange} >
+        <select className="form-control input-fat" onChange={this.props.handleChange} >
           {List}
         </select>
       

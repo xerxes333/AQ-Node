@@ -30,7 +30,7 @@ class SectionHeader extends React.Component {
     }
     
     return(
-      <div className="row header-row text-center-xs"> 
+      <div className="row header-row text-center-xs">
        
         <div className={`${titleSpan} col-xs-12`}> 
           <h2>{name}</h2>
@@ -38,13 +38,15 @@ class SectionHeader extends React.Component {
         
         {filter && 
         <div className={`${filterSpan} col-xs-12 text-center`}> 
+          <div className="well">
             {this.props.children}
+          </div>
         </div>
         }
         
         {create && 
         <div className={`${createSpan} col-xs-12 header-row-buttons`}> 
-          <Link to={`/${nameLC}/new`} className={`btn btn-primary btn-block`}>
+          <Link to={`/${nameLC}/new`} className={`btn btn-primary btn-block btn-fat`}>
             <span className="glyphicon glyphicon-plus-sign"></span>New
           </Link>
         </div>

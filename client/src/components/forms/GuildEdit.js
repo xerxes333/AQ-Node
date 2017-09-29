@@ -11,6 +11,7 @@ import ItemsDropdown from './fields/ItemsDropdown';
 import CursesDropdown from './fields/CursesDropdown';
 import HeroSetDropdown from './fields/HeroSetDropdown'
 import ItemSetDropdown from './fields/ItemSetDropdown'
+import PetLevelDropdown from './fields/PetLevelDropdown'
 
 function mapStateToProps(store) {
   return { 
@@ -27,7 +28,7 @@ function mapStateToProps(store) {
 const renderField = ({input, label, type, meta: { touched, error, warning } }) => {
   const hasError = touched && error ? "has-error" : "";
   return (
-    <div className={`form-group ${hasError}`}>
+    <div className={`form-group form-group-fat ${hasError}`}>
       <label htmlFor={input.name} className="control-label">{label}</label>
       <input {...input} placeholder={label} type={type} className="form-control" />
       {touched && ((error && <span className="help-block">{error}</span>) || (warning && <span>{warning}</span>))}
@@ -44,13 +45,13 @@ const renderFieldGuildAnimal = ({input, label, type, meta: { touched, error, war
   return (
     <div className={`form-group ${hasError}`}>
       <label className="control-label"> Logo </label>
-      <div className="input-group">
+      <div className="input-group input-group-fat">
         <Field name="guildAnimal" component="select" className="form-control" >
           <option value="">-- Select --</option>
           {animals.map( (animal, index) => {return <option value={animal} key={index} > {animal} </option>} )}
         </Field>
         <span className="input-group-addon guild-icon-addon">
-          <img src={require(`../../../public/images/guilds/${imgName}.png`)} className="img-responsive guild-name-icon-32" alt="logo"/>
+          <img src={require(`../../../public/images/guilds/${imgName}.png`)} className="img-responsive foo2" alt="logo"/>
         </span>
       </div>
       {touched && ((error && <span className="help-block">{error}</span>) || (warning && <span>{warning}</span>))}
@@ -60,7 +61,7 @@ const renderFieldGuildAnimal = ({input, label, type, meta: { touched, error, war
 
 const renderItems = ({ fields, filter, meta: { error } }) => {
   return (
-    <ul className="list-unstyled">
+    <ul className="list-unstyled hero-item-list">
       <li>
         <button type="button" className="btn btn-success btn-block btn-add-item btn-lg" onClick={() => fields.push({})}>
           <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Item
@@ -79,7 +80,7 @@ const renderItems = ({ fields, filter, meta: { error } }) => {
 
 const renderCurses = ({ fields, filter, meta: { error } }) => {
   return (
-    <ul className="list-unstyled">
+    <ul className="list-unstyled hero-curse-list">
       <li>
         <button type="button" className="btn btn-curse btn-block btn-add-item btn-lg" onClick={() => fields.push({})}>
           <span className="glyphicon glyphicon-flash" aria-hidden="true"></span> Add Curse
@@ -335,7 +336,7 @@ class GuildEdit extends React.Component {
               </div>
               
               <div className="col-md-1">
-                <div className="form-group">
+                <div className="form-group form-group-fat">
                   <label htmlFor="guildCoin">Coin</label>
                   <Field name="guildCoin" component="select" className="form-control">
                     <option />
@@ -355,12 +356,12 @@ class GuildEdit extends React.Component {
 
                   <div className="row">
                     <div className="col-md-2">
-                      <button type="button" className="btn btn-success btn-lg btn-block btn-add-hero" onClick={ () => this.appendHero() }>
+                      <button type="button" className="btn btn-success btn-block btn-fat" onClick={ () => this.appendHero() }>
                         <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Hero
                       </button>
                     </div>
                     <div className="col-md-2">
-                      <button type="button" className="btn btn-success btn-block btn-lg btn-add-pet" onClick={ () => this.appendPet() }>
+                      <button type="button" className="btn btn-success btn-block btn-fat" onClick={ () => this.appendPet() }>
                         <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Pet
                       </button>
                     </div>
@@ -371,13 +372,7 @@ class GuildEdit extends React.Component {
                       <ItemSetDropdown handleChange={this.filterItemSet.bind(this)}/>
                     </div>  
                     <div className="col-md-2">
-                      <div className="form-group">
-                        <select className="form-control" onChange={this.filterPetLevel.bind(this)} >
-                          <option value="1">Pet Level 1</option>
-                          <option value="2">Pet Level 2</option>
-                          <option value="3">Pet Level 3</option>
-                        </select>
-                      </div>
+                      <PetLevelDropdown handleChange={this.filterPetLevel.bind(this)}/>
                     </div>  
                   </div>
             

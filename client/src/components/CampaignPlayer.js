@@ -65,7 +65,7 @@ class CampaignPlayer extends React.Component {
     
     else
       return <div className="col-md-3" key={index}>
-        <div className="campaign-generic">
+        <div className="campaign-generic campaign-grid">
           Waiting for players to join
         </div>
       </div>

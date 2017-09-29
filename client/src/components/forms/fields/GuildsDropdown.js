@@ -13,7 +13,7 @@ class GuildsDropdown extends React.Component {
       });
       
       return (
-        <Field name="guild" component="select" className="form-control" onChange={this.props.onChange}>
+        <Field name="guild" component="select" className="form-control input-fat" onChange={this.props.onChange}>
           <option value="">-- Choose Guild --</option>
           {List}
         </Field>

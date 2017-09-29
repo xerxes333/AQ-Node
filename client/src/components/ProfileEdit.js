@@ -28,7 +28,7 @@ const validate = values => {
 }
 
 const renderField = ({ input, label, type, name, meta: { touched, error, warning } }) => (
-  <div className={ "form-group " + ( (touched && error)? "has-error" : "" ) }>
+  <div className={ "form-group  form-group-fat" + ( (touched && error)? "has-error" : "" ) }>
     <label htmlFor={name} className="col-md-2 control-label">{label}</label>
     <div className="col-md-5">
       <input {...input} type={type} name={name} className="form-control"/>

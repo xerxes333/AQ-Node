@@ -13,7 +13,7 @@ class HeroSetDropdown extends React.Component {
       })
       
       return (
-        <select className="form-control" onChange={this.props.handleChange} >
+        <select className="form-control input-fat" onChange={this.props.handleChange} >
           <option value="">-- Hero Set --</option>
           {List}
         </select>
