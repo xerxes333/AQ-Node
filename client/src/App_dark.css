@@ -283,10 +283,6 @@ table.hero-info th{
     background-color: #CCCCCC;
 }
 
-td.portrait-cell{
-    width: 90px;
-    vertical-align: top;
-}
 
 td img.hero-info-image-64{
     max-width:  64px;
@@ -304,28 +300,39 @@ img.hero-info-image-128{
 /********************
 *  Guild Hero Info  *
 *********************/
-table.guild-hero-info{
-    background-color: #666;
-    /*height: 220px;*/
-}
 
-table.guild-hero-info td.effect{
+.panel-hero .panel-heading{
     text-align: center;
     font-family: 'Exo', sans-serif;
     font-weight: bold;
-    font-size: 0.9em;
-    
-}
-
-
-table.guild-hero-info th{
-    text-align: center;
-    background-color: #AAA;
     font-size: 1.5em;
-    padding: 2px !important;
-    color: #aa2a0c;
-    border: 1px solid #917745;
+    padding: 5px;
 }
+
+.panel-hero .panel-body{
+    padding: 10px;
+}
+
+.panel-hero table.hero-info{
+    width: 100%;
+}
+
+.panel-hero table.hero-info .effect{
+    vertical-align: top;
+    text-align: center;
+}
+
+.panel-hero table.hero-info td.portrait-cell{
+    width: 80px;
+    vertical-align: top;
+    text-align: center;
+    height: 170px;
+}
+
+td.portrait-cell .portrait{
+    margin: 0px auto 10px auto;
+}
+
 
 table.guild-hero-portrait td{
     padding-bottom: 10px;
@@ -380,7 +387,7 @@ div.add-invite{
 
 
 .guild-hero-info{
-    padding-top: 15px;
+    /*padding-top: 15px;*/
     padding-bottom: 15px;
 }
 
@@ -832,6 +839,10 @@ div.guild-hero-info .hero-curse-list .form-group{
         display: inline-block;
     }
     
+    .panel-hero table.hero-info .effect{
+        font-size: 1.5em;
+        padding: 0px 5px;
+    }
 }
 
     
