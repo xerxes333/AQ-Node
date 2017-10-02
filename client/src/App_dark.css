@@ -300,6 +300,9 @@ img.hero-info-image-128{
 /********************
 *  Guild Hero Info  *
 *********************/
+.panel-hero{
+    margin-bottom: 10px;
+}
 
 .panel-hero .panel-heading{
     text-align: center;
@@ -387,7 +390,7 @@ div.add-invite{
 
 
 .guild-hero-info{
-    /*padding-top: 15px;*/
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
@@ -842,6 +845,10 @@ div.guild-hero-info .hero-curse-list .form-group{
     .panel-hero table.hero-info .effect{
         font-size: 1.5em;
         padding: 0px 5px;
+    }
+    
+    div.campaign-generic{
+        font-size: 1.2em;
     }
 }
 

@@ -16,9 +16,13 @@ class GuildHeroInfo extends React.Component {
             {hasHero && 
               <div className="panel panel-default panel-hero">
                 
-                <div className="panel-heading">
-                  {!isEditing && <div>{hero.name} {lvl}</div> }
-                </div>
+                {!isEditing && 
+                  <div className="panel-heading">
+                    {hero.name} {lvl}
+                  </div>
+                }
+                
+                
                 
                 <div className="panel-body">
                   <table className="hero-info">
