@@ -38,7 +38,7 @@ class Guilds extends React.Component {
         return (
           <tr key={guild._id}>
             <td>
-              <img src={require('../../public/images/guilds/'+ guild.type.toLowerCase() +'.png')} className="img-responsive guild-name-icon-32" alt="logo"/>
+              <img src={require('../../public/images/guilds/'+ guild.type.toLowerCase() +'.png')} className="img-responsive icon icon-32" alt="logo"/>
               {guild.name}
               {guild.campaign && 
                 <span className="glyphicon glyphicon-link pull-right"></span>
@@ -61,7 +61,7 @@ class Guilds extends React.Component {
         return (
           <tr key={guild._id} onClick={() => this.rowClicked(guild._id)} >
             <td>
-              <img src={require('../../public/images/guilds/'+ guild.type.toLowerCase() +'.png')} className="img-responsive guild-name-icon-48" alt="logo"/>
+              <img src={require('../../public/images/guilds/'+ guild.type.toLowerCase() +'.png')} className="img-responsive icon icon-48" alt="logo"/>
               {guild.name}
               {guild.campaign && 
                 <span className="glyphicon glyphicon-link pull-right"></span>

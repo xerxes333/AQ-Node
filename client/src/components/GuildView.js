@@ -57,7 +57,7 @@ class GuildView extends React.Component {
         
         <div className="row header-row text-center-xs">
           <div className="col-md-1 text-center">
-            <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive guild-name-icon guild-name-icon-xs" alt="logo" />
+            <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive icon icon-64 icon-fat-128" alt="logo" />
           </div>
           
           <div className="col-md-7 text-center-xs">
@@ -66,13 +66,13 @@ class GuildView extends React.Component {
               <small className="hidden-xs"> {guild.description} </small>
             </h2>
           </div>
-          <div className="col-md-2 text-right text-center-xs guild-info-top-pad">
+          <div className="col-md-2 text-right text-center-xs">
             { guild.campaign && 
               <span><span className="glyphicon glyphicon-link"></span> {guild.campaign && guild.campaign.name}</span> }
             { guild.coin && 
               <img src={require(`../../public/images/item-card-price.png`)} className="img-responsive guild-has-coin" alt="coin" /> }
           </div>
-          <div className="col-md-2 text-right guild-info-top-pad">
+          <div className="col-md-2 text-right">
             <button className="btn btn-primary btn-block btn-fat " type="button" onClick={ () => this.toggleEditing() } >
               <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
               Edit

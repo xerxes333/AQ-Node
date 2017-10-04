@@ -45,7 +45,6 @@ class Heroes extends React.Component {
       return true
     })
     .map((hero, index)=>{
-      // return <HeroCard hero={hero} key={hero._id} />
       return <div className="col-md-3 hero-detail" ><GuildHeroInfo hero={hero} hasHero={(hero)}/></div>
     })
     

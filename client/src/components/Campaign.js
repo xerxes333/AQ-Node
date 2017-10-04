@@ -96,7 +96,7 @@ class Campaign extends React.Component {
       "Inferno":          "inferno",
       "Pets":             "pets",
     }
-    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`img-responsive guild-name-icon guild-name-icon-${size}`} alt="logo"/>
+    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`img-responsive icon icon-${size}`} alt="logo"/>
   }
 
   render() {

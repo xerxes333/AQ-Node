@@ -45,7 +45,7 @@ class SectionHeader extends React.Component {
         }
         
         {create && 
-        <div className={`${createSpan} col-xs-12 header-row-buttons`}> 
+        <div className={`${createSpan} col-xs-12`}> 
           <Link to={`/${nameLC}/new`} className={`btn btn-primary btn-block btn-fat`}>
             <span className="glyphicon glyphicon-plus-sign"></span>New
           </Link>

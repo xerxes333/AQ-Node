@@ -44,11 +44,11 @@ class CampaignGuild extends React.Component {
         <div className={guildClasses} key={guild._id}>
           <div className="row">
             <div className="col-xs-3">
-              <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive guild-name-icon guild-name-icon-64" alt="logo" />
+              <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive icon icon-64" alt="logo" />
             </div>
             <div className="col-xs-9">
-              <div className="campaign-guild-name">{guild.name}</div>
-              <div className="campaign-guild-user">{guild.user_id.name}</div>
+              <div className="guild-name">{guild.name}</div>
+              <div className="guild-user">{guild.user_id.name}</div>
             </div>
           </div>
           {HeroRows}

@@ -33,7 +33,11 @@ class Campaigns extends React.Component {
       "Pets":             "pets",
     }
     
-    return <span className={`label label-${obj[exp]} ${pull}`}>{exp}</span>
+    
+    
+    return <span className={`label label-${obj[exp]} ${pull}`}>
+    {(exp === "Beyond The Grave") ? "BTG" : exp}
+    </span>
   }
   
   logoImage(exp = "Core", size = "32"){
@@ -44,7 +48,7 @@ class Campaigns extends React.Component {
       "Inferno":          "inferno",
       "Pets":             "pets",
     }
-    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`img-responsive guild-name-icon guild-name-icon-${size}`} alt="logo"/>
+    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`img-responsive icon icon-${size}`} alt="logo"/>
   }
   
   render() {

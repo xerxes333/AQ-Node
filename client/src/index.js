@@ -13,7 +13,7 @@ import Guild from './components/Guild';
 import GuildCreate from './components/GuildCreate';
 import Heroes from './components/Heroes';
 import Pets from './components/Pets';
-import Items from './components/ItemsTable';
+import Items from './components/Items';
 import Login from './components/Login';
 import Join from './components/Join';
 import Profile from './components/Profile';

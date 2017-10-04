@@ -142,7 +142,7 @@ class CampaignLogSmall extends React.Component {
         title  = entry.hasOwnProperty('title') && <PlayersDropdown players={campaignPlayers} name={`log[${index}].title`}/>
       }
     
-      return <table className="table table-striped table-condensed campaign-log-small" key={index}>
+      return <table className="table table-striped table-condensed campaign-log campaign-log-small" key={index}>
         <thead>
           <tr>
             <th className={`scenario ${prefix}-${entry.level}`} colSpan="2">
@@ -175,7 +175,7 @@ class CampaignLogSmall extends React.Component {
       <br/>
       {renderCampaignLog}
       
-      <table className="table table-striped table-condensed campaign-log-small">
+      <table className="table table-striped table-condensed campaign-log campaign-log-small">
         <thead>
           <tr><th className="scenario medal text-center location" colSpan="2">Medal Winner</th></tr>
         </thead>
