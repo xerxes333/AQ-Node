@@ -55,7 +55,7 @@ class GuildView extends React.Component {
     return (
       <div>
         
-        <div className="row header-row text-center-xs">
+        <div className="row header-row">
           <div className="col-md-1 text-center">
             <img src={require(`../../public/images/guilds/${guild.type.toLowerCase()}.png`)} className="img-responsive icon icon-64 icon-fat-128" alt="logo" />
           </div>

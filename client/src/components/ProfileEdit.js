@@ -75,11 +75,13 @@ class ProfileEdit extends React.Component {
         
         <Field name="userPassword" label="Password" component={renderField} type="password" />
         <Field name="userConfirm" label="Confirm" component={renderField} type="password" />
-
-        <div className="form-group">
-          <div className="col-md-offset-2 col-md-10 profile-edit-buttons">
-            <button type="submit" className="btn btn-primary btn-lg">Save</button>
-            <button type="button" className="btn btn-warning btn-lg" onClick={ () => this.cancel() } >Cancel</button>
+        
+        <div className="row  profile-edit-buttons">
+          <div className="col-md-offset-2 col-md-2">
+            <button type="submit" className="btn btn-primary btn-lg btn-block">Save</button>
+          </div>
+          <div className="col-md-2">
+            <button type="button" className="btn btn-warning btn-lg btn-block" onClick={ () => this.cancel() } >Cancel</button>
           </div>
         </div>
         

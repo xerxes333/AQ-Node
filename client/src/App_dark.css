@@ -69,11 +69,15 @@ img.icon-128{
 }
 
 .header-row .header-row-btns{
-    padding-top: 20px;
+    margin-top: 15px;
 }
 
 .header-row .glyphicon{
     padding-right: 5px;
+}
+
+.header-row .filter .form-group{
+  margin-bottom: 0px;
 }
 
 /****************************/
@@ -353,6 +357,10 @@ img.guild-has-coin{
       margin-top: 25px;
   }
   
+  .guild-hero-section{
+    margin-top: 10px;
+  }
+  
   .guild-hero-section > div:nth-child(odd){
       background-color: #303030;
   }
@@ -522,6 +530,19 @@ table.friends-list{
 /*****************************/
 @media (max-device-width: 480px) {
   
+  .text-center-xs{
+    text-align: center;
+  }
+  
+  .navbar-lg li{
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .navbar-fixed-top .navbar-collapse {
+    max-height: 400px;
+  }
+  
   /* Fat Forms */
   .form-group-fat .form-control,
   .input-group-fat>.form-control, 
@@ -553,6 +574,7 @@ table.friends-list{
   }
   
   select.input-fat {
+    font-size: 19px;
     height: 66px;
     line-height: 66px;
   }
@@ -620,6 +642,13 @@ table.friends-list{
   .guild-controls .btn-fat,
   .guild-controls .input-fat{
     margin-bottom: 20px;
+  }
+  
+  /*****************************/
+  /*   Profile                 */
+  /*****************************/
+  .friends-list{
+    font-size: 1.5em;
   }
 
 }
