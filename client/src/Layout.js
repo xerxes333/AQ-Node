@@ -17,13 +17,15 @@ class Layout extends Component {
     
     const { user, location, children } = this.props
     
-    if(user.fetched && user.user.darkTheme){
-      require("./bootswatch/darkly/darkly.css") 
-      require("./App_dark.css")
-    }
+    // if(user.fetched && user.user.darkTheme){
+    //   require("./bootswatch/darkly/darkly.css") 
+    //   require("./App_dark.css")
+    // }
     
-    require("./bootswatch/default/bootstrap.min.css")
-    require("./App.css")
+    // require("./bootswatch/default/bootstrap.min.css")
+    // require("./App_light.css")
+    require("./bootswatch/darkly/darkly.css") 
+    require("./App_dark.css")
     
     return (
       <div>
