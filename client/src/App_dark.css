@@ -45,6 +45,11 @@ img.icon-64{
    max-height: 64px;
 }
 
+img.icon-96{
+   max-width:  96px;
+   max-height: 96px;
+}
+
 img.icon-128{
    max-width:  128px;
    max-height: 128px;
@@ -55,10 +60,6 @@ img.icon-128{
 /****************************/
 .header-row{
     margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.header-row .header-row-btns{
     margin-top: 10px;
 }
 
@@ -332,10 +333,27 @@ div.guild-info h2{
     border: 1px solid #4cae4c !important;
 }
 
+.guild-logo-coin{
+  position: relative;
+  display: inline-block;
+}
+
 img.guild-has-coin{
-    width: 48px;
-    display: inline;
-    margin: 0px 5px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+.guild-coin-xs{
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+  
+
+.text-linked-campaign{
+  color: #f39c12;
+  font-size: 26px;
 }
 
 /* Edit Guild */
@@ -520,6 +538,11 @@ table.friends-list{
 /*****************************/
 @media (max-device-width: 480px) {
   
+  img.icon-fat-64{
+    max-width:  64px;
+    max-height: 64px;
+  }
+  
   img.icon-fat-128{
     max-width:  128px;
     max-height: 128px;
@@ -610,13 +633,8 @@ table.friends-list{
     font-size: 2em;
   }
   
-  div.guild-info-edit .btn-leave-campaign{
-    margin-top: 0px;
+  .btn-leave-campaign{
     margin-bottom: 10px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    padding: 10px 16px;
-    border-radius: 6px;
   }
   
   .guild-edit-buttons, .profile-edit-buttons {

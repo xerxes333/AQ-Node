@@ -227,7 +227,8 @@ class GuildEdit extends React.Component {
     if(isEditing)
       this.props.dispatch({type: "EDIT_GUILD", payload: !this.props.isEditing})
     else
-      browserHistory.push(`/guilds/`);
+      browserHistory.push(`/guilds/`)
+    window.scrollTo(0, 0)
   }
 
   initializeForm(){
@@ -237,6 +238,7 @@ class GuildEdit extends React.Component {
       guildAnimal: guild.type,
       guildName: guild.name,
       guildDescription: guild.description,
+      guildCampaign: guild.campaign ? guild.campaign._id : null,
       guildCoin: guild.coin ? 1 : 0,
       heroes: guild.heroes.map((hero) => {
         return {
@@ -282,7 +284,7 @@ class GuildEdit extends React.Component {
     const campaignErrorHack = (this.props.guilds.error) ? {error: this.props.guilds.errorMessage, touched: true} : {}
     
     if(guild && guild.campaign)
-      return <button type="button" className="btn btn-warning btn-block btn-leave-campaign" onClick={ () => this.leaveGuild() } >Leave Campaign</button>
+      return <button type="button" className="btn btn-warning btn-block btn-fat btn-leave-campaign" onClick={ () => this.leaveGuild() } >Leave Campaign</button>
 
     return <Field name="guildCamapignCode" type="text" component={renderField} label="Campaign" meta={campaignErrorHack}/>
     
