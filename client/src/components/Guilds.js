@@ -25,6 +25,10 @@ class Guilds extends React.Component {
     browserHistory.push(`/guilds/${id}`);
   }
   
+  guildImage(name = "none", size = "32"){
+    return <img src={require('../../public/images/guilds/'+ name.toLowerCase() +'.png')} className={`img-responsive icon icon-${size}`} alt="logo"/>
+  }
+  
   render() {
     
     const { guilds, guildsFetched } = this.props
@@ -38,7 +42,7 @@ class Guilds extends React.Component {
         return (
           <tr key={guild._id}>
             <td>
-              <img src={require('../../public/images/guilds/'+ guild.type.toLowerCase() +'.png')} className="img-responsive icon icon-32" alt="logo"/>
+              {this.guildImage(guild.type, 32)}
               {guild.name}
               {guild.campaign && 
                 <span className="glyphicon glyphicon-link pull-right"></span>
@@ -61,7 +65,7 @@ class Guilds extends React.Component {
         return (
           <tr key={guild._id} onClick={() => this.rowClicked(guild._id)} >
             <td>
-              <img src={require('../../public/images/guilds/'+ guild.type.toLowerCase() +'.png')} className="img-responsive icon icon-48" alt="logo"/>
+              {this.guildImage(guild.type, 48)}
               {guild.name}
               {guild.campaign && 
                 <span className="glyphicon glyphicon-link pull-right"></span>
