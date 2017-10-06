@@ -42,8 +42,8 @@ function parseGuildData(data){
     obj.type = data.guildAnimal
   if(data.guildCamapignCode)
     obj.code = data.guildCamapignCode
-  if(data.campaign)
-    obj.campaign = data.campaign
+  if(data.guildCampaign)
+    obj.campaign = data.guildCampaign
   if(data.guildCoin)
     obj.coin = data.guildCoin
   if(data.heroes)
