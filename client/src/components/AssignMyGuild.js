@@ -36,9 +36,10 @@ class AssignMyGuild extends React.Component {
     
     if(!availableGuilds.length)
       return <div className="col-md-3 text-center assign-my-guild">
-        <br />
-        <h4>You have no free guilds available</h4>
-        <a className="btn btn-success btn-block btn-lg" href="/guilds/new" role="button">Create Guild</a>
+        <div className="campaign-generic campaign-grid">
+          <h4>You have no free guilds available</h4>
+          <a className="btn btn-success btn-block btn-lg" href="/guilds/new" role="button">Create Guild</a>
+        </div>
       </div>
     
     return <div className="col-md-3 text-center assign-my-guild">
