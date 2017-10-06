@@ -87,7 +87,7 @@ class Guilds extends React.Component {
             </tbody>
           </table>
           
-          :<table className="table table-striped table-bordered">
+          :<table className="table table-striped table-bordered table-guilds">
             <thead>
               <tr>
                 <td>Name</td>

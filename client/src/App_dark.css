@@ -89,10 +89,11 @@ img.icon-128{
 /*****************************/
 /*   Campaigns               */
 /*****************************/
-.label-share-code{
-  font-size: 1.5em !important;
+.table-campaigns tbody>tr>td{
+  vertical-align: middle;
 }
 
+.label-share-code{ font-size: 1.5em !important; }
 .label-core    { background-color: #2a6bcb; }
 .label-btg     { background-color: #9b479f; }
 .label-inferno { background-color: #d9391f; }
@@ -314,6 +315,9 @@ img.icon-128{
 /*****************************/
 /*   Guilds                  */
 /*****************************/
+.table-guilds tbody>tr>td{
+  vertical-align: middle;
+}
 
 div.guild-info h2{
     margin-top: 20px;

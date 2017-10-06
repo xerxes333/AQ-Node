@@ -104,7 +104,7 @@ class Campaigns extends React.Component {
               </tbody>
             </table>
             
-            :<table className="table table-striped table-bordered">
+            :<table className="table table-striped table-bordered table-campaigns">
               <thead>
                 <tr>
                   <td>Name</td>
