@@ -15,7 +15,7 @@ class Layout extends Component {
 
   render() {
     
-    const { user, location, children } = this.props
+    const { location, children } = this.props
     
     // if(user.fetched && user.user.darkTheme){
     //   require("./bootswatch/darkly/darkly.css") 
