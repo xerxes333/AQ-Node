@@ -122,6 +122,8 @@ class CampaignLog extends React.Component {
     })
     .map((player, index)=>{
       return player.player
+    }).filter((player, i, self)=>{
+      return self.map(mapObj => mapObj._id).indexOf(player._id) === i;
     })
     
     const renderCampaignLog = campaign.log.map((entry, index) => {
