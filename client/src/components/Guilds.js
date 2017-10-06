@@ -42,7 +42,7 @@ class Guilds extends React.Component {
         return (
           <tr key={guild._id}>
             <td>
-              {this.guildImage(guild.type, 32)}
+              {this.guildImage(guild.type, 48)}
               {guild.name}
               {guild.campaign && 
                 <span className="glyphicon glyphicon-link pull-right"></span>
@@ -65,7 +65,7 @@ class Guilds extends React.Component {
         return (
           <tr key={guild._id} onClick={() => this.rowClicked(guild._id)} >
             <td>
-              {this.guildImage(guild.type, 48)}
+              {this.guildImage(guild.type, 64)}
               {guild.name}
               {guild.campaign && 
                 <span className="glyphicon glyphicon-link pull-right"></span>

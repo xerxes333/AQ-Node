@@ -64,7 +64,7 @@ class Campaigns extends React.Component {
       campaigns.map((campaign)=>{
         return <tr key={campaign._id}>
           <td>
-            {this.logoImage(campaign.expansion, 32)}
+            {this.logoImage(campaign.expansion, 48)}
             {campaign.name}
           </td>
           <td>{this.expansionLabel(campaign.expansion)}</td>
@@ -83,7 +83,7 @@ class Campaigns extends React.Component {
       campaigns.map((campaign)=>{
         return <tr key={campaign._id} onClick={() => this.rowClicked(campaign._id)}>
           <td>
-            {this.logoImage(campaign.expansion, 48)}
+            {this.logoImage(campaign.expansion, 64)}
             {campaign.name}
             {this.expansionLabel(campaign.expansion, "pull-right")}
           </td>
