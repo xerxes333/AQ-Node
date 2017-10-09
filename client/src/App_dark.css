@@ -154,38 +154,59 @@ img.icon-128{
     font-size: 1.5em;
     line-height: 1;
   }
+  
+  .campaign-log-small tbody>tr>td{
+    vertical-align: middle;
+  }
 
 /* Campaign Scenario Colors */
+
+  .scenario .panel-heading .location{
+    text-align: center;
+    font-size: 22px; 
+    font-weight: bold;
+    padding-left: 0px;
+  }
+  
+  .scenario .table{
+    background-color: #303030;
+  }
+  
+  .scenario .table-striped>tbody>tr:nth-of-type(even){
+    background-color: #303030;
+  }
+  
   /* Core */
-  .campaign-log .core-1{ background-color: #dd5923; }
-  .campaign-log .core-2{ background-color: #be2e25; }
-  .campaign-log .core-3{ background-color: #432e76; }
-  .campaign-log .core-4{ background-color: #432e76; }
+  .core-1{ background-color: #dd5923; }
+  .core-2{ background-color: #be2e25; }
+  .core-3{ background-color: #432e76; }
+  .core-4{ background-color: #432e76; }
   
   /* Beyond The Grave */
-  .campaign-log .beyondthegrave-1{ background-color: #577dab; }
-  .campaign-log .beyondthegrave-2{ background-color: #6f3871; }
-  .campaign-log .beyondthegrave-3{ background-color: #37317a; }
-  .campaign-log .beyondthegrave-4{ background-color: #37317a; }
+  .beyondthegrave-1{ background-color: #577dab; }
+  .beyondthegrave-2{ background-color: #6f3871; }
+  .beyondthegrave-3{ background-color: #37317a; }
+  .beyondthegrave-4{ background-color: #37317a; }
   
   /* Inferno */
-  .campaign-log .inferno-1{ background-color: #f4814e; }
-  .campaign-log .inferno-2{ background-color: #e94054; }
-  .campaign-log .inferno-3{ background-color: #977cad; }
-  .campaign-log .inferno-4{ background-color: #612a53; }
-  .campaign-log .inferno-5{ background-color: #333333; }
+  .inferno-1 { background-color: #f4814e; }
+  .inferno-2 { background-color: #e94054; }
+  .inferno-3 { background-color: #977cad; }
+  .inferno-4 { background-color: #612a53; }
+  .inferno-5 { background-color: #333333; }
   
   /* Pets */
-  .campaign-log .pets-1{ background-color: #eca203; }
-  .campaign-log .pets-2{ background-color: #e87924; }
-  .campaign-log .pets-3{ background-color: #ed706b; }
-  .campaign-log .pets-4{ background-color: #e63031; }
-  .campaign-log .pets-5{ background-color: #74306f; }
-  .campaign-log .pets-6{ background-color: #243b7c; }
+  .pets-1 { background-color: #eca203; }
+  .pets-2 { background-color: #e87924; }
+  .pets-3 { background-color: #ed706b; }
+  .pets-4 { background-color: #e63031; }
+  .pets-5 { background-color: #74306f; }
+  .pets-6 { background-color: #243b7c; }
   
   /* Medals */
-  tr.medal             { background-color: #806520; } 
-  td.medal, th.medal   { background-color: #DAA520; }
+  .medal            { background-color: #DAA520; }
+  tr.medal          { background-color: #806520; } 
+  td.medal, th.medal{ background-color: #DAA520; }
 
 
 /* Campaign Guilds Tab */
@@ -434,7 +455,7 @@ img.guild-has-coin{
 .icons .hero-hp   { color: #3b2f5e; }
 
 /* Hero Panel */
-.panel-hero .panel-heading{
+.panel-hero {
     text-align: center;
     font-family: 'Exo', sans-serif;
     font-weight: bold;

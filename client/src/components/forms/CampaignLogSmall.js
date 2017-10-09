@@ -122,6 +122,8 @@ class CampaignLogSmall extends React.Component {
     })
     .map((player, index)=>{
       return player.player
+    }).filter((player, i, self)=>{
+      return self.map(mapObj => mapObj._id).indexOf(player._id) === i;
     })
     
     const renderCampaignLog = campaign.log.map((entry, index) => {
@@ -142,51 +144,61 @@ class CampaignLogSmall extends React.Component {
         title  = entry.hasOwnProperty('title') && <PlayersDropdown players={campaignPlayers} name={`log[${index}].title`}/>
       }
     
-      return <table className="table table-striped table-condensed campaign-log campaign-log-small" key={index}>
-        <thead>
-          <tr>
-            <th className={`scenario ${prefix}-${entry.level}`} colSpan="2">
-              <div className="row">
-                <div className="col-xs-9 text-center location">
-                  <div>{entry.location}</div>
-                </div>
-                <div className="col-xs-3">
-                  <button className={`btn btn-${glyph} btn-lg pull-right`} type="button" onClick={ () => this.toggleEdit(index) } >
-                    <span className={`glyphicon glyphicon-pencil`} aria-hidden="true"></span>
-                  </button>
-                </div>
-              </div>
-              
-              
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Winner</td><td>{winner}</td></tr>
-          <tr><td>Least Deaths</td><td>{deaths}</td></tr>
-          <tr><td>Most Coins</td><td>{coins}</td></tr>
-          <tr><td>Won Reward</td><td>{reward}</td></tr>
-          <tr><td>Won Title</td><td>{title}</td></tr>
-        </tbody>
-      </table>
+      return <div className={`panel scenario ${prefix}-${entry.level}`} key={index}>
+      
+        <div className="panel-heading">
+          
+          <div className="row">
+            <div className="col-xs-8 location">
+              {entry.location}
+            </div>
+            <div className="col-xs-4">
+              <button className={`btn btn-${glyph} btn-lg pull-right`} type="button" onClick={ () => this.toggleEdit(index) } >
+                <span className={`glyphicon glyphicon-pencil`} aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+      
+        </div>
+      
+        <table className="table table-striped campaign-log-small" key={index}>
+          <tbody>
+            <tr><td>Winner</td><td>{winner}</td></tr>
+            <tr><td>Least Deaths</td><td>{deaths}</td></tr>
+            <tr><td>Most Coins</td><td>{coins}</td></tr>
+            <tr><td>Won Reward</td><td>{reward}</td></tr>
+            <tr><td>Won Title</td><td>{title}&nbsp;</td></tr>
+          </tbody>
+        </table>
+      
+      </div>
     })
     
     return <form onSubmit={handleSubmit}>
       <br/>
       {renderCampaignLog}
       
-      <table className="table table-striped table-condensed campaign-log campaign-log-small">
-        <thead>
-          <tr><th className="scenario medal text-center location" colSpan="2">Medal Winner</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Winner</td><td>{this.calcMedalWinner('winner')}</td></tr>
-          <tr><td>Least Deaths</td><td>{this.calcMedalWinner('deaths')}</td></tr>
-          <tr><td>Most Coins</td><td>{this.calcMedalWinner('coins')}</td></tr>
-          <tr><td>Won Reward</td><td>{this.calcMedalWinner('reward')}</td></tr>
-          <tr><td>Won Title</td><td>{this.calcMedalWinner('title')}</td></tr>
-        </tbody>
-      </table>
+      <div className={`panel scenario medal`}>
+      
+        <div className="panel-heading">
+          <div className="row">
+            <div className="col-xs-12 location">
+              Medal Winner
+            </div>
+          </div>
+        </div>
+        
+        <table className="table table-striped campaign-log-small">
+          <tbody>
+            <tr><td>Winner</td><td>{this.calcMedalWinner('winner')}</td></tr>
+            <tr><td>Least Deaths</td><td>{this.calcMedalWinner('deaths')}</td></tr>
+            <tr><td>Most Coins</td><td>{this.calcMedalWinner('coins')}</td></tr>
+            <tr><td>Won Reward</td><td>{this.calcMedalWinner('reward')}</td></tr>
+            <tr><td>Won Title</td><td>{this.calcMedalWinner('title')}</td></tr>
+          </tbody>
+        </table>
+      
+      </div>
       
       <div className="row">
           { editLogEntry.length > 0 && 
