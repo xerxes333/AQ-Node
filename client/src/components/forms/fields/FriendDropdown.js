@@ -13,7 +13,7 @@ class FriendDropdown extends React.Component {
       });
       
       return (
-        <Field name={`friends[${index}]`} component="select" className="form-control">
+        <Field name={`friends[${index}]`} component="select" className="form-control input-fat">
           <option value="">-- Choose Friend --</option>
           {List}
         </Field>
