@@ -48,7 +48,7 @@ class Campaigns extends React.Component {
       "Inferno":          "inferno",
       "Pets":             "pets",
     }
-    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`img-responsive icon icon-${size}`} alt="logo"/>
+    return <img src={require(`../../public/images/aq-logo-${obj[exp]}.png`)} className={`icon-${size}`} alt="logo"/>
   }
   
   render() {
@@ -62,15 +62,24 @@ class Campaigns extends React.Component {
     const CampaignRows = (!campaigns.length)? 
       <tr><td colSpan="5">No Campaigns</td></tr> : 
       campaigns.map((campaign)=>{
+        
+        var exp = (campaign.expansion === "Beyond The Grave") ? "BTG" : campaign.expansion
+        
         return <tr key={campaign._id}>
           <td>
-            {this.logoImage(campaign.expansion, 48)}
-            {campaign.name}
+            <div className={`panel-campaign panel-campaign-${exp}`}>
+              <div className="panel-heading">
+                { exp }
+              </div>
+              <div className="panel-body">
+                {this.logoImage(campaign.expansion, 48)}
+              </div>
+            </div>
+            <span className="campaign-name">{campaign.name}</span>
           </td>
-          <td>{this.expansionLabel(campaign.expansion)}</td>
           <td>{campaign.description}</td>
           <td>{dateFormat(campaign.createdAt, "dd mmm yyyy")}</td>
-          <td>
+          <td className="text-center">
             <Link to={`/campaigns/${campaign._id}`}>
               <span className="glyphicon glyphicon-search"></span>
             </Link>
@@ -81,11 +90,26 @@ class Campaigns extends React.Component {
       const CampaignRowsSmall = (!campaigns.length)? 
       <tr><td colSpan="5">No Campaigns</td></tr> : 
       campaigns.map((campaign)=>{
+        
+        var exp = (campaign.expansion === "Beyond The Grave") ? "BTG" : campaign.expansion
+        
         return <tr key={campaign._id} onClick={() => this.rowClicked(campaign._id)}>
           <td>
-            {this.logoImage(campaign.expansion, 64)}
-            {campaign.name}
-            {this.expansionLabel(campaign.expansion, "pull-right")}
+          
+            <div className={`panel-campaign panel-campaign-${exp}`}>
+              <div className="panel-heading">
+                { exp }
+              </div>
+              <div className="panel-body">
+                {this.logoImage(campaign.expansion, 48)}
+              </div>
+            </div>
+          </td>
+          <td className="campaign-info">
+              <span className="name">{campaign.name}</span><br/>
+              <span className="text-primary date">{dateFormat(campaign.createdAt, "dd mmm yyyy")}</span><br/>
+              <span className="text-muted description">{campaign.description}</span>
+            
           </td>
         </tr>
       });
@@ -98,7 +122,7 @@ class Campaigns extends React.Component {
        <div className="row"> 
         <div className="col-md-12"> 
           { (window.innerWidth < 768)? 
-            <table className="table table-striped table-bordered campaigns-small">
+            <table className="table table-striped campaigns-small">
               <tbody>
                 {CampaignRowsSmall}
               </tbody>
@@ -108,10 +132,9 @@ class Campaigns extends React.Component {
               <thead>
                 <tr>
                   <td>Name</td>
-                  <td>Expansion</td>
                   <td>Description</td>
                   <td>Created</td>
-                  <td>View</td>
+                  <td className="col-md-1 text-center">View</td>
                 </tr>
               </thead>
               <tbody>

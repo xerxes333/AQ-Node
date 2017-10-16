@@ -43,14 +43,14 @@ class Guilds extends React.Component {
           <tr key={guild._id}>
             <td>
               {this.guildImage(guild.type, 48)}
-              {guild.name}
+              <span className="guild-name">{guild.name}</span>
               {guild.campaign && 
                 <span className="glyphicon glyphicon-link pull-right"></span>
               }
             </td>
             <td>{guild.description}</td>
             <td>{dateFormat(guild.createdAt, "dd mmm yyyy")}</td>
-            <td>
+            <td className="text-center">
               <Link to={`/guilds/${guild._id}`}>
                 <span className="glyphicon glyphicon-search"></span>
               </Link>
@@ -93,7 +93,7 @@ class Guilds extends React.Component {
                 <td>Name</td>
                 <td>Description</td>
                 <td>Created</td>
-                <td>View</td>
+                <td className="col-md-1 text-center">View</td>
               </tr>
             </thead>
             <tbody>

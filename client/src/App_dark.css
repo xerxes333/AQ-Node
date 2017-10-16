@@ -93,6 +93,14 @@ img.icon-128{
   vertical-align: middle;
 }
 
+.table-campaigns .campaign-name{
+  font-size: 1.5em;
+}
+
+.table-campaigns .glyphicon-search{
+  font-size: 2em;
+}
+
 .label-share-code{ font-size: 1.5em !important; }
 .label-core    { background-color: #2a6bcb; }
 .label-btg     { background-color: #9b479f; }
@@ -129,6 +137,39 @@ img.icon-128{
     border-radius: 5px;
 }
 
+
+/* Campaigns Logo Panels */
+
+.panel-campaign {
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #3d3d3d;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  padding: 0px;
+}
+
+.panel-campaign-Core {background-color: #2a6bcb;}
+.panel-campaign-BTG {background-color: #9b479f;}
+.panel-campaign-Inferno {background-color: #d9391f;}
+.panel-campaign-Pets {background-color: #57aa29;}
+
+
+.panel-campaign .panel-heading {
+    padding: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.panel-campaign .panel-body {
+  margin:1px;
+  padding: 0px;
+}
 
 /* Campaign Log Tab */
   .campaign-log,
@@ -340,6 +381,14 @@ img.icon-128{
   vertical-align: middle;
 }
 
+.table-guilds .glyphicon-search{
+  font-size: 2em;
+}
+
+.table-guilds .guild-name{
+  font-size: 1.5em;
+}
+
 div.guild-info h2{
     margin-top: 20px;
 }
@@ -455,7 +504,7 @@ img.guild-has-coin{
 .icons .hero-hp   { color: #3b2f5e; }
 
 /* Hero Panel */
-.panel-hero {
+.panel-hero .panel-heading{
     text-align: center;
     font-family: 'Exo', sans-serif;
     font-weight: bold;
@@ -637,10 +686,28 @@ table.friends-list{
   table.guilds-small {
     font-size: 1.2em;
   }
+  
   div.campaign-generic{
     font-size: 1.2em;
   }
-    
+  
+  .campaigns-small td.campaign-info{
+    line-height: 1;
+  }
+  
+  td.campaign-info .name{
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  td.campaign-info .date{
+    font-size: 12px;
+  }
+  
+  td.campaign-info .description{
+    font-size: 14px;
+  }
+  
   /*****************************/
   /*   Guilds                  */
   /*****************************/
